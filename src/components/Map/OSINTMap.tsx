@@ -73,29 +73,29 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
     switch (provider) {
       case 'esri-dark':
         return {
-          base: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
-          labels: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}',
+          base: '/tiles/esri-dark/{z}/{y}/{x}',
+          labels: '/tiles/esri-dark-labels/{z}/{y}/{x}',
           attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
           maxZoom: 16
         };
       case 'esri-light':
         return {
-          base: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
-          labels: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}',
+          base: '/tiles/esri-light/{z}/{y}/{x}',
+          labels: '/tiles/esri-light-labels/{z}/{y}/{x}',
           attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
           maxZoom: 16
         };
       case 'esri-sat':
         return {
-          base: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-          labels: 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+          base: '/tiles/esri-sat/{z}/{y}/{x}',
+          labels: '/tiles/esri-sat-labels/{z}/{y}/{x}',
           attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP',
           maxZoom: 19
         };
       case 'osm-standard':
       default:
         return {
-          base: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+          base: '/tiles/osm/{z}/{x}/{y}.png',
           labels: null,
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
           maxZoom: 19
