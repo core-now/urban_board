@@ -285,8 +285,13 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
   }, [activeDir, selectedTransitStop]);
 
   const stationTimetable = useMemo(() => {
-    return generateStationTimetable(currentStopItem.minuteOffset, activeSchedule?.operatingHours?.nightService ?? true);
-  }, [currentStopItem, activeSchedule]);
+    return generateStationTimetable(
+      currentStopItem.minuteOffset, 
+      activeSchedule?.operatingHours?.nightService ?? true,
+      activeSchedule,
+      selectedDirection
+    );
+  }, [currentStopItem, activeSchedule, selectedDirection]);
 
   if (!isOpen) return null;
 

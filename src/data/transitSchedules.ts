@@ -53,61 +53,121 @@ export interface LineSchedule {
   specialNotice?: string;
 }
 
-// Generator für realistische, exakte Soll-Aushangfahrpläne basierend auf Takt und Haltestellen-Offset
-export function generateStationTimetable(minuteOffset: number, isWeekendNightService: boolean = true): TimetableHourRow[] {
+// Generator für realistische, exakte Soll-Aushangfahrpläne basierend auf Linie, Takt und Haltestellen-Offset
+export function generateStationTimetable(
+  minuteOffset: number, 
+  isWeekendNightService: boolean = true,
+  schedule?: LineSchedule,
+  direction?: 'A' | 'B'
+): TimetableHourRow[] {
   const rows: TimetableHourRow[] = [];
+
+  const isRegio = schedule?.stammstrecke === 'R' || schedule?.lineRef.startsWith('RE') || schedule?.lineRef.startsWith('RB');
+  const isSBahn = schedule?.stammstrecke === 'S' || schedule?.lineRef.startsWith('S');
+  const isBus = schedule?.stammstrecke === 'BUS';
+
+  const dirObj = direction === 'B' ? schedule?.directionB : schedule?.directionA;
+  const baseMinutes = dirObj?.baseMinuteDepartures && dirObj.baseMinuteDepartures.length > 0 
+    ? dirObj.baseMinuteDepartures 
+    : [15];
+
+  const firstHour = schedule?.operatingHours?.firstTrain 
+    ? parseInt(schedule.operatingHours.firstTrain.split(':')[0], 10) 
+    : 4;
+  const lastHour = schedule?.operatingHours?.lastTrain 
+    ? parseInt(schedule.operatingHours.lastTrain.split(':')[0], 10) 
+    : 24;
 
   for (let h = 4; h <= 28; h++) {
     const displayHour = h >= 24 ? h - 24 : h;
 
-    // 1. Wochentags (Mo-Fr)
+    if (h < firstHour || (h > lastHour && h < 24 && !schedule?.operatingHours?.nightService)) {
+      continue;
+    }
+
     let weekdayMins: number[] = [];
-    if (h === 4) {
-      weekdayMins = [(9 + minuteOffset) % 60, (39 + minuteOffset) % 60].filter(m => !isNaN(m)).sort((a,b)=>a-b);
-    } else if (h === 5) {
-      weekdayMins = [(5 + minuteOffset) % 60, (18 + minuteOffset) % 60, (33 + minuteOffset) % 60, (48 + minuteOffset) % 60].sort((a,b)=>a-b);
-    } else if (h >= 6 && h <= 19) {
-      const base = (2 + minuteOffset) % 10;
-      weekdayMins = [base, base + 10, base + 20, base + 30, base + 40, base + 50].map(m => (m + 60) % 60).sort((a,b)=>a-b);
-    } else if (h >= 20 && h <= 23) {
-      const base = (5 + minuteOffset) % 15;
-      weekdayMins = [base, base + 15, base + 30, base + 45].map(m => (m + 60) % 60).sort((a,b)=>a-b);
-    } else if (h === 24 || h === 0) {
-      weekdayMins = [(9 + minuteOffset) % 60, (39 + minuteOffset) % 60].sort((a,b)=>a-b);
-    } else if (h === 25 || h === 1) {
-      if (isWeekendNightService) weekdayMins = [(1 + minuteOffset) % 60];
-    }
-
-    // 2. Samstag
     let satMins: number[] = [];
-    if (h === 4) {
-      satMins = [(39 + minuteOffset) % 60];
-    } else if (h === 5) {
-      satMins = [(9 + minuteOffset) % 60, (39 + minuteOffset) % 60].sort((a,b)=>a-b);
-    } else if (h >= 6 && h <= 8) {
-      satMins = [(5 + minuteOffset) % 15, (5 + minuteOffset + 15) % 15, (5 + minuteOffset + 30) % 60, (5 + minuteOffset + 45) % 60].sort((a,b)=>a-b);
-    } else if (h >= 9 && h <= 19) {
-      const base = (2 + minuteOffset) % 10;
-      satMins = [base, base + 10, base + 20, base + 30, base + 40, base + 50].map(m => (m + 60) % 60).sort((a,b)=>a-b);
-    } else if (h >= 20 && h <= 23) {
-      const base = (5 + minuteOffset) % 15;
-      satMins = [base, base + 15, base + 30, base + 45].map(m => (m + 60) % 60).sort((a,b)=>a-b);
-    } else if (h >= 24) {
-      satMins = [(1 + minuteOffset) % 60];
-    }
-
-    // 3. Sonntag & Feiertag
     let sunMins: number[] = [];
-    if (h >= 5 && h <= 8) {
-      sunMins = [(9 + minuteOffset) % 60, (39 + minuteOffset) % 60].sort((a,b)=>a-b);
-    } else if (h >= 9 && h <= 19) {
-      const base = (5 + minuteOffset) % 15;
-      sunMins = [base, base + 15, base + 30, base + 45].map(m => (m + 60) % 60).sort((a,b)=>a-b);
-    } else if (h >= 20 && h <= 23) {
-      const base = (5 + minuteOffset) % 15;
-      sunMins = [base, base + 15, base + 30, base + 45].map(m => (m + 60) % 60).sort((a,b)=>a-b);
-    } else if (h >= 24) {
-      sunMins = [(1 + minuteOffset) % 60];
+
+    if (isRegio) {
+      // REGIONALZÜGE (RE / RB): Typischerweise 60-Minuten-Takt (oder 120-Minuten-Takt), niemals 10-Minuten-Takt!
+      // Verwende die echten baseMinuteDepartures der Linie + Haltestellenoffset
+      const depMins = baseMinutes.map(bm => (bm + minuteOffset) % 60).sort((a, b) => a - b);
+      weekdayMins = [...depMins];
+      satMins = [...depMins];
+      sunMins = (h >= 6 && h <= 23) ? [...depMins] : [];
+    } else if (isSBahn) {
+      // S-BAHN: Typischerweise 20- oder 30-Minuten-Takt im Berufsverkehr, abends 30/60
+      const base = (baseMinutes[0] + minuteOffset) % 20;
+      if (h >= 5 && h <= 20) {
+        weekdayMins = [base, (base + 20) % 60, (base + 40) % 60].sort((a, b) => a - b);
+      } else {
+        weekdayMins = [base, (base + 30) % 60].sort((a, b) => a - b);
+      }
+      satMins = [base, (base + 20) % 60, (base + 40) % 60].sort((a, b) => a - b);
+      sunMins = (h >= 6) ? [base, (base + 30) % 60].sort((a, b) => a - b) : [];
+    } else if (isBus) {
+      // BUS / METROBUS: 10-Minuten-Takt tagsüber, abends 15/20-Minuten-Takt
+      const base = (baseMinutes[0] + minuteOffset) % 10;
+      if (h >= 6 && h <= 20) {
+        weekdayMins = [base, base + 10, base + 20, base + 30, base + 40, base + 50].map(m => (m + 60) % 60).sort((a, b) => a - b);
+      } else if (h === 5 || (h >= 21 && h <= 23)) {
+        const b15 = (baseMinutes[0] + minuteOffset) % 15;
+        weekdayMins = [b15, b15 + 15, b15 + 30, b15 + 45].map(m => (m + 60) % 60).sort((a, b) => a - b);
+      } else {
+        weekdayMins = [(baseMinutes[0] + minuteOffset) % 60];
+      }
+      satMins = (h >= 8 && h <= 20)
+        ? [base, base + 10, base + 20, base + 30, base + 40, base + 50].map(m => (m + 60) % 60).sort((a, b) => a - b)
+        : [(baseMinutes[0] + minuteOffset) % 60, (baseMinutes[0] + minuteOffset + 30) % 60].sort((a, b) => a - b);
+      sunMins = (h >= 8 && h <= 21)
+        ? [(baseMinutes[0] + minuteOffset) % 60, (baseMinutes[0] + minuteOffset + 20) % 60, (baseMinutes[0] + minuteOffset + 40) % 60].sort((a, b) => a - b)
+        : [(baseMinutes[0] + minuteOffset) % 60];
+    } else {
+      // U-BAHN & STADTBAHN: 10-Minuten-Takt Hauptverkehrszeit, 15-Minuten-Takt Spätverkehr
+      if (h === 4) {
+        weekdayMins = [(9 + minuteOffset) % 60, (39 + minuteOffset) % 60].filter(m => !isNaN(m)).sort((a, b) => a - b);
+      } else if (h === 5) {
+        weekdayMins = [(5 + minuteOffset) % 60, (18 + minuteOffset) % 60, (33 + minuteOffset) % 60, (48 + minuteOffset) % 60].sort((a, b) => a - b);
+      } else if (h >= 6 && h <= 19) {
+        const base = (2 + minuteOffset) % 10;
+        weekdayMins = [base, base + 10, base + 20, base + 30, base + 40, base + 50].map(m => (m + 60) % 60).sort((a, b) => a - b);
+      } else if (h >= 20 && h <= 23) {
+        const base = (5 + minuteOffset) % 15;
+        weekdayMins = [base, base + 15, base + 30, base + 45].map(m => (m + 60) % 60).sort((a, b) => a - b);
+      } else if (h === 24 || h === 0) {
+        weekdayMins = [(9 + minuteOffset) % 60, (39 + minuteOffset) % 60].sort((a, b) => a - b);
+      } else if (h === 25 || h === 1) {
+        if (isWeekendNightService) weekdayMins = [(1 + minuteOffset) % 60];
+      }
+
+      if (h === 4) {
+        satMins = [(39 + minuteOffset) % 60];
+      } else if (h === 5) {
+        satMins = [(9 + minuteOffset) % 60, (39 + minuteOffset) % 60].sort((a, b) => a - b);
+      } else if (h >= 6 && h <= 8) {
+        satMins = [(5 + minuteOffset) % 15, (5 + minuteOffset + 15) % 15, (5 + minuteOffset + 30) % 60, (5 + minuteOffset + 45) % 60].sort((a, b) => a - b);
+      } else if (h >= 9 && h <= 19) {
+        const base = (2 + minuteOffset) % 10;
+        satMins = [base, base + 10, base + 20, base + 30, base + 40, base + 50].map(m => (m + 60) % 60).sort((a, b) => a - b);
+      } else if (h >= 20 && h <= 23) {
+        const base = (5 + minuteOffset) % 15;
+        satMins = [base, base + 15, base + 30, base + 45].map(m => (m + 60) % 60).sort((a, b) => a - b);
+      } else if (h >= 24) {
+        satMins = [(1 + minuteOffset) % 60];
+      }
+
+      if (h >= 5 && h <= 8) {
+        sunMins = [(9 + minuteOffset) % 60, (39 + minuteOffset) % 60].sort((a, b) => a - b);
+      } else if (h >= 9 && h <= 19) {
+        const base = (5 + minuteOffset) % 15;
+        sunMins = [base, base + 15, base + 30, base + 45].map(m => (m + 60) % 60).sort((a, b) => a - b);
+      } else if (h >= 20 && h <= 23) {
+        const base = (5 + minuteOffset) % 15;
+        sunMins = [base, base + 15, base + 30, base + 45].map(m => (m + 60) % 60).sort((a, b) => a - b);
+      } else if (h >= 24) {
+        sunMins = [(1 + minuteOffset) % 60];
+      }
     }
 
     rows.push({
