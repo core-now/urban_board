@@ -157,39 +157,37 @@ export const LiveDelaysModal: React.FC<LiveDelaysModalProps> = ({
         style={{ borderRadius: 0 }}
       >
         {/* TACTICAL HEADER */}
-        <div className="px-4 py-3 bg-anthrazit-950 border-b border-anthrazit-800 flex items-center justify-between shrink-0">
-          <div className="flex items-center space-x-3">
-            <div className="relative flex items-center justify-center w-8 h-8 bg-accent/20 border border-accent/60 text-accent">
-              <AlertTriangle className="w-4 h-4 animate-pulse" />
+        <div className="px-3 sm:px-4 py-2 sm:py-3 bg-anthrazit-950 border-b border-anthrazit-800 flex items-center justify-between shrink-0">
+          <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
+            <div className="relative flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 bg-accent/20 border border-accent/60 text-accent shrink-0">
+              <AlertTriangle className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-pulse" />
             </div>
-            <div>
-              <div className="flex items-center space-x-2">
-                <span className="font-bold text-sm tracking-wider uppercase text-anthrazit-100">
-                  GTFS-RT LIVE-STREAM & STÖRUNGSZENTRALE
+            <div className="min-w-0">
+              <div className="flex items-center space-x-1.5 sm:space-x-2">
+                <span className="font-bold text-xs sm:text-sm tracking-wider uppercase text-anthrazit-100 truncate">
+                  GTFS-RT STÖRUNGSZENTRALE
                 </span>
-                <span className={`px-1.5 py-0.5 text-[10px] font-bold border ${
+                <span className={`px-1 sm:px-1.5 py-0.2 text-[9px] sm:text-[10px] font-bold border shrink-0 ${
                   feedSource === 'live_stream' 
                     ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/50' 
                     : 'bg-accent/20 text-accent border-accent/50'
                 }`}>
-                  {feedSource === 'live_stream' ? '● STREAM ONLINE' : '● FEED AKTIV (10s)'}
+                  {feedSource === 'live_stream' ? '● STREAM' : '● LIVE (10s)'}
                 </span>
               </div>
-              <div className="text-[10px] text-anthrazit-400 flex items-center space-x-2 mt-0.5">
-                <span>Feed: realtime.gtfs.de</span>
+              <div className="text-[9px] sm:text-[10px] text-anthrazit-400 flex items-center space-x-1.5 mt-0.5 truncate">
+                <span>Update: {lastUpdated || 'soeben'}</span>
                 <span>•</span>
-                <span>Aktualisiert: {lastUpdated || 'soeben'}</span>
-                <span>•</span>
-                <span>5.427 Entitäten überwacht</span>
+                <span className="hidden xs:inline">5.427 Entitäten</span>
               </div>
             </div>
           </div>
 
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1 sm:space-x-2 shrink-0">
             <button
               onClick={() => loadGtfsData(true)}
               disabled={isLoading}
-              className="px-2.5 py-1.5 bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-xs text-accent flex items-center space-x-1 cursor-pointer transition-colors"
+              className="px-2 py-1 bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-xs text-accent flex items-center space-x-1 cursor-pointer transition-colors"
               title="Feed jetzt aktualisieren"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
@@ -197,7 +195,7 @@ export const LiveDelaysModal: React.FC<LiveDelaysModalProps> = ({
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-anthrazit-300 hover:text-white cursor-pointer transition-colors"
+              className="p-1 sm:p-1.5 bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-anthrazit-300 hover:text-white cursor-pointer transition-colors"
               title="Schließen (ESC)"
             >
               <X className="w-4 h-4" />
@@ -205,77 +203,76 @@ export const LiveDelaysModal: React.FC<LiveDelaysModalProps> = ({
           </div>
         </div>
 
-        {/* STATUS COUNTER BANNER */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 p-2 bg-anthrazit-950 border-b border-anthrazit-800 text-xs shrink-0">
-          <div className="p-2 bg-anthrazit-900 border border-anthrazit-800 flex items-center justify-between">
-            <span className="text-[11px] text-anthrazit-400">Ausfälle:</span>
-            <span className="font-bold text-red-400 bg-red-950/60 border border-red-800/80 px-2 py-0.5">
+        {/* STATUS COUNTER BANNER (Kompakt auf Mobile) */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 p-1.5 sm:p-2 bg-anthrazit-950 border-b border-anthrazit-800 text-xs shrink-0">
+          <div className="p-1.5 sm:p-2 bg-anthrazit-900 border border-anthrazit-800 flex items-center justify-between">
+            <span className="text-[10px] sm:text-[11px] text-anthrazit-400">Ausfälle:</span>
+            <span className="font-bold text-red-400 bg-red-950/60 border border-red-800/80 px-1.5 py-0.2 text-[10px] sm:text-xs">
               {stats.canceledCount} Züge
             </span>
           </div>
-          <div className="p-2 bg-anthrazit-900 border border-anthrazit-800 flex items-center justify-between">
-            <span className="text-[11px] text-anthrazit-400">Ersatzverkehr (SEV):</span>
-            <span className="font-bold text-accent bg-accent/15 border border-accent/40 px-2 py-0.5">
+          <div className="p-1.5 sm:p-2 bg-anthrazit-900 border border-anthrazit-800 flex items-center justify-between">
+            <span className="text-[10px] sm:text-[11px] text-anthrazit-400">Ersatzverkehr:</span>
+            <span className="font-bold text-accent bg-accent/15 border border-accent/40 px-1.5 py-0.2 text-[10px] sm:text-xs">
               {stats.sevCount} Linien
             </span>
           </div>
-          <div className="p-2 bg-anthrazit-900 border border-anthrazit-800 flex items-center justify-between">
-            <span className="text-[11px] text-anthrazit-400">Verspätungen ≥ 5m:</span>
-            <span className="font-bold text-amber-400 bg-amber-950/60 border border-amber-800/80 px-2 py-0.5">
+          <div className="p-1.5 sm:p-2 bg-anthrazit-900 border border-anthrazit-800 flex items-center justify-between">
+            <span className="text-[10px] sm:text-[11px] text-anthrazit-400">Verspätet ≥5m:</span>
+            <span className="font-bold text-amber-400 bg-amber-950/60 border border-amber-800/80 px-1.5 py-0.2 text-[10px] sm:text-xs">
               {stats.delayedCount} Fahrten
             </span>
           </div>
-          <div className="p-2 bg-anthrazit-900 border border-anthrazit-800 flex items-center justify-between">
-            <span className="text-[11px] text-anthrazit-400">Aktive Störungs-Alerts:</span>
-            <span className="font-bold text-blue-400 bg-blue-950/60 border border-blue-800/80 px-2 py-0.5">
+          <div className="p-1.5 sm:p-2 bg-anthrazit-900 border border-anthrazit-800 flex items-center justify-between">
+            <span className="text-[10px] sm:text-[11px] text-anthrazit-400">Alerts:</span>
+            <span className="font-bold text-blue-400 bg-blue-950/60 border border-blue-800/80 px-1.5 py-0.2 text-[10px] sm:text-xs">
               {alerts.length} Meldungen
             </span>
           </div>
         </div>
 
         {/* TABS & CONTROLS */}
-        <div className="p-2.5 bg-anthrazit-900 border-b border-anthrazit-800 space-y-2 shrink-0">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            {/* Primary Navigation Tabs */}
-            <div className="flex items-center space-x-1">
+        <div className="p-2 sm:p-2.5 bg-anthrazit-900 border-b border-anthrazit-800 space-y-2 shrink-0">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+            {/* Primary Navigation Tabs - Horizontales Scrollen auf Mobile */}
+            <div className="flex items-center space-x-1 overflow-x-auto no-scrollbar pb-0.5">
               <button
                 onClick={() => setActiveTab('DELAYS')}
-                className={`px-3 py-1.5 text-xs font-bold uppercase transition-colors cursor-pointer border ${
+                className={`px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs font-bold uppercase transition-colors cursor-pointer border shrink-0 ${
                   activeTab === 'DELAYS'
                     ? 'bg-accent text-anthrazit-950 border-accent font-bold'
                     : 'bg-anthrazit-950 hover:bg-anthrazit-800 border-anthrazit-800 text-anthrazit-300'
                 }`}
               >
-                ⚠️ Verspätungen & Ausfälle ({filteredDelays.length})
+                ⚠️ Störungen ({filteredDelays.length})
               </button>
               <button
                 onClick={() => setActiveTab('ALERTS')}
-                className={`px-3 py-1.5 text-xs font-bold uppercase transition-colors cursor-pointer border ${
+                className={`px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs font-bold uppercase transition-colors cursor-pointer border shrink-0 ${
                   activeTab === 'ALERTS'
                     ? 'bg-accent text-anthrazit-950 border-accent font-bold'
                     : 'bg-anthrazit-950 hover:bg-anthrazit-800 border-anthrazit-800 text-anthrazit-300'
                 }`}
               >
-                📢 Störungsmeldungen ({filteredAlerts.length})
+                📢 Meldungen ({filteredAlerts.length})
               </button>
               <button
                 onClick={() => setActiveTab('TELEMETRY')}
-                className={`px-3 py-1.5 text-xs font-bold uppercase transition-colors cursor-pointer border ${
+                className={`px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs font-bold uppercase transition-colors cursor-pointer border shrink-0 ${
                   activeTab === 'TELEMETRY'
                     ? 'bg-accent text-anthrazit-950 border-accent font-bold'
                     : 'bg-anthrazit-950 hover:bg-anthrazit-800 border-anthrazit-800 text-anthrazit-300'
                 }`}
               >
-                📡 Feed-Info & Telemetrie
+                📡 Feed
               </button>
             </div>
 
             {/* City Selector */}
-            <div className="flex items-center space-x-1">
-              <span className="text-[10px] uppercase text-anthrazit-400 mr-1 hidden sm:inline">Sektor:</span>
+            <div className="flex items-center space-x-1 shrink-0 self-end sm:self-auto">
               <button
                 onClick={() => setSelectedCityFilter('ALL')}
-                className={`px-2 py-1 text-xs border cursor-pointer ${
+                className={`px-2 py-0.5 sm:py-1 text-[11px] sm:text-xs border cursor-pointer ${
                   selectedCityFilter === 'ALL'
                     ? 'bg-accent/20 border-accent text-accent font-bold'
                     : 'bg-anthrazit-950 border-anthrazit-800 text-anthrazit-400 hover:text-white'
@@ -288,7 +285,7 @@ export const LiveDelaysModal: React.FC<LiveDelaysModalProps> = ({
                   setSelectedCityFilter('H');
                   if (onSelectCity) onSelectCity('H');
                 }}
-                className={`px-2 py-1 text-xs border cursor-pointer ${
+                className={`px-2 py-0.5 sm:py-1 text-[11px] sm:text-xs border cursor-pointer ${
                   selectedCityFilter === 'H'
                     ? 'bg-accent/20 border-accent text-accent font-bold'
                     : 'bg-anthrazit-950 border-anthrazit-800 text-anthrazit-400 hover:text-white'
@@ -301,7 +298,7 @@ export const LiveDelaysModal: React.FC<LiveDelaysModalProps> = ({
                   setSelectedCityFilter('HH');
                   if (onSelectCity) onSelectCity('HH');
                 }}
-                className={`px-2 py-1 text-xs border cursor-pointer ${
+                className={`px-2 py-0.5 sm:py-1 text-[11px] sm:text-xs border cursor-pointer ${
                   selectedCityFilter === 'HH'
                     ? 'bg-accent/20 border-accent text-accent font-bold'
                     : 'bg-anthrazit-950 border-anthrazit-800 text-anthrazit-400 hover:text-white'
@@ -314,16 +311,16 @@ export const LiveDelaysModal: React.FC<LiveDelaysModalProps> = ({
 
           {/* Search & Sub-Filter Bar */}
           {activeTab !== 'TELEMETRY' && (
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 pt-1 border-t border-anthrazit-800/80">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-1.5 pt-1 border-t border-anthrazit-800/80">
               {/* Search Field */}
               <div className="relative flex-1">
                 <Search className="w-3.5 h-3.5 text-anthrazit-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
-                  placeholder="Filter nach Linie (z.B. S1, S5EV, U3, 4) oder Haltestelle..."
+                  placeholder="Linie (z.B. S1, S5EV, U3, 4) oder Station filtern..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-anthrazit-950 border border-anthrazit-800 text-xs text-anthrazit-100 pl-8 pr-3 py-1.5 focus:outline-none focus:border-accent"
+                  className="w-full bg-anthrazit-950 border border-anthrazit-800 text-xs text-anthrazit-100 pl-8 pr-3 py-1 sm:py-1.5 focus:outline-none focus:border-accent"
                 />
                 {searchQuery && (
                   <button
@@ -335,15 +332,14 @@ export const LiveDelaysModal: React.FC<LiveDelaysModalProps> = ({
                 )}
               </div>
 
-              {/* Status Filter Chips */}
+              {/* Status Filter Chips - Scrollable on mobile */}
               {activeTab === 'DELAYS' && (
-                <div className="flex items-center space-x-1 shrink-0">
-                  <span className="text-[10px] text-anthrazit-400 mr-1 hidden md:inline">Filter:</span>
+                <div className="flex items-center space-x-1 overflow-x-auto no-scrollbar pb-0.5 shrink-0">
                   <button
                     onClick={() => setFilterMode('ALL')}
-                    className={`px-2 py-1 text-[11px] border cursor-pointer ${
+                    className={`px-2 py-0.5 sm:py-1 text-[10px] sm:text-[11px] border cursor-pointer shrink-0 ${
                       filterMode === 'ALL'
-                        ? 'bg-anthrazit-800 border-anthrazit-600 text-anthrazit-100'
+                        ? 'bg-anthrazit-800 border-anthrazit-600 text-anthrazit-100 font-bold'
                         : 'bg-anthrazit-950 border-anthrazit-800 text-anthrazit-400'
                     }`}
                   >
@@ -351,23 +347,23 @@ export const LiveDelaysModal: React.FC<LiveDelaysModalProps> = ({
                   </button>
                   <button
                     onClick={() => setFilterMode('SEV_CANCELED')}
-                    className={`px-2 py-1 text-[11px] border cursor-pointer ${
+                    className={`px-2 py-0.5 sm:py-1 text-[10px] sm:text-[11px] border cursor-pointer shrink-0 ${
                       filterMode === 'SEV_CANCELED'
                         ? 'bg-red-950/80 border-red-700 text-red-300 font-bold'
                         : 'bg-anthrazit-950 border-anthrazit-800 text-red-400/80 hover:text-red-300'
                     }`}
                   >
-                    🚨 Ausfälle & SEV ({stats.canceledCount + stats.sevCount})
+                    🚨 Ausfälle / SEV ({stats.canceledCount + stats.sevCount})
                   </button>
                   <button
                     onClick={() => setFilterMode('HEAVY_DELAY')}
-                    className={`px-2 py-1 text-[11px] border cursor-pointer ${
+                    className={`px-2 py-0.5 sm:py-1 text-[10px] sm:text-[11px] border cursor-pointer shrink-0 ${
                       filterMode === 'HEAVY_DELAY'
                         ? 'bg-amber-950/80 border-amber-700 text-amber-300 font-bold'
                         : 'bg-anthrazit-950 border-anthrazit-800 text-amber-400/80 hover:text-amber-300'
                     }`}
                   >
-                    ⏱️ Verspätung ≥ 15m
+                    ⏱️ ≥ 15m
                   </button>
                 </div>
               )}
@@ -395,9 +391,9 @@ export const LiveDelaysModal: React.FC<LiveDelaysModalProps> = ({
                 return (
                   <div
                     key={item.id + idx}
-                    className={`p-2.5 border transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-2 ${
+                    className={`p-2 sm:p-2.5 border transition-all ${
                       isCanceled
-                        ? 'bg-red-950/20 border-red-800/80 hover:border-red-600'
+                        ? 'bg-red-950/25 border-red-800/80 hover:border-red-600'
                         : isSev
                         ? 'bg-accent/10 border-accent/70 hover:border-accent'
                         : item.delayMinutes >= 15
@@ -405,12 +401,12 @@ export const LiveDelaysModal: React.FC<LiveDelaysModalProps> = ({
                         : 'bg-anthrazit-950 border-anthrazit-800 hover:border-anthrazit-700'
                     }`}
                   >
-                    {/* Left: Line Badge, Direction, Station, Cause */}
-                    <div className="flex items-start space-x-3 min-w-0">
-                      {/* Line Badge */}
-                      <div className="flex flex-col items-center shrink-0">
+                    {/* Top Row: Line Badge + City + Status Badge + Delay Delta / Ausfall */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center space-x-1.5 min-w-0">
+                        {/* Line Badge */}
                         <span 
-                          className={`px-2 py-1 text-xs font-bold font-mono min-w-[50px] text-center ${
+                          className={`px-1.5 py-0.5 text-xs font-bold font-mono min-w-[42px] text-center ${
                             isCanceled
                               ? 'bg-red-600 text-white font-extrabold line-through'
                               : isSev
@@ -424,73 +420,68 @@ export const LiveDelaysModal: React.FC<LiveDelaysModalProps> = ({
                         >
                           {item.line}
                         </span>
-                        <span className="text-[9px] uppercase tracking-wider text-anthrazit-400 mt-0.5">
+
+                        <span className="text-[9px] font-mono uppercase tracking-wider text-anthrazit-400">
                           [{item.city}]
                         </span>
+
+                        {/* Status Badges */}
+                        {isCanceled ? (
+                          <span className="px-1.5 py-0.2 text-[9px] font-bold bg-red-600 text-white border border-red-500 uppercase tracking-wide">
+                            AUSFALL
+                          </span>
+                        ) : isSev ? (
+                          <span className="px-1.5 py-0.2 text-[9px] font-bold bg-accent text-anthrazit-950 uppercase tracking-wide">
+                            SEV
+                          </span>
+                        ) : isSkipped ? (
+                          <span className="px-1.5 py-0.2 text-[9px] font-bold bg-amber-500 text-anthrazit-950 uppercase tracking-wide">
+                            HALT ENTFÄLLT
+                          </span>
+                        ) : null}
                       </div>
 
-                      {/* Details */}
-                      <div className="min-w-0 space-y-0.5">
-                        <div className="flex flex-wrap items-center gap-1.5">
-                          <span className="text-xs font-bold text-anthrazit-100 truncate">
-                            {item.headsign ? `➔ ${item.headsign}` : 'Reguläre Fahrt'}
+                      {/* Delay Value */}
+                      <div className="shrink-0 text-right">
+                        {isCanceled ? (
+                          <span className="text-[11px] font-bold text-red-400 uppercase tracking-wider">
+                            Entfällt
                           </span>
-
-                          {/* Status Badge */}
-                          {isCanceled ? (
-                            <span className="px-1.5 py-0.2 text-[10px] font-bold bg-red-600 text-white border border-red-500 uppercase">
-                              [AUSFALL]
-                            </span>
-                          ) : isSev ? (
-                            <span className="px-1.5 py-0.2 text-[10px] font-bold bg-accent text-anthrazit-950 uppercase">
-                              [SEV / ERSATZVERKEHR]
-                            </span>
-                          ) : isSkipped ? (
-                            <span className="px-1.5 py-0.2 text-[10px] font-bold bg-amber-500 text-anthrazit-950 uppercase">
-                              [HALT ENTFÄLLT]
-                            </span>
-                          ) : null}
-                        </div>
-
-                        <div className="text-[11px] text-anthrazit-300 flex items-center space-x-1 truncate">
-                          <span className="text-anthrazit-400">Station / Streckenabschnitt:</span>
-                          <span className="font-semibold text-accent">{item.stopName}</span>
-                        </div>
-
-                        {item.cause && (
-                          <div className="text-[10px] text-anthrazit-400 italic truncate max-w-xl">
-                            Ursache: {item.cause}
-                          </div>
+                        ) : (
+                          <span className={`text-sm font-bold font-mono ${
+                            item.delayMinutes >= 15 ? 'text-amber-400' : 'text-accent'
+                          }`}>
+                            +{item.delayMinutes}m
+                          </span>
                         )}
                       </div>
                     </div>
 
-                    {/* Right: Delay Time & Quick Select Action */}
-                    <div className="flex items-center justify-between sm:justify-end space-x-3 shrink-0 pt-1 sm:pt-0 border-t sm:border-t-0 border-anthrazit-800/80">
-                      <div className="text-right">
-                        {isCanceled ? (
-                          <div className="text-xs font-bold text-red-400 uppercase tracking-wider">
-                            Fahrt entfällt
-                          </div>
-                        ) : (
-                          <div className={`text-base font-bold font-mono ${
-                            item.delayMinutes >= 15 ? 'text-amber-400' : 'text-accent'
-                          }`}>
-                            +{item.delayMinutes}m
+                    {/* Middle Row: Direction & Station */}
+                    <div className="mt-1.5 flex items-start justify-between gap-2">
+                      <div className="min-w-0 space-y-0.5">
+                        <div className="text-xs font-bold text-anthrazit-100 truncate">
+                          {item.headsign ? `➔ ${item.headsign}` : 'Reguläre Fahrt'}
+                        </div>
+                        <div className="text-[11px] text-anthrazit-300 truncate">
+                          <span className="text-anthrazit-400 font-normal">Halt: </span>
+                          <span className="font-semibold text-accent">{item.stopName}</span>
+                        </div>
+                        {item.cause && (
+                          <div className="text-[10px] text-anthrazit-400 italic truncate max-w-sm sm:max-w-xl">
+                            {item.cause}
                           </div>
                         )}
-                        <div className="text-[9px] text-anthrazit-400">
-                          {isCanceled ? 'GTFS Rel: CANCELED' : `Delta: ${item.delaySeconds}s`}
-                        </div>
                       </div>
 
+                      {/* Quick Action */}
                       {onSelectLine && (
                         <button
                           onClick={() => {
                             onSelectLine(item.line);
                             onClose();
                           }}
-                          className="px-2 py-1 bg-anthrazit-850 hover:bg-accent hover:text-anthrazit-950 border border-anthrazit-700 text-accent text-[10px] font-bold transition-colors cursor-pointer"
+                          className="shrink-0 self-end px-2 py-0.5 bg-anthrazit-850 hover:bg-accent hover:text-anthrazit-950 border border-anthrazit-700 text-accent text-[10px] font-bold transition-colors cursor-pointer"
                           title={`Linie ${item.line} im Cockpit öffnen`}
                         >
                           Cockpit ➔
