@@ -262,18 +262,9 @@ export const App: React.FC = () => {
             onSelectStationStop={handleSelectStationStopOnMap}
           />
 
-          {/* Floating Schnellzugriff auf Flyout & Cockpit auf der Map (unten rechts) */}
-          <div className="absolute bottom-10 right-4 z-20 hidden sm:flex items-center space-x-2">
-            <button
-              onClick={() => setIsToolsFlyoutOpen(true)}
-              className="px-3 py-2 bg-anthrazit-950/90 hover:bg-anthrazit-900 border border-anthrazit-700 hover:border-accent text-anthrazit-200 hover:text-accent font-mono text-xs flex items-center space-x-1.5 shadow-panel cursor-pointer backdrop-blur"
-              title="Sensoren & Layer öffnen"
-            >
-              <Cpu className="w-3.5 h-3.5 text-accent" />
-              <span>Sensoren & Layer</span>
-            </button>
-
-            {!isTransitCockpitOpen && (
+          {/* Floating Re-Open Button für das Transit-Cockpit falls geschlossen */}
+          {!isTransitCockpitOpen && (
+            <div className="absolute bottom-10 right-4 z-20 hidden sm:flex items-center">
               <button
                 onClick={() => setIsTransitCockpitOpen(true)}
                 className="px-3 py-2 bg-accent hover:bg-accent-hover text-anthrazit-950 font-mono font-bold text-xs flex items-center space-x-1.5 shadow-accent-sm cursor-pointer"
@@ -282,8 +273,8 @@ export const App: React.FC = () => {
                 <Train className="w-3.5 h-3.5" />
                 <span>Transit-Cockpit</span>
               </button>
-            )}
-          </div>
+            </div>
+          )}
         </main>
 
         {/* Rechts: Dediziertes, schlankes ÖPNV Transit-Cockpit */}
