@@ -21,14 +21,12 @@ import { TransitStop } from './services/apiService';
 import { ALL_HANNOVER_STATIONS } from './data/hannoverStations';
 import { ALL_HAMBURG_STATIONS } from './data/hamburgStations';
 import { 
-  INITIAL_GEO_MARKERS, 
-  HAMBURG_GEO_MARKERS,
   HANNOVER_COORDINATES,
   HAMBURG_COORDINATES,
   HANNOVER_DISTRICTS,
   HAMBURG_DISTRICTS
 } from './data/mockData';
-import { Train, Cpu, Compass } from 'lucide-react';
+import { Train, Compass } from 'lucide-react';
 
 export const App: React.FC = () => {
   // Theme State (Dark Mode default)
@@ -61,15 +59,6 @@ export const App: React.FC = () => {
   // Overpass Live Elements rendered on Map
   const [overpassLiveElements, setOverpassLiveElements] = useState<OverpassLiveElement[]>([]);
 
-  // Active Map Layers
-  const [activeLayers, setActiveLayers] = useState({
-    webcams: false,
-    iotSensors: false,
-    mobility: false,
-    infra: false,
-    gridOverlay: false,
-  });
-
   // Modals
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
   const [isLinklistOpen, setIsLinklistOpen] = useState<boolean>(false);
@@ -77,6 +66,15 @@ export const App: React.FC = () => {
   const [isOpsAdminOpen, setIsOpsAdminOpen] = useState<boolean>(false);
   const [isLiveDelaysModalOpen, setIsLiveDelaysModalOpen] = useState<boolean>(false);
   const [activeWebcamModal, setActiveWebcamModal] = useState<GeoLocation | null>(null);
+
+  // Active Map Layers (OSINT sensors/cams disabled for pure transit focus)
+  const [activeLayers, setActiveLayers] = useState({
+    webcams: false,
+    iotSensors: false,
+    mobility: false,
+    infra: false,
+    gridOverlay: false,
+  });
 
   // Leaflet Map Instance
   const [mapInstance, setMapInstance] = useState<L.Map | null>(null);
@@ -122,32 +120,8 @@ export const App: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Filter Markers according to City, District, and Layer Toggles
-  const customMarkers = useMemo(() => [
-    ...INITIAL_GEO_MARKERS,
-    ...HAMBURG_GEO_MARKERS
-  ], []);
-
-  const filteredMarkers = useMemo(() => {
-    return customMarkers.filter((marker) => {
-      if (activeCity === 'H' && marker.lat >= 53.0) return false;
-      if (activeCity === 'HH' && marker.lat < 53.0) return false;
-
-      if (selectedDistrict !== 'Alle Stadtbezirke' && marker.district && marker.district !== selectedDistrict) {
-        return false;
-      }
-
-      if (marker.category === 'traffic') {
-        if (marker.type === 'Verkehrskamera' && !activeLayers.webcams) return false;
-        if (marker.type === 'Mobility Hub' && !activeLayers.mobility) return false;
-        if (marker.type === 'Haltestelle' && !activeLayers.mobility) return false;
-      }
-      if (marker.category === 'iot' && !activeLayers.iotSensors) return false;
-      if (marker.category === 'security' && !activeLayers.infra) return false;
-
-      return true;
-    });
-  }, [customMarkers, activeCity, selectedDistrict, activeLayers]);
+  // Only Transit Markers (no OSINT webcams/cyber/iot markers)
+  const filteredMarkers = useMemo(() => [] as GeoLocation[], []);
 
   // Center City
   const handleCenterCity = () => {
@@ -314,7 +288,7 @@ export const App: React.FC = () => {
           }`}
         >
           <Compass className="w-4 h-4" />
-          <span className="text-[10px]">Karte</span>
+          <span className="text-[10px]">Netz-Karte</span>
         </button>
 
         <button
@@ -327,15 +301,7 @@ export const App: React.FC = () => {
           }`}
         >
           <Train className="w-4 h-4" />
-          <span className="text-[10px]">ÖPNV Cockpit</span>
-        </button>
-
-        <button
-          onClick={() => setIsToolsFlyoutOpen(true)}
-          className="flex-1 py-2 flex flex-col items-center justify-center space-y-1 min-h-[44px] text-anthrazit-400 hover:text-accent cursor-pointer"
-        >
-          <Cpu className="w-4 h-4" />
-          <span className="text-[10px]">Sensoren</span>
+          <span className="text-[10px]">Fahrplan-Cockpit</span>
         </button>
       </nav>
 

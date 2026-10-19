@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Search, MapPin, Code2, Bookmark, ArrowRight, Train } from 'lucide-react';
-import { GeoLocation, OverpassPreset } from '../../types';
-import { INITIAL_GEO_MARKERS, HAMBURG_GEO_MARKERS, MOCK_OVERPASS_PRESETS, HAMBURG_OVERPASS_PRESETS } from '../../data/mockData';
+import { Search, Train } from 'lucide-react';
+import { GeoLocation } from '../../types';
 import { ALL_HANNOVER_STATIONS } from '../../data/hannoverStations';
 import { ALL_HAMBURG_STATIONS } from '../../data/hamburgStations';
 
@@ -9,8 +8,8 @@ interface CommandPaletteProps {
   isOpen: boolean;
   onClose: () => void;
   onSelectMarker: (marker: GeoLocation) => void;
-  onSelectPreset: (preset: OverpassPreset) => void;
-  onOpenLinklist: () => void;
+  onSelectPreset?: (preset: any) => void;
+  onOpenLinklist?: () => void;
   onOpenAdmin?: () => void;
   activeCity?: 'H' | 'HH';
 }
@@ -19,9 +18,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   isOpen,
   onClose,
   onSelectMarker,
-  onSelectPreset,
-  onOpenLinklist,
-  onOpenAdmin,
   activeCity = 'H'
 }) => {
   const [query, setQuery] = useState('');
@@ -52,32 +48,16 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
   if (!isOpen) return null;
 
-  const allMarkers = [...INITIAL_GEO_MARKERS, ...HAMBURG_GEO_MARKERS];
   const cityStationList = activeCity === 'HH' ? ALL_HAMBURG_STATIONS : ALL_HANNOVER_STATIONS;
   const otherStationList = activeCity === 'HH' ? ALL_HANNOVER_STATIONS : ALL_HAMBURG_STATIONS;
   const allStations = [...cityStationList, ...otherStationList];
-  const allPresets = activeCity === 'HH' 
-    ? [...HAMBURG_OVERPASS_PRESETS, ...MOCK_OVERPASS_PRESETS]
-    : [...MOCK_OVERPASS_PRESETS, ...HAMBURG_OVERPASS_PRESETS];
-
-  const filteredMarkers = allMarkers.filter(m => {
-    const match = m.name.toLowerCase().includes(query.toLowerCase()) ||
-      m.type.toLowerCase().includes(query.toLowerCase()) ||
-      m.district?.toLowerCase().includes(query.toLowerCase());
-    return match;
-  }).slice(0, 8);
 
   const filteredStations = query.trim().length >= 2
     ? allStations.filter(s =>
         s.name.toLowerCase().includes(query.toLowerCase()) ||
         s.type?.toLowerCase().includes(query.toLowerCase())
-      ).slice(0, 8)
+      ).slice(0, 15)
     : [];
-
-  const filteredPresets = allPresets.filter(p =>
-    p.title.toLowerCase().includes(query.toLowerCase()) ||
-    p.description.toLowerCase().includes(query.toLowerCase())
-  ).slice(0, 6);
 
   return (
     <div className="fixed inset-0 z-[1200] flex items-end lg:items-start justify-center pt-0 lg:pt-20 p-0 lg:p-4 bg-anthrazit-950/80 backdrop-blur-sm">
@@ -100,51 +80,15 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
         {/* Results */}
         <div className="flex-1 overflow-y-auto overscroll-contain p-3 lg:p-4 space-y-4">
-          {/* Quick Actions */}
-          <div>
-            <div className="text-xs font-bold text-anthrazit-500 uppercase px-2 mb-2">
-              Direkt-Aktionen ({activeCity === 'HH' ? 'Hamburg' : 'Hannover'})
-            </div>
-            <div className="space-y-2">
-              {onOpenAdmin && (
-                <button
-                  onClick={() => {
-                    onOpenAdmin();
-                    onClose();
-                  }}
-                  className="w-full min-h-[48px] flex items-center justify-between p-3 rounded hover:bg-accent/10 border border-accent/30 text-xs text-accent transition-colors text-left cursor-pointer"
-                >
-                  <div className="flex items-center space-x-3">
-                    <span className="font-bold">⚡</span>
-                    <span className="font-bold leading-tight">Ops & Admin Command Center öffnen (Milestones, Datasets, VPS)</span>
-                  </div>
-                  <span className="text-[10px] text-accent font-bold px-2 py-1 rounded bg-accent/20 hidden sm:block shrink-0 ml-2">PW: 4dm1n</span>
-                </button>
-              )}
-
-              <button
-                onClick={() => {
-                  onOpenLinklist();
-                  onClose();
-                }}
-                className="w-full min-h-[48px] flex items-center justify-between p-3 rounded hover:bg-anthrazit-850 border border-transparent hover:border-anthrazit-700 text-xs text-anthrazit-200 transition-colors text-left cursor-pointer"
-              >
-                <div className="flex items-center space-x-3">
-                  <Bookmark className="w-4 h-4 text-accent shrink-0" />
-                  <span className="leading-tight">{activeCity === 'HH' ? 'Hamburg OSINT Linkliste & Datenquellen öffnen' : 'Hannover OSINT Linkliste & Datenquellen öffnen'}</span>
-                </div>
-                <ArrowRight className="w-4 h-4 text-anthrazit-500 shrink-0 ml-2" />
-              </button>
-            </div>
-          </div>
 
           {/* Station Results */}
           {filteredStations.length > 0 && (
             <div>
-              <div className="text-xs font-bold text-anthrazit-500 uppercase px-2 mb-2">
-                ÖPNV Haltestellen ({filteredStations.length})
+              <div className="text-xs font-bold text-accent uppercase px-2 mb-2 flex items-center justify-between">
+                <span>ÖPNV Haltestellen & Knoten</span>
+                <span className="text-[10px] text-anthrazit-400">{filteredStations.length} Treffer</span>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 {filteredStations.map((station) => (
                   <button
                     key={station.id}
@@ -157,96 +101,32 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                         category: 'traffic',
                         type: 'Haltestelle',
                         status: 'active',
-                        explanation: `Haltestelle ${station.name} im GVH/ÜSTRA-Netz (${station.type}).`,
+                        explanation: `Haltestelle ${station.name} (${station.type}).`,
                         details: {
                           'Station': station.name,
                           'Linien': station.type || 'ÖPNV',
-                          'Quelle': 'ÜSTRA / GVH'
+                          'Netz': activeCity === 'HH' ? 'HVV Hamburg' : 'GVH Hannover'
                         },
                         timestamp: 'Live'
                       });
                       onClose();
                     }}
-                    className="w-full min-h-[48px] flex items-center justify-between p-3 rounded hover:bg-anthrazit-850 border border-transparent hover:border-anthrazit-700 text-xs text-anthrazit-200 transition-colors text-left cursor-pointer"
+                    className="w-full min-h-[44px] flex items-center justify-between p-2.5 bg-anthrazit-950 hover:bg-anthrazit-850 border border-anthrazit-800 hover:border-accent text-xs text-anthrazit-200 transition-colors text-left cursor-pointer"
                   >
-                    <div className="flex items-center space-x-3 min-w-0">
-                      <Train className="w-4 h-4 text-accent shrink-0" />
+                    <div className="flex items-center space-x-2.5 min-w-0">
+                      <div className="w-7 h-7 bg-anthrazit-900 border border-accent/40 flex items-center justify-center shrink-0 text-accent">
+                        <Train className="w-3.5 h-3.5" />
+                      </div>
                       <div className="truncate">
-                        <span className="font-bold text-anthrazit-100 block truncate">{station.name}</span>
-                        <span className="text-xs text-anthrazit-400 block font-sans truncate">
+                        <span className="font-bold text-anthrazit-100 block truncate text-xs">{station.name}</span>
+                        <span className="text-[10px] text-anthrazit-400 block truncate">
                           {station.type || 'Haltestelle'} • Lat: {station.lat.toFixed(4)}, Lng: {station.lng.toFixed(4)}
                         </span>
                       </div>
                     </div>
-                    <span className="text-[10px] px-2 py-1 rounded bg-accent/15 text-accent font-bold shrink-0 ml-2">
-                      Fokus Map
+                    <span className="text-[10px] px-2 py-1 bg-accent text-anthrazit-950 font-bold shrink-0 ml-2">
+                      Fokus & Fahrplan
                     </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Marker Results */}
-          {filteredMarkers.length > 0 && (
-            <div>
-              <div className="text-xs font-bold text-anthrazit-500 uppercase px-2 mb-2">
-                Karten-Knoten & Sensoren ({filteredMarkers.length})
-              </div>
-              <div className="space-y-2">
-                {filteredMarkers.map((marker) => (
-                  <button
-                    key={marker.id}
-                    onClick={() => {
-                      onSelectMarker(marker);
-                      onClose();
-                    }}
-                    className="w-full min-h-[48px] flex items-center justify-between p-3 rounded hover:bg-anthrazit-850 border border-transparent hover:border-anthrazit-700 text-xs text-anthrazit-200 transition-colors text-left cursor-pointer"
-                  >
-                    <div className="flex items-center space-x-3">
-                      <MapPin className="w-4 h-4 text-accent shrink-0" />
-                      <div>
-                        <span className="font-bold text-anthrazit-100">{marker.name}</span>
-                        <span className="text-xs text-anthrazit-400 block font-sans">
-                          {marker.type} • {marker.district || 'Hannover'}
-                        </span>
-                      </div>
-                    </div>
-                    <span className="text-[10px] text-anthrazit-500 hidden sm:block shrink-0 ml-2">
-                      {marker.lat.toFixed(3)}, {marker.lng.toFixed(3)}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Preset Results */}
-          {filteredPresets.length > 0 && (
-            <div>
-              <div className="text-xs font-bold text-anthrazit-500 uppercase px-2 mb-2">
-                Overpass GIS Presets ({filteredPresets.length})
-              </div>
-              <div className="space-y-2">
-                {filteredPresets.map((preset) => (
-                  <button
-                    key={preset.id}
-                    onClick={() => {
-                      onSelectPreset(preset);
-                      onClose();
-                    }}
-                    className="w-full min-h-[48px] flex items-center justify-between p-3 rounded hover:bg-anthrazit-850 border border-transparent hover:border-anthrazit-700 text-xs text-anthrazit-200 transition-colors text-left cursor-pointer"
-                  >
-                    <div className="flex items-center space-x-3">
-                      <Code2 className="w-4 h-4 text-accent shrink-0" />
-                      <div>
-                        <span className="font-bold text-anthrazit-100">{preset.title}</span>
-                        <span className="text-xs text-anthrazit-400 block font-sans">
-                          {preset.description}
-                        </span>
-                      </div>
-                    </div>
-                    <span className="text-[10px] text-accent shrink-0 ml-2">QL Preset</span>
                   </button>
                 ))}
               </div>

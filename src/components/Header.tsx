@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Sun, 
   Moon, 
   Search, 
   Bookmark,
-  Layers, 
   Clock, 
   HelpCircle,
   Menu,
   MoreVertical,
   X,
   SlidersHorizontal,
-  Compass,
-  Cpu
+  Compass
 } from 'lucide-react';
 import { ThemeMode } from '../types';
 
@@ -33,7 +31,7 @@ interface HeaderProps {
   isToolsFlyoutOpen?: boolean;
   onToggleTransitCockpit?: () => void;
   isTransitCockpitOpen?: boolean;
-  activeMarkerCount: number;
+  activeMarkerCount?: number;
 }
 
 // Mini Federal State Flag for Niedersachsen (Schwarz-Rot-Gold with white Saxon Steed)
@@ -81,18 +79,16 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenSearch,
   onOpenLinklist,
   onOpenGlossary,
-  onOpenAdmin,
   onOpenLiveDelays,
   onToggleToolsFlyout,
   isToolsFlyoutOpen = false,
   onToggleTransitCockpit,
-  isTransitCockpitOpen = true,
-  activeMarkerCount
+  isTransitCockpitOpen = true
 }) => {
   const [isMobileQuickMenuOpen, setIsMobileQuickMenuOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState<string>('');
 
-  React.useEffect(() => {
+  useEffect(() => {
     const updateTime = () => {
       const now = new Date();
       setCurrentTime(now.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
@@ -162,11 +158,11 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Mitte: Schlanke Live-Uhrzeit (HH:MM:SS) & Status-Indikator */}
+      {/* Mitte: Schlanke Live-Uhrzeit (HH:MM:SS) & Transit-Status */}
       <div className="hidden md:flex items-center space-x-3 px-3 py-1.5 bg-anthrazit-950 border border-anthrazit-800 text-xs font-mono text-anthrazit-300">
         <div className="flex items-center space-x-1.5">
           <span className="inline-block w-2 h-2 bg-emerald-500 shadow-sm"></span>
-          <span className="text-emerald-400 font-bold tracking-wider">LIVE</span>
+          <span className="text-emerald-400 font-bold tracking-wider">GTFS-RT LIVE</span>
         </div>
         <span className="text-anthrazit-700">|</span>
         <div className="flex items-center space-x-1 text-anthrazit-200">
@@ -174,13 +170,12 @@ export const Header: React.FC<HeaderProps> = ({
           <span className="font-semibold tracking-widest">{currentTime || '00:00:00'}</span>
         </div>
         <span className="text-anthrazit-700">|</span>
-        <div className="flex items-center space-x-1 text-anthrazit-400 text-[11px]">
-          <Layers className="w-3 h-3 text-anthrazit-400" />
-          <span>{activeMarkerCount} Nodes</span>
+        <div className="text-accent font-bold text-[11px]">
+          FAHRPLAN-LEITSTELLE
         </div>
       </div>
 
-      {/* Rechts: Schnellsuche, Tools-Flyout-Button, Admin-Button */}
+      {/* Rechts: Live-Verspätungen, Schnellsuche, Cockpit-Toggle */}
       <div className="flex items-center space-x-1.5 sm:space-x-2">
         {/* GTFS-RT Live-Verspätungen Button */}
         {onOpenLiveDelays && (
@@ -199,30 +194,14 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           onClick={onOpenSearch}
           className="flex items-center space-x-2 px-3 py-1.5 min-h-[40px] bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-xs text-anthrazit-300 transition-colors cursor-pointer group"
-          title="OSINT Schnellsuche (Strg + K)"
+          title="Haltestellen- & Liniensuche (Strg + K)"
         >
           <Search className="w-3.5 h-3.5 text-anthrazit-400 group-hover:text-accent" />
-          <span className="hidden lg:inline text-anthrazit-400 text-xs">Suche...</span>
+          <span className="hidden lg:inline text-anthrazit-400 text-xs">Haltestelle / Linie...</span>
           <kbd className="hidden sm:inline-block px-1.5 py-0.5 bg-anthrazit-950 border border-anthrazit-700 text-[10px] font-mono text-accent">
             Ctrl+K
           </kbd>
         </button>
-
-        {/* Sensoren & Tools Flyout Toggle Button (Desktop & Mobile) */}
-        {onToggleToolsFlyout && (
-          <button
-            onClick={onToggleToolsFlyout}
-            className={`hidden sm:flex items-center space-x-1.5 px-3 py-1.5 min-h-[40px] border text-xs font-mono transition-colors cursor-pointer ${
-              isToolsFlyoutOpen
-                ? 'bg-accent text-anthrazit-950 border-accent font-bold shadow-accent-sm'
-                : 'bg-anthrazit-850 hover:bg-anthrazit-800 border-anthrazit-700 text-anthrazit-200 hover:text-accent'
-            }`}
-            title="Sensoren, Kameras, IoT & Cyber-Tools Flyout"
-          >
-            <Cpu className="w-3.5 h-3.5 text-accent" />
-            <span>Tools & Sensoren</span>
-          </button>
-        )}
 
         {/* Transit Cockpit Toggle Button (Desktop) */}
         {onToggleTransitCockpit && (
@@ -236,18 +215,9 @@ export const Header: React.FC<HeaderProps> = ({
             title="Transit-Cockpit ein-/ausblenden"
           >
             <Compass className="w-3.5 h-3.5" />
-            <span>Cockpit</span>
+            <span>Fahrplan-Cockpit</span>
           </button>
         )}
-
-        {/* Desktop Admin / Ops Hub Trigger */}
-        <button
-          onClick={onOpenAdmin}
-          className="hidden md:flex items-center space-x-1 px-3 py-1.5 min-h-[40px] bg-accent/15 hover:bg-accent/25 border border-accent/50 text-xs font-mono text-accent transition-colors cursor-pointer"
-          title="Admin & Operations Dashboard öffnen (PW: 4dm1n)"
-        >
-          <span className="font-bold">⚡ OPS</span>
-        </button>
 
         {/* Desktop District Filter Dropdown */}
         <div className="hidden xl:flex items-center">
@@ -303,13 +273,13 @@ export const Header: React.FC<HeaderProps> = ({
 
                 <button
                   onClick={() => {
-                    onToggleToolsFlyout?.();
+                    onToggleTransitCockpit?.();
                     setIsMobileQuickMenuOpen(false);
                   }}
-                  className="w-full py-2 px-3 min-h-[44px] bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-anthrazit-100 flex items-center space-x-2 font-bold cursor-pointer"
+                  className="w-full py-2 px-3 min-h-[44px] bg-accent/15 hover:bg-accent/25 border border-accent/40 text-accent flex items-center space-x-2 font-bold cursor-pointer"
                 >
-                  <Cpu className="w-4 h-4 text-accent" />
-                  <span>🛠️ Sensoren & Werkzeuge</span>
+                  <Compass className="w-4 h-4 text-accent" />
+                  <span>🚆 ÖPNV & Fahrplan-Cockpit</span>
                 </button>
 
                 {onOpenLiveDelays && (
@@ -326,23 +296,13 @@ export const Header: React.FC<HeaderProps> = ({
 
                 <button
                   onClick={() => {
-                    onOpenAdmin?.();
-                    setIsMobileQuickMenuOpen(false);
-                  }}
-                  className="w-full py-2 px-3 min-h-[44px] bg-accent/15 hover:bg-accent/25 border border-accent/40 text-accent flex items-center space-x-2 font-bold cursor-pointer"
-                >
-                  <span>⚡ OPS & Admin Center</span>
-                </button>
-
-                <button
-                  onClick={() => {
                     onOpenGlossary();
                     setIsMobileQuickMenuOpen(false);
                   }}
                   className="w-full py-2 px-3 min-h-[44px] bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-750 text-anthrazit-200 flex items-center space-x-2 cursor-pointer"
                 >
                   <HelpCircle className="w-4 h-4 text-accent" />
-                  <span>📖 Glossar & Hilfe</span>
+                  <span>📖 Liniennetz-Glossar & Hilfe</span>
                 </button>
 
                 <button
