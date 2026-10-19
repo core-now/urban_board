@@ -41,6 +41,7 @@ interface TransitCockpitProps {
   onSelectTransitStop: (stop: TransitStop | null) => void;
   onFlyToStation: (lat: number, lng: number, name?: string) => void;
   onOpenLiveDelays?: () => void;
+  onHoverLine?: (lineRef: string | null) => void;
 }
 
 // Verkehrsmittel-Kategorien
@@ -55,7 +56,8 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
   selectedTransitStop,
   onSelectTransitStop,
   onFlyToStation,
-  onOpenLiveDelays
+  onOpenLiveDelays,
+  onHoverLine
 }) => {
   const isHamburg = activeCity === 'HH';
   const schedulesMap = isHamburg ? HAMBURG_SCHEDULES : HANNOVER_SCHEDULES;
@@ -463,6 +465,8 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                         <button
                           key={line.lineRef}
                           onClick={() => handleSelectLine(line.lineRef, true)}
+                          onMouseEnter={() => onHoverLine?.(line.lineRef)}
+                          onMouseLeave={() => onHoverLine?.(null)}
                           className={`w-full p-2 border text-left transition-all cursor-pointer flex items-center justify-between ${
                             isSelected
                               ? 'bg-accent/20 border-accent shadow-sm'

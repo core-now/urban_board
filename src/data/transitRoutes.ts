@@ -3108,6 +3108,4513 @@ export const HANNOVER_TRANSIT_ROUTES: Record<string, TransitLineRoute> = {
 };
 
 export const HAMBURG_TRANSIT_ROUTES: Record<string, TransitLineRoute> = {
+"1": {
+    "id": "hh-bus-1",
+    "ref": "1",
+    "name": "Metrobus 1",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "S Rissen",
+    "to": "Bf. Altona",
+    "stops": [
+      "S Rissen",
+      "Schule Marschweg",
+      "Kl\u00f6vensteenweg (S\u00fcd)",
+      "Suurheid",
+      "Asklepios Westklinikum (West)",
+      "Asklepios Westklinikum (Mitte)",
+      "Asklepios Westklinikum (Ost)",
+      "Bahn\u00fcbergang Sieversst\u00fccken",
+      "Sieversst\u00fccken",
+      "Wittland (S S\u00fclldorf)",
+      "Anne-Frank-Stra\u00dfe",
+      "Kr\u00e4henhorst",
+      "Karstenstra\u00dfe",
+      "S Blankenese",
+      "M\u00fchlenberg",
+      "Frahmstra\u00dfe",
+      "Grotefendweg",
+      "Darbovenstieg",
+      "S\u00fclldorfer Landstra\u00dfe",
+      "Pieperweg",
+      "Holtbarg",
+      "Schenefelder Holt",
+      "Heerbrook",
+      "Am Botterbarg",
+      "Isfeldstra\u00dfe",
+      "Langelohstra\u00dfe (Nord)",
+      "Knabeweg",
+      "Elbe-Einkaufszentrum",
+      "Windm\u00fchlenweg",
+      "Flottbeker Drift",
+      "Zum H\u00fcnengrab (DESY)",
+      "Stutsmoor",
+      "Trabrennbahn Bahrenfeld",
+      "Ebertallee",
+      "B\u00f6cklinstra\u00dfe",
+      "S Othmarschen",
+      "R\u00f6pers Weide",
+      "Behringstra\u00dfe (AK Altona)",
+      "AK Altona (Eingang)",
+      "Behringstra\u00dfe (AK Altona)",
+      "Griegstra\u00dfe",
+      "Kreuzkirche Ottensen",
+      "Bleickenallee (Kinderkrankenhaus)",
+      "Gro\u00dfe Brunnenstra\u00dfe",
+      "Bahrenfelder Stra\u00dfe",
+      "Bf. Altona"
+    ],
+    "coordinates": [
+      [
+        53.58246,
+        9.75883
+      ],
+      [
+        53.58498,
+        9.76108
+      ],
+      [
+        53.58242,
+        9.76422
+      ],
+      [
+        53.58285,
+        9.76855
+      ],
+      [
+        53.5823,
+        9.7736
+      ],
+      [
+        53.58266,
+        9.77891
+      ],
+      [
+        53.58199,
+        9.78215
+      ],
+      [
+        53.58127,
+        9.78518
+      ],
+      [
+        53.58051,
+        9.78567
+      ],
+      [
+        53.57944,
+        9.79347
+      ],
+      [
+        53.57052,
+        9.78923
+      ],
+      [
+        53.56837,
+        9.79266
+      ],
+      [
+        53.56543,
+        9.80144
+      ],
+      [
+        53.56347,
+        9.81476
+      ],
+      [
+        53.56068,
+        9.8231
+      ],
+      [
+        53.56416,
+        9.82627
+      ],
+      [
+        53.56657,
+        9.82739
+      ],
+      [
+        53.57223,
+        9.82442
+      ],
+      [
+        53.57692,
+        9.82326
+      ],
+      [
+        53.58029,
+        9.82311
+      ],
+      [
+        53.58371,
+        9.82249
+      ],
+      [
+        53.5829,
+        9.82884
+      ],
+      [
+        53.57956,
+        9.82996
+      ],
+      [
+        53.57478,
+        9.83495
+      ],
+      [
+        53.57359,
+        9.83787
+      ],
+      [
+        53.57279,
+        9.8477
+      ],
+      [
+        53.57191,
+        9.85585
+      ],
+      [
+        53.57172,
+        9.86262
+      ],
+      [
+        53.57114,
+        9.87003
+      ],
+      [
+        53.57112,
+        9.87664
+      ],
+      [
+        53.57215,
+        9.88142
+      ],
+      [
+        53.57273,
+        9.88682
+      ],
+      [
+        53.57381,
+        9.89231
+      ],
+      [
+        53.56718,
+        9.88826
+      ],
+      [
+        53.56304,
+        9.88709
+      ],
+      [
+        53.55889,
+        9.88711
+      ],
+      [
+        53.55717,
+        9.89345
+      ],
+      [
+        53.55658,
+        9.9011
+      ],
+      [
+        53.55507,
+        9.89831
+      ],
+      [
+        53.55654,
+        9.90188
+      ],
+      [
+        53.55427,
+        9.9104
+      ],
+      [
+        53.55383,
+        9.91635
+      ],
+      [
+        53.551,
+        9.91917
+      ],
+      [
+        53.54997,
+        9.92567
+      ],
+      [
+        53.54953,
+        9.92978
+      ],
+      [
+        53.55155,
+        9.93417
+      ]
+    ]
+  },
+  "10": {
+    "id": "hh-bus-10",
+    "ref": "10",
+    "name": "Metrobus 10",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "Grunewaldstra\u00dfe",
+    "to": "U Wandsbek Markt",
+    "stops": [
+      "Grunewaldstra\u00dfe",
+      "Glatzer Stra\u00dfe",
+      "Bekkamp",
+      "Bekkampsweg",
+      "Jenfelder Stra\u00dfe",
+      "Jenfeld-Zentrum",
+      "Denksteinweg",
+      "Schiffbeker Weg",
+      "Am Hohen Feld",
+      "Universit\u00e4t der Bundeswehr",
+      "Osterkamp",
+      "AK Wandsbek",
+      "Bovestra\u00dfe",
+      "Schatzmeisterstra\u00dfe",
+      "Zieseni\u00dfstra\u00dfe",
+      "U Wandsbek Markt"
+    ],
+    "coordinates": [
+      [
+        53.58193,
+        10.15121
+      ],
+      [
+        53.57958,
+        10.14502
+      ],
+      [
+        53.57626,
+        10.14355
+      ],
+      [
+        53.57504,
+        10.13861
+      ],
+      [
+        53.57414,
+        10.13501
+      ],
+      [
+        53.57117,
+        10.13433
+      ],
+      [
+        53.57113,
+        10.13093
+      ],
+      [
+        53.57108,
+        10.12339
+      ],
+      [
+        53.57107,
+        10.11615
+      ],
+      [
+        53.57041,
+        10.10447
+      ],
+      [
+        53.56968,
+        10.09987
+      ],
+      [
+        53.56873,
+        10.09087
+      ],
+      [
+        53.56889,
+        10.08696
+      ],
+      [
+        53.56714,
+        10.07826
+      ],
+      [
+        53.56765,
+        10.07471
+      ],
+      [
+        53.57204,
+        10.06936
+      ]
+    ]
+  },
+  "11": {
+    "id": "hh-bus-11",
+    "ref": "11",
+    "name": "Metrobus 11",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "U Wandsbek Markt",
+    "to": "Sorenkoppel",
+    "stops": [
+      "U Wandsbek Markt",
+      "Josephstra\u00dfe",
+      "Kedenburgstra\u00dfe",
+      "Birtstra\u00dfe",
+      "Am Neumarkt 63",
+      "Ziethenstra\u00dfe",
+      "Schimmelmannstra\u00dfe (Mitte)",
+      "Asserstieg",
+      "Am Jenfelder Moor",
+      "Albert-Schweitzer-Ring",
+      "Kuehnstra\u00dfe",
+      "K\u00f6penicker Stra\u00dfe",
+      "Berliner Platz",
+      "Potsdamer Stra\u00dfe",
+      "H\u00fcllenkamp",
+      "Kinderkrankenhaus Wilhelmstift",
+      "Kielkoppelstra\u00dfe",
+      "Geesthachter Weg",
+      "Am Hegen",
+      "Sorenkoppel"
+    ],
+    "coordinates": [
+      [
+        53.57188,
+        10.06854
+      ],
+      [
+        53.57267,
+        10.07826
+      ],
+      [
+        53.57497,
+        10.08769
+      ],
+      [
+        53.57535,
+        10.09262
+      ],
+      [
+        53.57565,
+        10.09679
+      ],
+      [
+        53.57679,
+        10.1027
+      ],
+      [
+        53.57327,
+        10.10458
+      ],
+      [
+        53.57284,
+        10.10669
+      ],
+      [
+        53.57626,
+        10.11344
+      ],
+      [
+        53.57941,
+        10.1231
+      ],
+      [
+        53.58189,
+        10.12631
+      ],
+      [
+        53.58447,
+        10.13355
+      ],
+      [
+        53.58397,
+        10.14115
+      ],
+      [
+        53.58612,
+        10.14927
+      ],
+      [
+        53.58754,
+        10.15456
+      ],
+      [
+        53.58946,
+        10.1622
+      ],
+      [
+        53.58943,
+        10.16813
+      ],
+      [
+        53.58849,
+        10.17084
+      ],
+      [
+        53.58908,
+        10.18057
+      ],
+      [
+        53.591,
+        10.18512
+      ]
+    ]
+  },
+  "12": {
+    "id": "hh-bus-12",
+    "ref": "12",
+    "name": "Metrobus 12",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "S Blankenese",
+    "to": "Osterbrookplatz",
+    "stops": [
+      "S Blankenese",
+      "M\u00fchlenberg",
+      "Winckelmannstra\u00dfe",
+      "Sieberlingstra\u00dfe",
+      "Elbschlo\u00dfstra\u00dfe (Seegerichtshof)",
+      "Teufelsbr\u00fcck (F\u00e4hre)",
+      "Holztwiete",
+      "Zedernweg",
+      "Halbmondsweg",
+      "Liebermannstra\u00dfe",
+      "Hohenzollernring (S\u00fcd)",
+      "Fischers Allee",
+      "Rothestra\u00dfe",
+      "Rathaus Altona",
+      "Bf. Altona",
+      "Bf. Altona",
+      "Altonaer Poststra\u00dfe",
+      "Gro\u00dfe Bergstra\u00dfe",
+      "Bl\u00fccherstra\u00dfe",
+      "S Reeperbahn",
+      "Davidstra\u00dfe",
+      "U St. Pauli",
+      "Museum f\u00fcr Hamburgische Geschichte",
+      "Handwerkskammer",
+      "Johannes-Brahms-Platz",
+      "U Stephansplatz",
+      "Kunsthalle",
+      "HBF/Spitalerstra\u00dfe",
+      "U Steinstra\u00dfe (Deichtorplatz)",
+      "Repsoldstra\u00dfe",
+      "Albertstra\u00dfe",
+      "S Hammerbrook (Nord)",
+      "S Hammerbrook (S\u00fcd)",
+      "S\u00fcderstra\u00dfe",
+      "Ausschl\u00e4ger Weg (LBV)",
+      "Luisenweg",
+      "Schadesweg",
+      "Osterbrookplatz"
+    ],
+    "coordinates": [
+      [
+        53.56347,
+        9.81476
+      ],
+      [
+        53.56068,
+        9.8231
+      ],
+      [
+        53.55516,
+        9.83522
+      ],
+      [
+        53.55027,
+        9.84548
+      ],
+      [
+        53.54901,
+        9.85339
+      ],
+      [
+        53.54761,
+        9.86372
+      ],
+      [
+        53.54704,
+        9.87429
+      ],
+      [
+        53.54653,
+        9.88116
+      ],
+      [
+        53.54644,
+        9.88837
+      ],
+      [
+        53.54597,
+        9.89897
+      ],
+      [
+        53.54602,
+        9.91562
+      ],
+      [
+        53.54809,
+        9.9228
+      ],
+      [
+        53.54773,
+        9.92942
+      ],
+      [
+        53.54779,
+        9.93439
+      ],
+      [
+        53.55155,
+        9.93417
+      ],
+      [
+        53.55178,
+        9.93386
+      ],
+      [
+        53.55003,
+        9.93998
+      ],
+      [
+        53.55117,
+        9.94671
+      ],
+      [
+        53.54924,
+        9.95058
+      ],
+      [
+        53.54966,
+        9.95609
+      ],
+      [
+        53.54943,
+        9.9617
+      ],
+      [
+        53.55001,
+        9.97078
+      ],
+      [
+        53.55027,
+        9.97394
+      ],
+      [
+        53.55327,
+        9.97671
+      ],
+      [
+        53.55499,
+        9.97882
+      ],
+      [
+        53.55808,
+        9.98832
+      ],
+      [
+        53.55497,
+        10.0018
+      ],
+      [
+        53.55244,
+        10.00534
+      ],
+      [
+        53.54961,
+        10.00597
+      ],
+      [
+        53.54823,
+        10.01506
+      ],
+      [
+        53.54885,
+        10.01896
+      ],
+      [
+        53.54784,
+        10.02283
+      ],
+      [
+        53.54524,
+        10.02489
+      ],
+      [
+        53.54548,
+        10.03122
+      ],
+      [
+        53.54768,
+        10.03926
+      ],
+      [
+        53.54817,
+        10.0467
+      ],
+      [
+        53.54761,
+        10.05245
+      ],
+      [
+        53.54711,
+        10.05765
+      ]
+    ]
+  },
+  "13": {
+    "id": "hh-bus-13",
+    "ref": "13",
+    "name": "Metrobus 13",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "S Veddel",
+    "to": "Kirchdorf (S\u00fcd)",
+    "stops": [
+      "S Veddel",
+      "Harburger Chaussee",
+      "Werkcentrum Elbinsel",
+      "Vogelh\u00fcttendeich",
+      "St\u00fcbenplatz",
+      "Mannesallee",
+      "Veringstra\u00dfe (Mitte)",
+      "Veringstra\u00dfe (S\u00fcd)",
+      "Rotenh\u00e4user Stra\u00dfe (West)",
+      "Mengestra\u00dfe",
+      "Rathaus Wilhelmsburg",
+      "Dratelnstra\u00dfe",
+      "Inselpark",
+      "S Wilhelmsburg",
+      "Neuenfelder Stra\u00dfe (Schule)",
+      "Kirchdorfer Stra\u00dfe (Museum Elbinsel)",
+      "Karl-Arnold-Ring",
+      "Kirchdorf (S\u00fcd)"
+    ],
+    "coordinates": [
+      [
+        53.521,
+        10.01347
+      ],
+      [
+        53.52075,
+        10.00701
+      ],
+      [
+        53.52,
+        9.9983
+      ],
+      [
+        53.51642,
+        9.9926
+      ],
+      [
+        53.51683,
+        9.98745
+      ],
+      [
+        53.51447,
+        9.98714
+      ],
+      [
+        53.5103,
+        9.98662
+      ],
+      [
+        53.50686,
+        9.98616
+      ],
+      [
+        53.50454,
+        9.99188
+      ],
+      [
+        53.50179,
+        9.99155
+      ],
+      [
+        53.49923,
+        9.99694
+      ],
+      [
+        53.49843,
+        9.99986
+      ],
+      [
+        53.4972,
+        10.00407
+      ],
+      [
+        53.4975,
+        10.00704
+      ],
+      [
+        53.49395,
+        10.01244
+      ],
+      [
+        53.49089,
+        10.01898
+      ],
+      [
+        53.48566,
+        10.01727
+      ],
+      [
+        53.48444,
+        10.01932
+      ]
+    ]
+  },
+  "15": {
+    "id": "hh-bus-15",
+    "ref": "15",
+    "name": "Metrobus 15",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "S Othmarschen",
+    "to": "Alsterchaussee",
+    "stops": [
+      "S Othmarschen",
+      "Emkendorfstra\u00dfe",
+      "Reventlowstra\u00dfe",
+      "Agathe-Lasch-Weg",
+      "Ernst-August-Stra\u00dfe",
+      "Wrangelpark",
+      "Philosophenweg",
+      "Hohenzollernring",
+      "Fischers Allee",
+      "Rothestra\u00dfe",
+      "Rathaus Altona",
+      "Bf. Altona",
+      "Bf. Altona",
+      "Gerichtstra\u00dfe",
+      "Max-Brauer-Allee (Mitte)",
+      "Sternbr\u00fccke",
+      "Schulterblatt",
+      "Weidenallee",
+      "U Schlump",
+      "Bundesstra\u00dfe",
+      "Bezirksamt Eimsb\u00fcttel",
+      "Parkallee",
+      "U Hallerstra\u00dfe",
+      "Alsterchaussee"
+    ],
+    "coordinates": [
+      [
+        53.55889,
+        9.88711
+      ],
+      [
+        53.55566,
+        9.8906
+      ],
+      [
+        53.55236,
+        9.89094
+      ],
+      [
+        53.55248,
+        9.89348
+      ],
+      [
+        53.54976,
+        9.8981
+      ],
+      [
+        53.54971,
+        9.90173
+      ],
+      [
+        53.54921,
+        9.91026
+      ],
+      [
+        53.54864,
+        9.91631
+      ],
+      [
+        53.54809,
+        9.9228
+      ],
+      [
+        53.54773,
+        9.92942
+      ],
+      [
+        53.54779,
+        9.93439
+      ],
+      [
+        53.55155,
+        9.93417
+      ],
+      [
+        53.55178,
+        9.93386
+      ],
+      [
+        53.5557,
+        9.94322
+      ],
+      [
+        53.5587,
+        9.94987
+      ],
+      [
+        53.56051,
+        9.95359
+      ],
+      [
+        53.56395,
+        9.96083
+      ],
+      [
+        53.56515,
+        9.96512
+      ],
+      [
+        53.56767,
+        9.97107
+      ],
+      [
+        53.56958,
+        9.97487
+      ],
+      [
+        53.57232,
+        9.97841
+      ],
+      [
+        53.57251,
+        9.98364
+      ],
+      [
+        53.57264,
+        9.98929
+      ],
+      [
+        53.57256,
+        9.99388
+      ]
+    ]
+  },
+  "16": {
+    "id": "hh-bus-16",
+    "ref": "16",
+    "name": "Metrobus 16",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "Elbe-Einkaufszentrum",
+    "to": "Rentenversicherung Nord",
+    "stops": [
+      "Elbe-Einkaufszentrum",
+      "Ostermeyerstra\u00dfe",
+      "Hemmingstedter Weg",
+      "Bertha-Uhl-Kamp",
+      "Flottbeker Kirche",
+      "Kalckreuthweg (Mitte)",
+      "Osdorfer Weg",
+      "Bahrenfelder Marktplatz",
+      "H\u00e4ndelstra\u00dfe",
+      "S Bahrenfeld",
+      "Gr\u00fcnebergstra\u00dfe",
+      "Daimlerstra\u00dfe",
+      "Zeisehallen",
+      "Gro\u00dfe Rainstra\u00dfe",
+      "Bf. Altona",
+      "Altonaer Poststra\u00dfe",
+      "Gro\u00dfe Bergstra\u00dfe",
+      "Bl\u00fccherstra\u00dfe",
+      "S Reeperbahn",
+      "Davidstra\u00dfe",
+      "U St. Pauli",
+      "Michaeliskirche",
+      "Domstra\u00dfe",
+      "Speersort",
+      "Jakobikirchhof",
+      "HBF/Steintordamm",
+      "Hauptbahnhof/ZOB",
+      "B\u00f6ckmannstra\u00dfe",
+      "U Lohm\u00fchlenstra\u00dfe",
+      "U L\u00fcbecker Stra\u00dfe",
+      "U Wartenau",
+      "Richardstra\u00dfe",
+      "Eilbeker Weg",
+      "Maxstra\u00dfe",
+      "Seumestra\u00dfe",
+      "S Friedrichsberg",
+      "Krausestra\u00dfe",
+      "Stra\u00dfburger Platz",
+      "U Stra\u00dfburger Stra\u00dfe",
+      "Eulenkamp",
+      "Friedrich-Ebert-Damm (West)",
+      "Stephanstra\u00dfe",
+      "Helbingtwiete",
+      "Am Stadtrand",
+      "Sylter Weg",
+      "Rentenversicherung Nord"
+    ],
+    "coordinates": [
+      [
+        53.57172,
+        9.86262
+      ],
+      [
+        53.568,
+        9.86638
+      ],
+      [
+        53.56636,
+        9.86625
+      ],
+      [
+        53.56531,
+        9.86956
+      ],
+      [
+        53.56536,
+        9.87824
+      ],
+      [
+        53.56516,
+        9.88829
+      ],
+      [
+        53.56564,
+        9.89484
+      ],
+      [
+        53.56455,
+        9.90178
+      ],
+      [
+        53.5622,
+        9.90571
+      ],
+      [
+        53.55983,
+        9.9102
+      ],
+      [
+        53.55797,
+        9.91467
+      ],
+      [
+        53.55607,
+        9.92133
+      ],
+      [
+        53.55459,
+        9.92735
+      ],
+      [
+        53.55329,
+        9.93162
+      ],
+      [
+        53.55177,
+        9.9348
+      ],
+      [
+        53.55003,
+        9.93998
+      ],
+      [
+        53.55117,
+        9.94671
+      ],
+      [
+        53.54924,
+        9.95058
+      ],
+      [
+        53.54966,
+        9.95609
+      ],
+      [
+        53.54943,
+        9.9617
+      ],
+      [
+        53.55001,
+        9.97078
+      ],
+      [
+        53.54917,
+        9.97851
+      ],
+      [
+        53.54819,
+        9.99466
+      ],
+      [
+        53.54968,
+        9.99743
+      ],
+      [
+        53.55008,
+        10.00289
+      ],
+      [
+        53.55201,
+        10.00773
+      ],
+      [
+        53.55225,
+        10.01129
+      ],
+      [
+        53.55467,
+        10.01486
+      ],
+      [
+        53.5569,
+        10.01993
+      ],
+      [
+        53.56006,
+        10.02878
+      ],
+      [
+        53.56296,
+        10.03326
+      ],
+      [
+        53.5673,
+        10.04091
+      ],
+      [
+        53.56855,
+        10.04356
+      ],
+      [
+        53.57101,
+        10.04883
+      ],
+      [
+        53.573,
+        10.05474
+      ],
+      [
+        53.57652,
+        10.05857
+      ],
+      [
+        53.58009,
+        10.05768
+      ],
+      [
+        53.58094,
+        10.06204
+      ],
+      [
+        53.58246,
+        10.0686
+      ],
+      [
+        53.58328,
+        10.07251
+      ],
+      [
+        53.58494,
+        10.07949
+      ],
+      [
+        53.58636,
+        10.08623
+      ],
+      [
+        53.58777,
+        10.09309
+      ],
+      [
+        53.58907,
+        10.09963
+      ],
+      [
+        53.59024,
+        10.10509
+      ],
+      [
+        53.59195,
+        10.10854
+      ]
+    ]
+  },
+  "18": {
+    "id": "hh-bus-18",
+    "ref": "18",
+    "name": "Metrobus 18",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "Hauptbahnhof/ZOB",
+    "to": "Am St\u00fchm-S\u00fcd",
+    "stops": [
+      "Hauptbahnhof/ZOB",
+      "HBF/Kirchenallee",
+      "Gurlittstra\u00dfe",
+      "AK St. Georg",
+      "Graumannsweg",
+      "Mundsburger Br\u00fccke",
+      "U Mundsburg",
+      "Beethovenstra\u00dfe",
+      "Bartholom\u00e4us-Therme",
+      "Biedermannplatz",
+      "Brucknerstra\u00dfe (Arbeitsgerichte)",
+      "U Saarlandstra\u00dfe",
+      "Burmesterstra\u00dfe",
+      "U S Barmbek",
+      "Wachtelstra\u00dfe",
+      "Habichtstra\u00dfe (Mitte)",
+      "Heinrich-Helbing-Stra\u00dfe",
+      "Bauernrosenweg",
+      "Werner-Otto-Stra\u00dfe",
+      "Rahnstra\u00dfe",
+      "Steilshooper Allee",
+      "Herthastra\u00dfe",
+      "Bramfelder Dorfplatz",
+      "Berner Chaussee",
+      "N\u00fc\u00dflerkamp",
+      "Hohnerkamp (Mitte)",
+      "Gumbinner Kehre",
+      "Am St\u00fchm-S\u00fcd"
+    ],
+    "coordinates": [
+      [
+        53.55225,
+        10.01129
+      ],
+      [
+        53.55293,
+        10.00875
+      ],
+      [
+        53.55734,
+        10.0112
+      ],
+      [
+        53.56005,
+        10.01476
+      ],
+      [
+        53.56305,
+        10.0177
+      ],
+      [
+        53.56612,
+        10.02063
+      ],
+      [
+        53.56996,
+        10.02721
+      ],
+      [
+        53.57481,
+        10.02169
+      ],
+      [
+        53.57778,
+        10.02823
+      ],
+      [
+        53.5804,
+        10.03228
+      ],
+      [
+        53.58403,
+        10.03379
+      ],
+      [
+        53.58776,
+        10.03429
+      ],
+      [
+        53.58744,
+        10.0368
+      ],
+      [
+        53.58751,
+        10.04569
+      ],
+      [
+        53.58846,
+        10.05283
+      ],
+      [
+        53.5917,
+        10.05637
+      ],
+      [
+        53.59473,
+        10.06065
+      ],
+      [
+        53.5982,
+        10.06597
+      ],
+      [
+        53.60236,
+        10.06956
+      ],
+      [
+        53.60612,
+        10.07121
+      ],
+      [
+        53.60926,
+        10.07311
+      ],
+      [
+        53.61244,
+        10.07497
+      ],
+      [
+        53.61505,
+        10.07636
+      ],
+      [
+        53.61952,
+        10.081
+      ],
+      [
+        53.62256,
+        10.08424
+      ],
+      [
+        53.62277,
+        10.09041
+      ],
+      [
+        53.6258,
+        10.09235
+      ],
+      [
+        53.62773,
+        10.10016
+      ]
+    ]
+  },
+  "2": {
+    "id": "hh-bus-2",
+    "ref": "2",
+    "name": "Metrobus 2",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "U S Berliner Tor (Beim Strohhause)",
+    "to": "Schenefeld, Achterndiek",
+    "stops": [
+      "U S Berliner Tor (Beim Strohhause)",
+      "Kurt-Schumacher-Allee",
+      "Hauptbahnhof/ZOB",
+      "HBF/Steintordamm",
+      "U Steinstra\u00dfe (Deichtorplatz)",
+      "Ericusspitze",
+      "Singapurstra\u00dfe",
+      "Am Sandtorkai",
+      "Am Kaiserkai (Elbphilharmonie)",
+      "U Baumwall",
+      "Rambachstra\u00dfe",
+      "U S Landungsbr\u00fccken",
+      "St. Pauli Hafenstra\u00dfe",
+      "Hafentreppe",
+      "Fischmarkt",
+      "Behnstra\u00dfe",
+      "Rathaus Altona",
+      "Bf. Altona",
+      "Bf. Altona",
+      "Gro\u00dfe Rainstra\u00dfe",
+      "Hohenesch",
+      "S Ottensen",
+      "Celsiusweg",
+      "Bornkampsweg",
+      "Von-Sauer-Stra\u00dfe",
+      "Silcherstra\u00dfe",
+      "August-Kirch-Stra\u00dfe",
+      "Trabrennbahn Bahrenfeld",
+      "Luruper Chaussee (DESY)",
+      "Stadionstra\u00dfe",
+      "Tannenberg",
+      "Rugenbarg (Nord)",
+      "Eckhoffplatz (Lurup Center)",
+      "Flurstra\u00dfe (Nord)",
+      "Luckmoor",
+      "Engelbrechtweg",
+      "Schenefeld, Schenefelder Platz",
+      "Schenefeld, Parkstieg",
+      "Schenefeld, Stadtzentrum",
+      "Schenefeld, Borgfelde",
+      "Schenefeld, Dorfplatz",
+      "Schenefeld, In de Masch",
+      "Schenefeld, Achterndiek"
+    ],
+    "coordinates": [
+      [
+        53.5532,
+        10.02131
+      ],
+      [
+        53.55264,
+        10.01522
+      ],
+      [
+        53.55234,
+        10.01042
+      ],
+      [
+        53.55196,
+        10.00686
+      ],
+      [
+        53.54961,
+        10.00597
+      ],
+      [
+        53.54602,
+        10.00308
+      ],
+      [
+        53.54402,
+        9.99714
+      ],
+      [
+        53.54326,
+        9.99181
+      ],
+      [
+        53.54282,
+        9.98578
+      ],
+      [
+        53.5444,
+        9.98167
+      ],
+      [
+        53.54455,
+        9.97604
+      ],
+      [
+        53.5457,
+        9.97109
+      ],
+      [
+        53.54649,
+        9.96255
+      ],
+      [
+        53.54599,
+        9.9575
+      ],
+      [
+        53.54645,
+        9.95071
+      ],
+      [
+        53.54635,
+        9.94201
+      ],
+      [
+        53.54717,
+        9.93623
+      ],
+      [
+        53.55155,
+        9.93417
+      ],
+      [
+        53.55156,
+        9.93343
+      ],
+      [
+        53.55412,
+        9.9323
+      ],
+      [
+        53.55525,
+        9.92862
+      ],
+      [
+        53.55948,
+        9.92785
+      ],
+      [
+        53.56179,
+        9.92338
+      ],
+      [
+        53.56424,
+        9.91842
+      ],
+      [
+        53.56593,
+        9.91086
+      ],
+      [
+        53.56917,
+        9.90258
+      ],
+      [
+        53.57153,
+        9.89784
+      ],
+      [
+        53.57365,
+        9.89198
+      ],
+      [
+        53.57679,
+        9.88867
+      ],
+      [
+        53.58085,
+        9.88433
+      ],
+      [
+        53.58443,
+        9.88056
+      ],
+      [
+        53.58899,
+        9.87567
+      ],
+      [
+        53.59151,
+        9.87281
+      ],
+      [
+        53.59395,
+        9.86974
+      ],
+      [
+        53.59729,
+        9.86453
+      ],
+      [
+        53.59815,
+        9.85695
+      ],
+      [
+        53.59844,
+        9.8499
+      ],
+      [
+        53.59965,
+        9.84397
+      ],
+      [
+        53.60128,
+        9.83619
+      ],
+      [
+        53.59987,
+        9.82962
+      ],
+      [
+        53.60048,
+        9.82473
+      ],
+      [
+        53.60312,
+        9.82461
+      ],
+      [
+        53.60637,
+        9.83018
+      ]
+    ]
+  },
+  "20": {
+    "id": "hh-bus-20",
+    "ref": "20",
+    "name": "Metrobus 20",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "S R\u00fcbenkamp",
+    "to": "Bf. Altona",
+    "stops": [
+      "S R\u00fcbenkamp",
+      "Kapstadtring",
+      "Dakarweg",
+      "\u00dcberseering (West)",
+      "Jahnring (Mitte)",
+      "Ohlsdorfer Stra\u00dfe (Planetarium)",
+      "Winterhuder Marktplatz",
+      "U Hudtwalckerstra\u00dfe",
+      "Eppendorfer Marktplatz",
+      "Julius-Reincke-Stieg (Bethanien)",
+      "Eppendorfer Park (UKE)",
+      "UK Eppendorf",
+      "L\u00f6wenstra\u00dfe (Facharztklinik)",
+      "G\u00e4rtnerstra\u00dfe",
+      "Kottwitzstra\u00dfe",
+      "Goebenstra\u00dfe",
+      "Schulweg",
+      "Fruchtallee (Hamburg-Haus)",
+      "Alsenplatz",
+      "S Holstenstra\u00dfe",
+      "Max-Brauer-Allee (Mitte)",
+      "Gerichtstra\u00dfe",
+      "Bf. Altona"
+    ],
+    "coordinates": [
+      [
+        53.60762,
+        10.03316
+      ],
+      [
+        53.60468,
+        10.02493
+      ],
+      [
+        53.60271,
+        10.02498
+      ],
+      [
+        53.60037,
+        10.01636
+      ],
+      [
+        53.59995,
+        10.01216
+      ],
+      [
+        53.59899,
+        10.00566
+      ],
+      [
+        53.59472,
+        9.99938
+      ],
+      [
+        53.59412,
+        9.9962
+      ],
+      [
+        53.59286,
+        9.98875
+      ],
+      [
+        53.59205,
+        9.98319
+      ],
+      [
+        53.5905,
+        9.97957
+      ],
+      [
+        53.58885,
+        9.97559
+      ],
+      [
+        53.58738,
+        9.97165
+      ],
+      [
+        53.5852,
+        9.9689
+      ],
+      [
+        53.58068,
+        9.9646
+      ],
+      [
+        53.57813,
+        9.96246
+      ],
+      [
+        53.57494,
+        9.95941
+      ],
+      [
+        53.57159,
+        9.95704
+      ],
+      [
+        53.56661,
+        9.95152
+      ],
+      [
+        53.56193,
+        9.94823
+      ],
+      [
+        53.55842,
+        9.94843
+      ],
+      [
+        53.5557,
+        9.94273
+      ],
+      [
+        53.55155,
+        9.93417
+      ]
+    ]
+  },
+  "21": {
+    "id": "hh-bus-21",
+    "ref": "21",
+    "name": "Metrobus 21",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "Teufelsbr\u00fcck (F\u00e4hre)",
+    "to": "U Niendorf Nord",
+    "stops": [
+      "Teufelsbr\u00fcck (F\u00e4hre)",
+      "Ohnsorgweg",
+      "Marxsenweg",
+      "Baron-Voght-Stra\u00dfe (Mitte)",
+      "S Klein Flottbek",
+      "Langkamp",
+      "Hemmingstedter Weg",
+      "Ostermeyerstra\u00dfe",
+      "Elbe-Einkaufszentrum",
+      "Knabeweg",
+      "Langelohstra\u00dfe (Nord)",
+      "Sandort",
+      "Rugenfeld",
+      "Grubenstieg",
+      "Immenbusch",
+      "Achtern Born",
+      "B\u00f6ttcherkamp",
+      "Schenefeld, Schenefelder Platz",
+      "Engelbrechtweg",
+      "Trebelstra\u00dfe",
+      "Recknitzstra\u00dfe",
+      "Jevenstedter Stra\u00dfe",
+      "Franzosenkoppel",
+      "Katzbachstra\u00dfe",
+      "Fangdieckstra\u00dfe",
+      "Langbargheide (Nord)",
+      "L\u00fcdersring",
+      "Langbargheide (S\u00fcd)",
+      "A S Eidelstedt",
+      "M\u00fchlenauweg",
+      "Eidelstedter Platz",
+      "Wiebischenkamp",
+      "Deepenbrook (M\u00f6bel H\u00f6ffner)",
+      "Eidelstedter Brook",
+      "Spanische Furt",
+      "Graf-Johann-Weg",
+      "W\u00e4hlingsweg",
+      "Frohmestra\u00dfe (Mitte)",
+      "Oldesloer Stra\u00dfe",
+      "Modering",
+      "Vielohwisch",
+      "Wagrierweg",
+      "Vielohweg (Mitte)",
+      "U Niendorf Nord"
+    ],
+    "coordinates": [
+      [
+        53.54761,
+        9.86372
+      ],
+      [
+        53.55489,
+        9.86948
+      ],
+      [
+        53.55531,
+        9.86525
+      ],
+      [
+        53.55745,
+        9.86506
+      ],
+      [
+        53.55846,
+        9.86166
+      ],
+      [
+        53.5634,
+        9.86586
+      ],
+      [
+        53.56619,
+        9.86646
+      ],
+      [
+        53.56921,
+        9.86631
+      ],
+      [
+        53.57197,
+        9.86175
+      ],
+      [
+        53.57211,
+        9.85587
+      ],
+      [
+        53.57325,
+        9.84689
+      ],
+      [
+        53.5754,
+        9.84705
+      ],
+      [
+        53.57849,
+        9.85011
+      ],
+      [
+        53.58246,
+        9.85767
+      ],
+      [
+        53.58441,
+        9.85266
+      ],
+      [
+        53.5882,
+        9.85211
+      ],
+      [
+        53.59269,
+        9.85293
+      ],
+      [
+        53.59864,
+        9.84974
+      ],
+      [
+        53.59812,
+        9.85509
+      ],
+      [
+        53.59848,
+        9.86117
+      ],
+      [
+        53.59939,
+        9.86792
+      ],
+      [
+        53.60053,
+        9.87467
+      ],
+      [
+        53.60095,
+        9.88148
+      ],
+      [
+        53.60103,
+        9.88375
+      ],
+      [
+        53.60076,
+        9.88881
+      ],
+      [
+        53.59867,
+        9.88658
+      ],
+      [
+        53.59631,
+        9.88483
+      ],
+      [
+        53.59312,
+        9.8926
+      ],
+      [
+        53.59518,
+        9.90493
+      ],
+      [
+        53.60487,
+        9.90961
+      ],
+      [
+        53.60838,
+        9.9043
+      ],
+      [
+        53.61532,
+        9.90673
+      ],
+      [
+        53.62095,
+        9.90845
+      ],
+      [
+        53.62316,
+        9.91021
+      ],
+      [
+        53.62501,
+        9.91705
+      ],
+      [
+        53.62775,
+        9.91932
+      ],
+      [
+        53.6316,
+        9.9201
+      ],
+      [
+        53.63249,
+        9.92121
+      ],
+      [
+        53.63533,
+        9.91863
+      ],
+      [
+        53.63768,
+        9.92039
+      ],
+      [
+        53.63937,
+        9.93193
+      ],
+      [
+        53.63895,
+        9.94264
+      ],
+      [
+        53.63859,
+        9.94528
+      ],
+      [
+        53.64045,
+        9.94951
+      ]
+    ]
+  },
+  "22": {
+    "id": "hh-bus-22",
+    "ref": "22",
+    "name": "Metrobus 22",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "S Blankenese",
+    "to": "U Kellinghusenstra\u00dfe",
+    "stops": [
+      "S Blankenese",
+      "M\u00fchlenberg",
+      "Frahmstra\u00dfe",
+      "Tietzestra\u00dfe",
+      "D\u00fcpenautal",
+      "Am Isfeld",
+      "Langelohstra\u00dfe (Nord)",
+      "Knabeweg",
+      "Elbe-Einkaufszentrum",
+      "Flurkamp",
+      "Geranienweg",
+      "Achtern Styg",
+      "Flurstra\u00dfe/Rugenbarg",
+      "Kressenweg",
+      "Rugenbarg (Nord)",
+      "Vorhornweg",
+      "Langbargheide (S\u00fcd)",
+      "Hellgrundweg (Arenen)",
+      "Schnackenburgallee",
+      "S Stellingen",
+      "Volksparkstra\u00dfe",
+      "Rathaus Stellingen",
+      "U Hagenbecks Tierpark",
+      "Schillingsbekweg",
+      "Oddernskamp",
+      "Behrmannplatz",
+      "Siemersplatz",
+      "Offakamp",
+      "Frickestra\u00dfe",
+      "Tarpenbekstra\u00dfe",
+      "Eppendorfer Marktplatz",
+      "U Kellinghusenstra\u00dfe"
+    ],
+    "coordinates": [
+      [
+        53.56347,
+        9.81476
+      ],
+      [
+        53.56068,
+        9.8231
+      ],
+      [
+        53.56416,
+        9.82627
+      ],
+      [
+        53.56704,
+        9.83303
+      ],
+      [
+        53.56848,
+        9.83459
+      ],
+      [
+        53.57157,
+        9.84064
+      ],
+      [
+        53.57279,
+        9.8477
+      ],
+      [
+        53.57191,
+        9.85585
+      ],
+      [
+        53.57172,
+        9.86262
+      ],
+      [
+        53.57272,
+        9.86498
+      ],
+      [
+        53.5779,
+        9.86604
+      ],
+      [
+        53.58202,
+        9.86673
+      ],
+      [
+        53.58553,
+        9.86751
+      ],
+      [
+        53.58643,
+        9.87305
+      ],
+      [
+        53.58861,
+        9.87629
+      ],
+      [
+        53.5925,
+        9.88189
+      ],
+      [
+        53.59312,
+        9.8926
+      ],
+      [
+        53.59267,
+        9.89967
+      ],
+      [
+        53.59187,
+        9.9057
+      ],
+      [
+        53.59001,
+        9.91884
+      ],
+      [
+        53.59226,
+        9.92991
+      ],
+      [
+        53.59257,
+        9.93462
+      ],
+      [
+        53.59331,
+        9.94421
+      ],
+      [
+        53.59483,
+        9.94828
+      ],
+      [
+        53.59882,
+        9.95359
+      ],
+      [
+        53.59911,
+        9.9576
+      ],
+      [
+        53.59955,
+        9.96473
+      ],
+      [
+        53.59844,
+        9.97254
+      ],
+      [
+        53.59784,
+        9.97737
+      ],
+      [
+        53.59482,
+        9.98389
+      ],
+      [
+        53.59305,
+        9.98903
+      ],
+      [
+        53.58821,
+        9.99131
+      ]
+    ]
+  },
+  "23": {
+    "id": "hh-bus-23",
+    "ref": "23",
+    "name": "Metrobus 23",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "U Billstedt",
+    "to": "Lufthansa-Basis (Haupteingang)",
+    "stops": [
+      "U Billstedt",
+      "\u00d6jendorfer Weg",
+      "Schiffbeker H\u00f6he",
+      "Kattensteert",
+      "Querkamp",
+      "Stengelestra\u00dfe",
+      "Hasencleverstra\u00dfe",
+      "U Horner Rennbahn",
+      "Trib\u00fcnenweg",
+      "Am Husarendenkmal",
+      "Zieseni\u00dfstra\u00dfe",
+      "U Wandsbek Markt",
+      "U Wandsbek Markt",
+      "Wandsbeker Allee",
+      "U Stra\u00dfburger Stra\u00dfe",
+      "U Alter Teichweg",
+      "Olivaer Stra\u00dfe",
+      "L\u00e4mmersieth (Mitte)",
+      "U S Barmbek",
+      "Genslerstra\u00dfe",
+      "S Alte W\u00f6hr",
+      "Lauensteinstra\u00dfe",
+      "Dakarweg",
+      "Kapstadtring",
+      "Manilabr\u00fccke",
+      "Sydneystra\u00dfe",
+      "U Alsterdorf",
+      "Traute-Lafrenz-Stra\u00dfe",
+      "Brabandstra\u00dfe",
+      "Alsterkrugchaussee (Mitte)",
+      "Heselst\u00fccken",
+      "Lufthansa-Basis (Haupteingang)"
+    ],
+    "coordinates": [
+      [
+        53.54267,
+        10.10726
+      ],
+      [
+        53.54561,
+        10.1142
+      ],
+      [
+        53.54786,
+        10.10647
+      ],
+      [
+        53.5498,
+        10.09987
+      ],
+      [
+        53.55133,
+        10.09445
+      ],
+      [
+        53.54922,
+        10.09094
+      ],
+      [
+        53.55127,
+        10.08847
+      ],
+      [
+        53.5545,
+        10.08459
+      ],
+      [
+        53.55958,
+        10.08107
+      ],
+      [
+        53.56513,
+        10.07766
+      ],
+      [
+        53.56765,
+        10.07471
+      ],
+      [
+        53.57204,
+        10.06936
+      ],
+      [
+        53.57204,
+        10.06936
+      ],
+      [
+        53.57996,
+        10.06946
+      ],
+      [
+        53.58292,
+        10.06744
+      ],
+      [
+        53.58625,
+        10.06373
+      ],
+      [
+        53.58374,
+        10.05782
+      ],
+      [
+        53.5851,
+        10.05305
+      ],
+      [
+        53.58696,
+        10.04398
+      ],
+      [
+        53.59338,
+        10.03808
+      ],
+      [
+        53.59813,
+        10.03671
+      ],
+      [
+        53.59988,
+        10.03616
+      ],
+      [
+        53.60255,
+        10.02526
+      ],
+      [
+        53.60604,
+        10.02491
+      ],
+      [
+        53.60712,
+        10.02259
+      ],
+      [
+        53.6052,
+        10.01521
+      ],
+      [
+        53.60716,
+        10.01244
+      ],
+      [
+        53.60885,
+        10.01214
+      ],
+      [
+        53.61149,
+        10.00885
+      ],
+      [
+        53.61791,
+        10.00535
+      ],
+      [
+        53.61905,
+        9.9992
+      ],
+      [
+        53.6212,
+        9.99687
+      ]
+    ]
+  },
+  "24": {
+    "id": "hh-bus-24",
+    "ref": "24",
+    "name": "Metrobus 24",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "U Niendorf Markt",
+    "to": "Bf. Rahlstedt (Doberaner Weg)",
+    "stops": [
+      "U Niendorf Markt",
+      "Fuhlsb\u00fctteler Weg",
+      "An der Lohe",
+      "Herzog-Bruno-Weg",
+      "Graf-Anton-Weg",
+      "Wendlohstra\u00dfe",
+      "Vietinghoffweg",
+      "Gottschalkweg",
+      "Vielohweg (Mitte)",
+      "U Niendorf Nord",
+      "Pommernweg",
+      "Keltenweg",
+      "Sperlingsweg",
+      "Krohnstiegtunnel",
+      "Ermlandweg",
+      "Wrangelkoppel",
+      "Samlandweg",
+      "Rittmerskamp",
+      "U Langenhorn Markt (Krohnstieg)",
+      "Am Schulwald",
+      "Lademannbogen",
+      "Glash\u00fctter Landstra\u00dfe",
+      "Brillkamp",
+      "Am Hehsel",
+      "Ruscheweyhstra\u00dfe",
+      "Norbert-Schmid-Platz",
+      "Goldr\u00f6schenweg",
+      "Alte Landstra\u00dfe (Nord)",
+      "Schulbergredder",
+      "Alstertal-Einkaufszentrum",
+      "S Poppenb\u00fcttel (Wentzelplatz)",
+      "S Poppenb\u00fcttel (Wentzelplatz)",
+      "Alstertal-Einkaufszentrum",
+      "Stadtbahnstra\u00dfe (Nord)",
+      "Saseler Markt",
+      "Op de Elg",
+      "Steinwegel",
+      "Saselbekstra\u00dfe",
+      "H\u00fcltkoppel",
+      "R\u00f6genfeld",
+      "Halenreie",
+      "U Volksdorf",
+      "Eulenkrugstra\u00dfe",
+      "U Meiendorfer Weg",
+      "Ringstra\u00dfe",
+      "Von-Supp\u00e9-Stra\u00dfe",
+      "Lapplandring",
+      "Offenbachweg",
+      "Skaldenweg",
+      "Hellmesbergerweg",
+      "Wildschwanbrook (Mitte)",
+      "Wildschwanbrook",
+      "Saseler Stra\u00dfe",
+      "Gerstenwiese",
+      "Bargteheider Stra\u00dfe (Nord)",
+      "Sandkule",
+      "Bf. Rahlstedt (Doberaner Weg)"
+    ],
+    "coordinates": [
+      [
+        53.61912,
+        9.95204
+      ],
+      [
+        53.62232,
+        9.95488
+      ],
+      [
+        53.62396,
+        9.95213
+      ],
+      [
+        53.62559,
+        9.94693
+      ],
+      [
+        53.62726,
+        9.9443
+      ],
+      [
+        53.62986,
+        9.93972
+      ],
+      [
+        53.63421,
+        9.94138
+      ],
+      [
+        53.63586,
+        9.94361
+      ],
+      [
+        53.63859,
+        9.94528
+      ],
+      [
+        53.64037,
+        9.95059
+      ],
+      [
+        53.64284,
+        9.95668
+      ],
+      [
+        53.6462,
+        9.95783
+      ],
+      [
+        53.6458,
+        9.97584
+      ],
+      [
+        53.64943,
+        9.9883
+      ],
+      [
+        53.64904,
+        9.99212
+      ],
+      [
+        53.64838,
+        9.99625
+      ],
+      [
+        53.64866,
+        10.0031
+      ],
+      [
+        53.64814,
+        10.00839
+      ],
+      [
+        53.64936,
+        10.01755
+      ],
+      [
+        53.65011,
+        10.02731
+      ],
+      [
+        53.64873,
+        10.03673
+      ],
+      [
+        53.64764,
+        10.04206
+      ],
+      [
+        53.64663,
+        10.04975
+      ],
+      [
+        53.64731,
+        10.05663
+      ],
+      [
+        53.6496,
+        10.06089
+      ],
+      [
+        53.65377,
+        10.06341
+      ],
+      [
+        53.65144,
+        10.06834
+      ],
+      [
+        53.65326,
+        10.07797
+      ],
+      [
+        53.65638,
+        10.0861
+      ],
+      [
+        53.65413,
+        10.09231
+      ],
+      [
+        53.65199,
+        10.09299
+      ],
+      [
+        53.65199,
+        10.09299
+      ],
+      [
+        53.65478,
+        10.09288
+      ],
+      [
+        53.65358,
+        10.10602
+      ],
+      [
+        53.65382,
+        10.11181
+      ],
+      [
+        53.65519,
+        10.11931
+      ],
+      [
+        53.65517,
+        10.12419
+      ],
+      [
+        53.65573,
+        10.13269
+      ],
+      [
+        53.6528,
+        10.14123
+      ],
+      [
+        53.65336,
+        10.15204
+      ],
+      [
+        53.65319,
+        10.16022
+      ],
+      [
+        53.65022,
+        10.16215
+      ],
+      [
+        53.64536,
+        10.15858
+      ],
+      [
+        53.63906,
+        10.15704
+      ],
+      [
+        53.63645,
+        10.16243
+      ],
+      [
+        53.63298,
+        10.16462
+      ],
+      [
+        53.63056,
+        10.1691
+      ],
+      [
+        53.63255,
+        10.17375
+      ],
+      [
+        53.633,
+        10.17997
+      ],
+      [
+        53.63025,
+        10.17881
+      ],
+      [
+        53.62917,
+        10.17591
+      ],
+      [
+        53.62678,
+        10.16906
+      ],
+      [
+        53.6222,
+        10.16529
+      ],
+      [
+        53.61846,
+        10.16044
+      ],
+      [
+        53.61404,
+        10.15567
+      ],
+      [
+        53.60739,
+        10.14973
+      ],
+      [
+        53.60424,
+        10.15299
+      ]
+    ]
+  },
+  "25": {
+    "id": "hh-bus-25",
+    "ref": "25",
+    "name": "Metrobus 25",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "Bf. Altona",
+    "to": "U Burgstra\u00dfe",
+    "stops": [
+      "Bf. Altona",
+      "Gerichtstra\u00dfe",
+      "Max-Brauer-Allee (Mitte)",
+      "S Holstenstra\u00dfe",
+      "Alsenplatz",
+      "Fruchtallee (Hamburg-Haus)",
+      "Schulweg",
+      "Goebenstra\u00dfe",
+      "Kottwitzstra\u00dfe",
+      "G\u00e4rtnerstra\u00dfe",
+      "L\u00f6wenstra\u00dfe (Facharztklinik)",
+      "UK Eppendorf",
+      "Eppendorfer Park (UKE)",
+      "Julius-Reincke-Stieg (Bethanien)",
+      "Tarpenbekstra\u00dfe",
+      "Lokstedter Weg",
+      "Eppendorfer Marktplatz",
+      "U Kellinghusenstra\u00dfe",
+      "U Hudtwalckerstra\u00dfe",
+      "Winterhuder Marktplatz",
+      "U Sierichstra\u00dfe",
+      "Dorotheenstra\u00dfe",
+      "Goldbekplatz",
+      "Gertigstra\u00dfe",
+      "Hans-Henny-Jahnn-Weg",
+      "Hebbelstra\u00dfe",
+      "Beethovenstra\u00dfe",
+      "U Mundsburg",
+      "U Uhlandstra\u00dfe",
+      "U Uhlandstra\u00dfe (G\u00fcntherstra\u00dfe)",
+      "U Wartenau",
+      "S Landwehr (Ramazan-Avci-Platz)",
+      "Bethesdastra\u00dfe",
+      "U Burgstra\u00dfe"
+    ],
+    "coordinates": [
+      [
+        53.55177,
+        9.9348
+      ],
+      [
+        53.5557,
+        9.94322
+      ],
+      [
+        53.55916,
+        9.94911
+      ],
+      [
+        53.56173,
+        9.94841
+      ],
+      [
+        53.56666,
+        9.952
+      ],
+      [
+        53.57124,
+        9.95695
+      ],
+      [
+        53.57435,
+        9.95933
+      ],
+      [
+        53.57813,
+        9.96246
+      ],
+      [
+        53.58084,
+        9.96493
+      ],
+      [
+        53.58487,
+        9.96918
+      ],
+      [
+        53.58734,
+        9.97176
+      ],
+      [
+        53.58884,
+        9.97572
+      ],
+      [
+        53.5905,
+        9.97957
+      ],
+      [
+        53.59205,
+        9.98319
+      ],
+      [
+        53.59294,
+        9.98409
+      ],
+      [
+        53.59521,
+        9.98523
+      ],
+      [
+        53.59388,
+        9.98961
+      ],
+      [
+        53.58821,
+        9.99131
+      ],
+      [
+        53.59413,
+        9.99662
+      ],
+      [
+        53.59472,
+        9.99938
+      ],
+      [
+        53.5902,
+        10.00281
+      ],
+      [
+        53.58699,
+        10.00514
+      ],
+      [
+        53.58398,
+        10.00977
+      ],
+      [
+        53.58024,
+        10.01256
+      ],
+      [
+        53.57867,
+        10.01382
+      ],
+      [
+        53.57738,
+        10.01845
+      ],
+      [
+        53.57457,
+        10.02181
+      ],
+      [
+        53.56872,
+        10.02608
+      ],
+      [
+        53.56583,
+        10.0246
+      ],
+      [
+        53.56411,
+        10.02787
+      ],
+      [
+        53.56383,
+        10.03484
+      ],
+      [
+        53.5611,
+        10.03734
+      ],
+      [
+        53.55813,
+        10.03922
+      ],
+      [
+        53.55564,
+        10.04144
+      ]
+    ]
+  },
+  "26": {
+    "id": "hh-bus-26",
+    "ref": "26",
+    "name": "Metrobus 26",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "Gewerbepark Victoria",
+    "to": "S R\u00fcbenkamp",
+    "stops": [
+      "Gewerbepark Victoria",
+      "Victoriaring",
+      "Hoffmannstieg",
+      "Prehnsweg",
+      "Sieker Landstra\u00dfe",
+      "Schweriner Stra\u00dfe",
+      "Bf. Rahlstedt (Amtsstra\u00dfe)",
+      "Liliencronpark",
+      "Forum Gymnasium Rahlstedt",
+      "Boltenhagener Stra\u00dfe",
+      "Scharbeutzer Stra\u00dfe",
+      "Rahlstedter Weg (Mitte)",
+      "U Farmsen",
+      "Tegelweg",
+      "Haldesdorfer Stra\u00dfe (Nord)",
+      "Ellernreihe (Mitte)",
+      "Steilshooper Allee",
+      "Fabriciusstra\u00dfe",
+      "Gustav-Seitz-Weg",
+      "Alfred-Mahlau-Weg",
+      "Fritz-Flinte-Ring",
+      "Gr\u00fcndgensstra\u00dfe (West)",
+      "Eichenlohweg",
+      "Hebebrandstra\u00dfe",
+      "S R\u00fcbenkamp"
+    ],
+    "coordinates": [
+      [
+        53.60359,
+        10.19326
+      ],
+      [
+        53.60269,
+        10.18791
+      ],
+      [
+        53.60316,
+        10.18045
+      ],
+      [
+        53.60458,
+        10.17536
+      ],
+      [
+        53.60561,
+        10.16855
+      ],
+      [
+        53.60505,
+        10.16216
+      ],
+      [
+        53.60384,
+        10.1534
+      ],
+      [
+        53.60096,
+        10.15324
+      ],
+      [
+        53.6004,
+        10.14275
+      ],
+      [
+        53.60009,
+        10.13638
+      ],
+      [
+        53.59988,
+        10.13184
+      ],
+      [
+        53.60284,
+        10.12767
+      ],
+      [
+        53.6072,
+        10.11748
+      ],
+      [
+        53.60581,
+        10.10599
+      ],
+      [
+        53.60739,
+        10.08984
+      ],
+      [
+        53.60847,
+        10.07944
+      ],
+      [
+        53.60869,
+        10.07126
+      ],
+      [
+        53.60859,
+        10.06693
+      ],
+      [
+        53.60872,
+        10.05947
+      ],
+      [
+        53.60994,
+        10.05367
+      ],
+      [
+        53.61066,
+        10.04932
+      ],
+      [
+        53.61178,
+        10.04493
+      ],
+      [
+        53.60819,
+        10.04438
+      ],
+      [
+        53.6084,
+        10.03795
+      ],
+      [
+        53.60762,
+        10.03316
+      ]
+    ]
+  },
+  "27": {
+    "id": "hh-bus-27",
+    "ref": "27",
+    "name": "Metrobus 27",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "S Wellingsb\u00fcttel",
+    "to": "U Billstedt",
+    "stops": [
+      "S Wellingsb\u00fcttel",
+      "Rolfinckstra\u00dfe",
+      "Waldingstra\u00dfe",
+      "Grootmoor",
+      "Gut Karlsh\u00f6he",
+      "Thomas-Mann-Stra\u00dfe",
+      "Buddenbrookweg",
+      "Karlsh\u00f6he",
+      "Stuhtsweg",
+      "Neusurenland",
+      "Pflegezentrum Farmsen",
+      "Berufsf\u00f6rderungswerk Hamburg",
+      "U Farmsen",
+      "Rahlstedter Weg (Mitte)",
+      "Paracelsusstra\u00dfe",
+      "Am Pulverhof (Mitte)",
+      "Stemmeshay",
+      "Bf. Tonndorf",
+      "Studio Hamburg",
+      "Wilsonstra\u00dfe",
+      "K\u00f6penicker Stra\u00dfe",
+      "Berliner Platz",
+      "Liegnitzer Stra\u00dfe",
+      "Schweidnitzer Stra\u00dfe",
+      "Jenfelder Stra\u00dfe",
+      "Jenfeld-Zentrum",
+      "Denksteinweg",
+      "Schiffbeker Weg",
+      "Pflegezentrum Holstenhof",
+      "R\u00fcbezahlstra\u00dfe",
+      "Aschenputtelstra\u00dfe",
+      "Fuchsbergredder",
+      "Manshardtstra\u00dfe",
+      "Prinzenweg",
+      "Meriandamm",
+      "Schiffbeker H\u00f6he",
+      "U Billstedt"
+    ],
+    "coordinates": [
+      [
+        53.64074,
+        10.08264
+      ],
+      [
+        53.63922,
+        10.09441
+      ],
+      [
+        53.63614,
+        10.10121
+      ],
+      [
+        53.63226,
+        10.10529
+      ],
+      [
+        53.62885,
+        10.10784
+      ],
+      [
+        53.62779,
+        10.11199
+      ],
+      [
+        53.62669,
+        10.11662
+      ],
+      [
+        53.62306,
+        10.11125
+      ],
+      [
+        53.61953,
+        10.11252
+      ],
+      [
+        53.61601,
+        10.11382
+      ],
+      [
+        53.61341,
+        10.11496
+      ],
+      [
+        53.61137,
+        10.11562
+      ],
+      [
+        53.60669,
+        10.11868
+      ],
+      [
+        53.60254,
+        10.12771
+      ],
+      [
+        53.59773,
+        10.13176
+      ],
+      [
+        53.59407,
+        10.13448
+      ],
+      [
+        53.59199,
+        10.13107
+      ],
+      [
+        53.58652,
+        10.12273
+      ],
+      [
+        53.58638,
+        10.12542
+      ],
+      [
+        53.58775,
+        10.12902
+      ],
+      [
+        53.58447,
+        10.13355
+      ],
+      [
+        53.58332,
+        10.14114
+      ],
+      [
+        53.57998,
+        10.13752
+      ],
+      [
+        53.57724,
+        10.13603
+      ],
+      [
+        53.57414,
+        10.13501
+      ],
+      [
+        53.57117,
+        10.13433
+      ],
+      [
+        53.57113,
+        10.13093
+      ],
+      [
+        53.57023,
+        10.12417
+      ],
+      [
+        53.56799,
+        10.12289
+      ],
+      [
+        53.56385,
+        10.12038
+      ],
+      [
+        53.56213,
+        10.11935
+      ],
+      [
+        53.56014,
+        10.11818
+      ],
+      [
+        53.55691,
+        10.11534
+      ],
+      [
+        53.55475,
+        10.11342
+      ],
+      [
+        53.55231,
+        10.11129
+      ],
+      [
+        53.54735,
+        10.10686
+      ],
+      [
+        53.54267,
+        10.10726
+      ]
+    ]
+  },
+  "28": {
+    "id": "hh-bus-28",
+    "ref": "28",
+    "name": "Metrobus 28",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "U Niendorf Markt",
+    "to": "U Wandsbek Markt",
+    "stops": [
+      "U Niendorf Markt",
+      "Vogt-Cordes-Damm",
+      "Niendorfer Stra\u00dfe",
+      "Bekst\u00fcck",
+      "Stavenhagenstra\u00dfe",
+      "Warnckesweg",
+      "Spreenende",
+      "Am Licentiatenberg",
+      "Paeplowstieg",
+      "Lufthansa-Basis (Haupteingang)",
+      "Heselst\u00fccken",
+      "Alsterkrugchaussee (Mitte)",
+      "Moltrechtweg",
+      "Brabandstra\u00dfe",
+      "Traute-Lafrenz-Stra\u00dfe",
+      "U Alsterdorf",
+      "Sydneystra\u00dfe",
+      "Manilabr\u00fccke",
+      "Kapstadtring",
+      "S R\u00fcbenkamp",
+      "Jahnbr\u00fccke",
+      "Habichtsplatz",
+      "U Habichtstra\u00dfe",
+      "Habichtstra\u00dfe (Mitte)",
+      "L\u00e4mmersieth (Nord)",
+      "U Alter Teichweg",
+      "U Stra\u00dfburger Stra\u00dfe",
+      "Wandsbeker Allee",
+      "U Wandsbek Markt"
+    ],
+    "coordinates": [
+      [
+        53.61888,
+        9.95209
+      ],
+      [
+        53.61371,
+        9.95191
+      ],
+      [
+        53.60997,
+        9.96094
+      ],
+      [
+        53.60991,
+        9.96586
+      ],
+      [
+        53.60967,
+        9.9687
+      ],
+      [
+        53.61092,
+        9.97429
+      ],
+      [
+        53.61285,
+        9.97482
+      ],
+      [
+        53.61425,
+        9.98378
+      ],
+      [
+        53.61634,
+        9.98733
+      ],
+      [
+        53.6212,
+        9.99687
+      ],
+      [
+        53.61843,
+        9.9997
+      ],
+      [
+        53.61788,
+        10.00524
+      ],
+      [
+        53.61586,
+        10.00754
+      ],
+      [
+        53.61147,
+        10.00913
+      ],
+      [
+        53.60844,
+        10.0116
+      ],
+      [
+        53.60716,
+        10.01244
+      ],
+      [
+        53.60579,
+        10.01825
+      ],
+      [
+        53.60695,
+        10.02227
+      ],
+      [
+        53.60566,
+        10.02625
+      ],
+      [
+        53.60741,
+        10.03294
+      ],
+      [
+        53.60169,
+        10.03552
+      ],
+      [
+        53.59575,
+        10.04693
+      ],
+      [
+        53.59282,
+        10.05266
+      ],
+      [
+        53.59116,
+        10.05632
+      ],
+      [
+        53.589,
+        10.06106
+      ],
+      [
+        53.58612,
+        10.06496
+      ],
+      [
+        53.58183,
+        10.06789
+      ],
+      [
+        53.57892,
+        10.0697
+      ],
+      [
+        53.57204,
+        10.06936
+      ]
+    ]
+  },
+  "29": {
+    "id": "hh-bus-29",
+    "ref": "29",
+    "name": "Metrobus 29",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "Gewerbepark Merkur",
+    "to": "Bf. Bergedorf",
+    "stops": [
+      "Gewerbepark Merkur",
+      "Neuer H\u00f6ltigbaum",
+      "Naturschutzgebiet H\u00f6ltigbaum",
+      "Neurahlstedter Graben",
+      "Waterbl\u00f6ckenwiese",
+      "Heckende",
+      "Pahlbl\u00f6ckensstieg",
+      "Schweriner Stra\u00dfe",
+      "Rahlstedt Center",
+      "Bf. Rahlstedt (Amtsstra\u00dfe)",
+      "Bf. Rahlstedt (Amtsstra\u00dfe)",
+      "Altes Rathaus Rahlstedt",
+      "Buchwaldstra\u00dfe",
+      "Amtsstra\u00dfe",
+      "Am Ohlendorffturm",
+      "Immenseeweg",
+      "Brunskamp",
+      "Sorenkoppel",
+      "Am Hegen",
+      "Geesthachter Weg",
+      "Kielkoppelstra\u00dfe",
+      "Kinderkrankenhaus Wilhelmstift",
+      "H\u00fcllenkamp",
+      "Potsdamer Stra\u00dfe",
+      "Berliner Platz",
+      "K\u00f6penicker Stra\u00dfe",
+      "Kaskadenpark",
+      "Otto-Hahn-Schule Jenfeld",
+      "Jenfelder Allee",
+      "Jenfelder Stra\u00dfe",
+      "Jenfeld-Zentrum",
+      "Hans-Rubbert-Stra\u00dfe",
+      "Fuchsbergweg",
+      "Rispengrasweg",
+      "Rehkoppel",
+      "Fuchsbergredder",
+      "Manshardtstra\u00dfe",
+      "Prinzenweg",
+      "Meriandamm",
+      "Schiffbeker H\u00f6he",
+      "U Billstedt",
+      "U Billstedt",
+      "Frobeniusweg",
+      "Billstedter M\u00fchlenweg",
+      "Lohkamp",
+      "Kirchsteinbek",
+      "Havighorster Redder (West)",
+      "M\u00fcnterweg",
+      "U M\u00fcmmelmannsberg",
+      "Steinbeker Grenzdamm",
+      "Boberg",
+      "BG Klinikum Boberg",
+      "Grandkoppel (West)",
+      "Grandkoppel",
+      "Emilie-G\u00fcnther-Weg",
+      "An der Bergkoppel",
+      "Lohbr\u00fcgger Kirchstra\u00dfe",
+      "Lohbr\u00fcgger Markt",
+      "Alte Holstenstra\u00dfe",
+      "Bf. Bergedorf"
+    ],
+    "coordinates": [
+      [
+        53.60771,
+        10.18875
+      ],
+      [
+        53.60826,
+        10.18539
+      ],
+      [
+        53.6112,
+        10.18353
+      ],
+      [
+        53.61042,
+        10.17725
+      ],
+      [
+        53.60812,
+        10.17578
+      ],
+      [
+        53.60704,
+        10.17412
+      ],
+      [
+        53.6064,
+        10.16868
+      ],
+      [
+        53.60505,
+        10.16216
+      ],
+      [
+        53.60428,
+        10.15826
+      ],
+      [
+        53.60376,
+        10.15339
+      ],
+      [
+        53.60367,
+        10.15397
+      ],
+      [
+        53.60217,
+        10.15927
+      ],
+      [
+        53.59895,
+        10.1628
+      ],
+      [
+        53.59605,
+        10.1648
+      ],
+      [
+        53.59529,
+        10.16826
+      ],
+      [
+        53.59421,
+        10.1754
+      ],
+      [
+        53.59384,
+        10.18224
+      ],
+      [
+        53.59097,
+        10.18503
+      ],
+      [
+        53.58912,
+        10.18048
+      ],
+      [
+        53.58854,
+        10.17096
+      ],
+      [
+        53.59014,
+        10.16641
+      ],
+      [
+        53.58895,
+        10.1599
+      ],
+      [
+        53.58783,
+        10.15551
+      ],
+      [
+        53.58573,
+        10.14826
+      ],
+      [
+        53.58403,
+        10.1406
+      ],
+      [
+        53.58393,
+        10.13324
+      ],
+      [
+        53.58064,
+        10.13166
+      ],
+      [
+        53.5788,
+        10.12797
+      ],
+      [
+        53.57481,
+        10.12682
+      ],
+      [
+        53.57414,
+        10.13501
+      ],
+      [
+        53.57054,
+        10.13564
+      ],
+      [
+        53.56506,
+        10.13303
+      ],
+      [
+        53.56296,
+        10.1327
+      ],
+      [
+        53.56081,
+        10.12628
+      ],
+      [
+        53.56034,
+        10.11995
+      ],
+      [
+        53.56014,
+        10.11818
+      ],
+      [
+        53.55691,
+        10.11534
+      ],
+      [
+        53.55475,
+        10.11342
+      ],
+      [
+        53.55231,
+        10.11129
+      ],
+      [
+        53.54735,
+        10.10686
+      ],
+      [
+        53.54267,
+        10.10726
+      ],
+      [
+        53.54267,
+        10.10726
+      ],
+      [
+        53.53701,
+        10.10866
+      ],
+      [
+        53.53293,
+        10.11601
+      ],
+      [
+        53.53141,
+        10.12223
+      ],
+      [
+        53.52926,
+        10.12747
+      ],
+      [
+        53.52737,
+        10.13654
+      ],
+      [
+        53.52745,
+        10.14506
+      ],
+      [
+        53.52697,
+        10.14979
+      ],
+      [
+        53.52381,
+        10.14905
+      ],
+      [
+        53.51415,
+        10.16725
+      ],
+      [
+        53.50732,
+        10.18042
+      ],
+      [
+        53.50557,
+        10.18643
+      ],
+      [
+        53.50364,
+        10.19168
+      ],
+      [
+        53.50262,
+        10.19436
+      ],
+      [
+        53.50076,
+        10.19843
+      ],
+      [
+        53.4989,
+        10.2024
+      ],
+      [
+        53.49473,
+        10.20778
+      ],
+      [
+        53.49054,
+        10.20818
+      ],
+      [
+        53.48938,
+        10.20672
+      ]
+    ]
+  },
+  "3": {
+    "id": "hh-bus-3",
+    "ref": "3",
+    "name": "Metrobus 3",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "Kraftwerk Tiefstack",
+    "to": "Schenefeld, Schenefelder Platz",
+    "stops": [
+      "Kraftwerk Tiefstack",
+      "S Tiefstack",
+      "Ausschl\u00e4ger Allee (Kfz-Verwahrstelle)",
+      "Rothenburgstra\u00dfe",
+      "Zollvereinsstra\u00dfe",
+      "Thiedingreihe",
+      "Billhorner Deich",
+      "Rothenburgsorter Marktplatz",
+      "Billhorner M\u00fchlenweg",
+      "Billhorner Br\u00fcckenstra\u00dfe",
+      "Nagelsweg",
+      "Lippeltstra\u00dfe",
+      "Spaldingstra\u00dfe",
+      "U Steinstra\u00dfe (Deichtorplatz)",
+      "HBF/Steintordamm",
+      "Hauptbahnhof/ZOB",
+      "Hauptbahnhof/ZOB",
+      "HBF/Steintordamm",
+      "HBF/M\u00f6nckebergstra\u00dfe",
+      "Gerhart-Hauptmann-Platz",
+      "Rathausmarkt",
+      "U R\u00f6dingsmarkt (Gro\u00dfer Burstah)",
+      "Axel-Springer-Platz",
+      "Bezirksamt Hamburg-Mitte",
+      "Sievekingplatz",
+      "U Feldstra\u00dfe",
+      "Neuer Pferdemarkt",
+      "Bernstorffstra\u00dfe",
+      "Sternbr\u00fccke",
+      "S Holstenstra\u00dfe",
+      "Kaltenkircher Platz",
+      "Sch\u00fctzenstra\u00dfe (Mitte)",
+      "Bornkampsweg",
+      "Von-Sauer-Stra\u00dfe",
+      "Silcherstra\u00dfe",
+      "August-Kirch-Stra\u00dfe",
+      "Trabrennbahn Bahrenfeld",
+      "Luruper Chaussee (DESY)",
+      "Stadionstra\u00dfe",
+      "Tannenberg",
+      "Rugenbarg (Nord)",
+      "Eckhoffplatz (Lurup Center)",
+      "Flurstra\u00dfe (Nord)",
+      "Luckmoor",
+      "Engelbrechtweg",
+      "Schenefeld, Schenefelder Platz"
+    ],
+    "coordinates": [
+      [
+        53.52798,
+        10.06888
+      ],
+      [
+        53.53062,
+        10.06445
+      ],
+      [
+        53.53107,
+        10.05987
+      ],
+      [
+        53.53157,
+        10.0565
+      ],
+      [
+        53.53268,
+        10.05098
+      ],
+      [
+        53.53381,
+        10.04565
+      ],
+      [
+        53.53422,
+        10.04283
+      ],
+      [
+        53.53473,
+        10.03854
+      ],
+      [
+        53.53651,
+        10.03498
+      ],
+      [
+        53.54064,
+        10.03169
+      ],
+      [
+        53.54384,
+        10.02098
+      ],
+      [
+        53.54572,
+        10.01605
+      ],
+      [
+        53.54779,
+        10.01281
+      ],
+      [
+        53.54895,
+        10.00644
+      ],
+      [
+        53.55201,
+        10.00773
+      ],
+      [
+        53.55225,
+        10.01129
+      ],
+      [
+        53.55225,
+        10.01129
+      ],
+      [
+        53.55196,
+        10.00686
+      ],
+      [
+        53.5515,
+        10.00347
+      ],
+      [
+        53.55077,
+        9.99806
+      ],
+      [
+        53.55101,
+        9.99385
+      ],
+      [
+        53.54843,
+        9.98983
+      ],
+      [
+        53.55257,
+        9.98479
+      ],
+      [
+        53.55482,
+        9.98107
+      ],
+      [
+        53.55616,
+        9.97734
+      ],
+      [
+        53.55742,
+        9.96777
+      ],
+      [
+        53.55866,
+        9.9631
+      ],
+      [
+        53.5604,
+        9.95931
+      ],
+      [
+        53.56081,
+        9.95757
+      ],
+      [
+        53.56237,
+        9.94926
+      ],
+      [
+        53.56367,
+        9.94033
+      ],
+      [
+        53.56354,
+        9.92858
+      ],
+      [
+        53.56424,
+        9.91842
+      ],
+      [
+        53.56593,
+        9.91086
+      ],
+      [
+        53.56917,
+        9.90258
+      ],
+      [
+        53.57153,
+        9.89784
+      ],
+      [
+        53.57373,
+        9.89254
+      ],
+      [
+        53.57679,
+        9.88867
+      ],
+      [
+        53.58085,
+        9.88433
+      ],
+      [
+        53.58443,
+        9.88056
+      ],
+      [
+        53.58899,
+        9.87567
+      ],
+      [
+        53.59151,
+        9.87281
+      ],
+      [
+        53.59395,
+        9.86974
+      ],
+      [
+        53.59729,
+        9.86453
+      ],
+      [
+        53.59815,
+        9.85695
+      ],
+      [
+        53.59844,
+        9.8499
+      ]
+    ]
+  },
+  "7": {
+    "id": "hh-bus-7",
+    "ref": "7",
+    "name": "Metrobus 7",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "Borchertring",
+    "to": "U S Barmbek",
+    "stops": [
+      "Borchertring",
+      "Gr\u00fcndgensstra\u00dfe (Ost)",
+      "Erich-Ziegel-Ring",
+      "Gr\u00fcndgensstra\u00dfe (Mitte)",
+      "Gustav-Seitz-Weg",
+      "Alfred-Mahlau-Weg",
+      "Schwarzer Weg",
+      "Richeystra\u00dfe",
+      "Langenfort",
+      "U Habichtstra\u00dfe (Steilshooper Stra\u00dfe)",
+      "Harzensweg",
+      "Hellbrookstra\u00dfe",
+      "U S Barmbek"
+    ],
+    "coordinates": [
+      [
+        53.61492,
+        10.06757
+      ],
+      [
+        53.61375,
+        10.06596
+      ],
+      [
+        53.61174,
+        10.06323
+      ],
+      [
+        53.61019,
+        10.06188
+      ],
+      [
+        53.60872,
+        10.05947
+      ],
+      [
+        53.60943,
+        10.05412
+      ],
+      [
+        53.60618,
+        10.05533
+      ],
+      [
+        53.60343,
+        10.05186
+      ],
+      [
+        53.59974,
+        10.05068
+      ],
+      [
+        53.59541,
+        10.05011
+      ],
+      [
+        53.59164,
+        10.04797
+      ],
+      [
+        53.59088,
+        10.04365
+      ],
+      [
+        53.58799,
+        10.04325
+      ]
+    ]
+  },
+  "8": {
+    "id": "hh-bus-8",
+    "ref": "8",
+    "name": "Metrobus 8",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "U Wandsbek Markt",
+    "to": "S Poppenb\u00fcttel (Wentzelplatz)",
+    "stops": [
+      "U Wandsbek Markt",
+      "Wendemuthstra\u00dfe",
+      "Hogrevestra\u00dfe",
+      "Gladowstra\u00dfe",
+      "Waldd\u00f6rferstra\u00dfe",
+      "Friedrich-Ebert-Damm (West)",
+      "Tilsiter Stra\u00dfe",
+      "U Wandsbek-Gartenstadt",
+      "Haldesdorfer Stra\u00dfe",
+      "Werner-Otto-Stra\u00dfe (Mitte)",
+      "Werner-Otto-Stra\u00dfe",
+      "Rahnstra\u00dfe",
+      "Steilshooper Allee",
+      "Herthastra\u00dfe",
+      "Bramfelder Dorfplatz",
+      "Berner Chaussee",
+      "K\u00f6nigsberger Stra\u00dfe",
+      "Maisredder",
+      "Am Damm",
+      "Rolfinckstra\u00dfe",
+      "Pfeilshofer Weg",
+      "Frahmredder",
+      "Stadtbahnstra\u00dfe (Mitte)",
+      "S Poppenb\u00fcttel (Wentzelplatz)"
+    ],
+    "coordinates": [
+      [
+        53.57204,
+        10.06936
+      ],
+      [
+        53.57433,
+        10.07373
+      ],
+      [
+        53.57694,
+        10.07279
+      ],
+      [
+        53.57941,
+        10.07563
+      ],
+      [
+        53.5804,
+        10.08104
+      ],
+      [
+        53.5855,
+        10.07822
+      ],
+      [
+        53.58997,
+        10.07793
+      ],
+      [
+        53.5923,
+        10.07579
+      ],
+      [
+        53.59663,
+        10.07235
+      ],
+      [
+        53.60001,
+        10.06981
+      ],
+      [
+        53.60236,
+        10.06956
+      ],
+      [
+        53.60612,
+        10.07121
+      ],
+      [
+        53.60926,
+        10.07311
+      ],
+      [
+        53.61244,
+        10.07497
+      ],
+      [
+        53.61505,
+        10.07636
+      ],
+      [
+        53.61952,
+        10.081
+      ],
+      [
+        53.62339,
+        10.08437
+      ],
+      [
+        53.62717,
+        10.08558
+      ],
+      [
+        53.63244,
+        10.08961
+      ],
+      [
+        53.63959,
+        10.09534
+      ],
+      [
+        53.64173,
+        10.09739
+      ],
+      [
+        53.64745,
+        10.10159
+      ],
+      [
+        53.64944,
+        10.09852
+      ],
+      [
+        53.65199,
+        10.09299
+      ]
+    ]
+  },
+  "9": {
+    "id": "hh-bus-9",
+    "ref": "9",
+    "name": "Metrobus 9",
+    "type": "bus",
+    "color": "#ff4d00",
+    "from": "Bf. Rahlstedt (Amtsstra\u00dfe)",
+    "to": "U Wandsbek Markt",
+    "stops": [
+      "Bf. Rahlstedt (Amtsstra\u00dfe)",
+      "Wilhelm-Grimm-Stra\u00dfe",
+      "Brockdorffstra\u00dfe",
+      "Loher Stra\u00dfe",
+      "Am Pulverhof (S\u00fcd)",
+      "Martensallee",
+      "Wilsonstra\u00dfe",
+      "Studio Hamburg",
+      "Bf. Tonndorf (Tonndorfer Hauptstra\u00dfe)",
+      "Friedhof Tonndorf",
+      "Nordmarkstra\u00dfe",
+      "\u00d6lm\u00fchlenweg (S\u00fcd)",
+      "Kurf\u00fcrstenstra\u00dfe",
+      "Eichtalstra\u00dfe",
+      "Holzm\u00fchlenstra\u00dfe",
+      "Wendemuthstra\u00dfe",
+      "U Wandsbek Markt"
+    ],
+    "coordinates": [
+      [
+        53.60381,
+        10.15397
+      ],
+      [
+        53.6004,
+        10.15622
+      ],
+      [
+        53.59698,
+        10.15292
+      ],
+      [
+        53.59405,
+        10.14502
+      ],
+      [
+        53.59199,
+        10.13605
+      ],
+      [
+        53.59055,
+        10.13372
+      ],
+      [
+        53.58817,
+        10.12984
+      ],
+      [
+        53.58638,
+        10.12542
+      ],
+      [
+        53.58568,
+        10.12335
+      ],
+      [
+        53.58293,
+        10.11348
+      ],
+      [
+        53.58193,
+        10.10962
+      ],
+      [
+        53.57993,
+        10.10129
+      ],
+      [
+        53.57881,
+        10.09497
+      ],
+      [
+        53.57798,
+        10.08903
+      ],
+      [
+        53.57661,
+        10.0817
+      ],
+      [
+        53.57433,
+        10.07373
+      ],
+      [
+        53.57204,
+        10.06936
+      ]
+    ]
+  },
+  "X22": {
+    "id": "hh-bus-x22",
+    "ref": "X22",
+    "name": "Expressbus X22",
+    "type": "bus",
+    "color": "#009944",
+    "from": "U Hagenbecks Tierpark",
+    "to": "Jenfeld-Zentrum",
+    "stops": [
+      "U Hagenbecks Tierpark",
+      "Siemersplatz",
+      "Lokstedter Weg",
+      "Eppendorfer Marktplatz",
+      "U Hudtwalckerstra\u00dfe",
+      "Winterhuder Marktplatz",
+      "Maria-Louisen-Stra\u00dfe (Nord)",
+      "Semperstra\u00dfe",
+      "Flotowstra\u00dfe",
+      "Biedermannplatz",
+      "U Hamburger Stra\u00dfe",
+      "Eilbeker Weg",
+      "U S Wandsbeker Chaussee",
+      "U Wandsbek Markt",
+      "Universit\u00e4t der Bundeswehr",
+      "Schiffbeker Weg",
+      "Jenfeld-Zentrum"
+    ],
+    "coordinates": [
+      [
+        53.59331,
+        9.94421
+      ],
+      [
+        53.59955,
+        9.96473
+      ],
+      [
+        53.59521,
+        9.98523
+      ],
+      [
+        53.59388,
+        9.98961
+      ],
+      [
+        53.59413,
+        9.99662
+      ],
+      [
+        53.59472,
+        9.99938
+      ],
+      [
+        53.59137,
+        10.00731
+      ],
+      [
+        53.58641,
+        10.01752
+      ],
+      [
+        53.5806,
+        10.02621
+      ],
+      [
+        53.57887,
+        10.03228
+      ],
+      [
+        53.5746,
+        10.03614
+      ],
+      [
+        53.56855,
+        10.04356
+      ],
+      [
+        53.56992,
+        10.05847
+      ],
+      [
+        53.57204,
+        10.06936
+      ],
+      [
+        53.57056,
+        10.10622
+      ],
+      [
+        53.57098,
+        10.12575
+      ],
+      [
+        53.57087,
+        10.13691
+      ]
+    ]
+  },
+  "X3": {
+    "id": "hh-bus-x3",
+    "ref": "X3",
+    "name": "Expressbus X3",
+    "type": "bus",
+    "color": "#009944",
+    "from": "U Me\u00dfberg",
+    "to": "Schenefeld, Schenefelder Platz",
+    "stops": [
+      "U Me\u00dfberg",
+      "Speersort",
+      "U S Jungfernstieg",
+      "U G\u00e4nsemarkt",
+      "U Feldstra\u00dfe",
+      "S Holstenstra\u00dfe",
+      "Sch\u00fctzenstra\u00dfe (Mitte)",
+      "Von-Sauer-Stra\u00dfe",
+      "Trabrennbahn Bahrenfeld",
+      "Luruper Chaussee (DESY)",
+      "Stadionstra\u00dfe",
+      "Kressenweg",
+      "Immenbusch",
+      "Achtern Born",
+      "B\u00f6ttcherkamp",
+      "Schenefeld, Schenefelder Platz"
+    ],
+    "coordinates": [
+      [
+        53.54756,
+        10.00332
+      ],
+      [
+        53.54966,
+        9.99627
+      ],
+      [
+        53.554,
+        9.99143
+      ],
+      [
+        53.55533,
+        9.98865
+      ],
+      [
+        53.55742,
+        9.96777
+      ],
+      [
+        53.56237,
+        9.94926
+      ],
+      [
+        53.56354,
+        9.92858
+      ],
+      [
+        53.56593,
+        9.91086
+      ],
+      [
+        53.57365,
+        9.89198
+      ],
+      [
+        53.57679,
+        9.88867
+      ],
+      [
+        53.58085,
+        9.88433
+      ],
+      [
+        53.58656,
+        9.87289
+      ],
+      [
+        53.58441,
+        9.85266
+      ],
+      [
+        53.5882,
+        9.85211
+      ],
+      [
+        53.59269,
+        9.85293
+      ],
+      [
+        53.59873,
+        9.84992
+      ]
+    ]
+  },
+  "X30": {
+    "id": "hh-bus-x30",
+    "ref": "X30",
+    "name": "Expressbus X30",
+    "type": "bus",
+    "color": "#009944",
+    "from": "S Harburg Rathaus (H\u00f6lertwiete)",
+    "to": "Bf. Bergedorf",
+    "stops": [
+      "S Harburg Rathaus (H\u00f6lertwiete)",
+      "S Harburg Rathaus (Ei\u00dfendorfer Stra\u00dfe)",
+      "Knoopstra\u00dfe/Bremer Stra\u00dfe",
+      "Moorstra\u00dfe (Phoenix-Center)",
+      "Felix-Jud-Ring (Mitte)",
+      "Michael-Pritzl-Weg",
+      "Von-Scheliha-Stra\u00dfe",
+      "S Nettelnburg (S\u00fcdeingang)",
+      "Oberer Landweg (Eisenbahnbr\u00fccke)",
+      "Kurt-A.-K\u00f6rber-Chaussee (Ost)",
+      "Bf. Bergedorf"
+    ],
+    "coordinates": [
+      [
+        53.46154,
+        9.98203
+      ],
+      [
+        53.45996,
+        9.97707
+      ],
+      [
+        53.45808,
+        9.98101
+      ],
+      [
+        53.45691,
+        9.98635
+      ],
+      [
+        53.48132,
+        10.15407
+      ],
+      [
+        53.4809,
+        10.15725
+      ],
+      [
+        53.48546,
+        10.16287
+      ],
+      [
+        53.48665,
+        10.17933
+      ],
+      [
+        53.48806,
+        10.18592
+      ],
+      [
+        53.4889,
+        10.1975
+      ],
+      [
+        53.48943,
+        10.20626
+      ]
+    ]
+  },
+  "X80": {
+    "id": "hh-bus-x80",
+    "ref": "X80",
+    "name": "Expressbus X80",
+    "type": "bus",
+    "color": "#009944",
+    "from": "Lauenburg, ZOB",
+    "to": "U R\u00f6dingsmarkt (Gro\u00dfer Burstah)",
+    "stops": [
+      "Lauenburg, ZOB",
+      "Lauenburg, Albinusstra\u00dfe",
+      "Lauenburg, Sportplatz",
+      "Lauenburg, Birnbaumkamp",
+      "Gl\u00fcsing, Berliner Stra\u00dfe",
+      "Schnakenbek, Twiete",
+      "Gr\u00fcnhof, Krukower Weg",
+      "Gr\u00fcnhof, Steinberg",
+      "Geesthacht, Gr\u00fcner J\u00e4ger",
+      "Geesthacht, Waldfriedhof",
+      "Geesthacht, Jugendherberge",
+      "Geesthacht, Berliner Stra\u00dfe",
+      "Geesthacht, ZOB",
+      "Geesthacht, An der Post",
+      "Geesthacht, D\u00fcneberger Stra\u00dfe",
+      "Geesthacht, Sch\u00e4ferstrift",
+      "Geesthacht, Besenhorst",
+      "Lehfeld",
+      "Bf. Bergedorf",
+      "Sander Markt",
+      "Lohbr\u00fcgger Markt",
+      "Lohbr\u00fcgger Kirchstra\u00dfe",
+      "Grandkoppel",
+      "BG Klinikum Boberg",
+      "Boberg",
+      "Billstedter Hauptstra\u00dfe",
+      "Bauerberg",
+      "U Burgstra\u00dfe",
+      "Borgfelder Stra\u00dfe",
+      "U S Berliner Tor (Beim Strohhause)",
+      "Hauptbahnhof/ZOB",
+      "HBF/Steintordamm",
+      "Gerhart-Hauptmann-Platz",
+      "Rathausmarkt",
+      "U R\u00f6dingsmarkt (Gro\u00dfer Burstah)"
+    ],
+    "coordinates": [
+      [
+        53.37326,
+        10.55413
+      ],
+      [
+        53.37417,
+        10.54588
+      ],
+      [
+        53.37329,
+        10.53496
+      ],
+      [
+        53.3738,
+        10.52835
+      ],
+      [
+        53.37687,
+        10.51618
+      ],
+      [
+        53.38568,
+        10.50373
+      ],
+      [
+        53.40934,
+        10.44476
+      ],
+      [
+        53.41213,
+        10.44058
+      ],
+      [
+        53.42425,
+        10.41785
+      ],
+      [
+        53.42959,
+        10.39626
+      ],
+      [
+        53.43139,
+        10.39072
+      ],
+      [
+        53.43592,
+        10.38453
+      ],
+      [
+        53.436,
+        10.37322
+      ],
+      [
+        53.43862,
+        10.36768
+      ],
+      [
+        53.44437,
+        10.36283
+      ],
+      [
+        53.45009,
+        10.35925
+      ],
+      [
+        53.45496,
+        10.34904
+      ],
+      [
+        53.48087,
+        10.20803
+      ],
+      [
+        53.4896,
+        10.20659
+      ],
+      [
+        53.49265,
+        10.20859
+      ],
+      [
+        53.49479,
+        10.20787
+      ],
+      [
+        53.49857,
+        10.203
+      ],
+      [
+        53.5047,
+        10.18885
+      ],
+      [
+        53.50771,
+        10.17994
+      ],
+      [
+        53.51448,
+        10.16734
+      ],
+      [
+        53.54069,
+        10.10013
+      ],
+      [
+        53.55046,
+        10.07797
+      ],
+      [
+        53.55564,
+        10.04144
+      ],
+      [
+        53.5547,
+        10.03311
+      ],
+      [
+        53.55341,
+        10.0242
+      ],
+      [
+        53.55234,
+        10.01042
+      ],
+      [
+        53.55196,
+        10.00686
+      ],
+      [
+        53.55077,
+        9.99806
+      ],
+      [
+        53.55101,
+        9.99385
+      ],
+      [
+        53.54843,
+        9.98983
+      ]
+    ]
+  },
+
   "4": {
     "id": "hh-line-mb4",
     "ref": "4",

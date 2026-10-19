@@ -21,6 +21,7 @@ interface OSINTMapProps {
   allRoutes?: Record<string, TransitLineRoute>;
   activeCity?: 'H' | 'HH';
   onSelectLineRoute?: (route: TransitLineRoute) => void;
+  hoveredLineRef?: string | null;
 }
 
 export const OSINTMap: React.FC<OSINTMapProps> = ({
@@ -38,7 +39,8 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
   onSelectStationStop,
   allRoutes = {},
   activeCity: _activeCity = 'H',
-  onSelectLineRoute
+  onSelectLineRoute,
+  hoveredLineRef = null
 }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
@@ -47,6 +49,7 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
   const markerLayerGroupRef = useRef<L.LayerGroup | null>(null);
   const overpassLayerGroupRef = useRef<L.LayerGroup | null>(null);
   const networkLayerGroupRef = useRef<L.LayerGroup | null>(null);
+  const hoveredPreviewLayerGroupRef = useRef<L.LayerGroup | null>(null);
   const routeLayerGroupRef = useRef<L.LayerGroup | null>(null);
 
   const [showAllLines, setShowAllLines] = useState<boolean>(true);
@@ -245,6 +248,9 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
     const networkGroup = L.layerGroup().addTo(map);
     networkLayerGroupRef.current = networkGroup;
 
+    const hoveredPreviewGroup = L.layerGroup().addTo(map);
+    hoveredPreviewLayerGroupRef.current = hoveredPreviewGroup;
+
     const routeGroup = L.layerGroup().addTo(map);
     routeLayerGroupRef.current = routeGroup;
 
@@ -359,6 +365,75 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
       networkLayerGroupRef.current?.addLayer(polyline);
     });
   }, [allRoutes, showAllLines, activeRoute, onSelectLineRoute]);
+
+  // Render Hovered Line Preview from Cockpit Guided Stepper
+  useEffect(() => {
+    if (!mapInstanceRef.current || !hoveredPreviewLayerGroupRef.current) return;
+
+    hoveredPreviewLayerGroupRef.current.clearLayers();
+
+    if (!hoveredLineRef) return;
+
+    const route = allRoutes[hoveredLineRef];
+    if (!route || !route.coordinates || route.coordinates.length < 2) return;
+
+    // Don't render preview if it's already the active route
+    if (activeRoute?.ref === route.ref) return;
+
+    const latLngs = route.coordinates.map(c => [c[0], c[1]] as [number, number]);
+    const lineColor = route.color || '#ff8000';
+
+    // Outer Glow
+    const glowLine = L.polyline(latLngs, {
+      color: '#ffffff',
+      weight: 8,
+      opacity: 0.9,
+      lineCap: 'round',
+      lineJoin: 'round',
+    });
+
+    // Core Highlight Line
+    const coreLine = L.polyline(latLngs, {
+      color: lineColor,
+      weight: 5,
+      opacity: 1,
+      dashArray: '6, 4',
+      lineCap: 'round',
+      lineJoin: 'round',
+    });
+
+    hoveredPreviewLayerGroupRef.current.addLayer(glowLine);
+    hoveredPreviewLayerGroupRef.current.addLayer(coreLine);
+
+    // Add start and end station markers
+    if (latLngs.length > 0) {
+      const startMarker = L.circleMarker(latLngs[0], {
+        radius: 6,
+        fillColor: lineColor,
+        color: '#ffffff',
+        weight: 2,
+        fillOpacity: 1,
+      });
+      startMarker.bindTooltip(`<strong>${route.name}</strong>: ${route.from}`, {
+        direction: 'top',
+        className: 'osint-route-tooltip'
+      });
+      hoveredPreviewLayerGroupRef.current.addLayer(startMarker);
+
+      const endMarker = L.circleMarker(latLngs[latLngs.length - 1], {
+        radius: 6,
+        fillColor: lineColor,
+        color: '#ffffff',
+        weight: 2,
+        fillOpacity: 1,
+      });
+      endMarker.bindTooltip(`<strong>${route.name}</strong>: ${route.to}`, {
+        direction: 'top',
+        className: 'osint-route-tooltip'
+      });
+      hoveredPreviewLayerGroupRef.current.addLayer(endMarker);
+    }
+  }, [hoveredLineRef, allRoutes, activeRoute]);
   useEffect(() => {
     if (!mapInstanceRef.current || !routeLayerGroupRef.current) return;
 

@@ -53,6 +53,9 @@ export const App: React.FC = () => {
   // Active Line Route displayed on Map (e.g. Stadtbahn 1, 4, 6, U1, U3, S4, etc.)
   const [activeRoute, setActiveRoute] = useState<TransitLineRoute | null>(null);
 
+  // Line hovered in Guided Stepper
+  const [hoveredLineRef, setHoveredLineRef] = useState<string | null>(null);
+
   // Active Transit Stop for Live Departures
   const [selectedTransitStop, setSelectedTransitStop] = useState<TransitStop | null>(null);
 
@@ -243,6 +246,7 @@ export const App: React.FC = () => {
               setActiveRoute(route);
               setIsTransitCockpitOpen(true);
             }}
+            hoveredLineRef={hoveredLineRef}
           />
 
           {/* Floating Re-Open Button für das Transit-Cockpit falls geschlossen */}
@@ -281,6 +285,7 @@ export const App: React.FC = () => {
             onSelectTransitStop={(stop) => setSelectedTransitStop(stop)}
             onFlyToStation={handleFlyToStation}
             onOpenLiveDelays={() => setIsLiveDelaysModalOpen(true)}
+            onHoverLine={(lineRef) => setHoveredLineRef(lineRef)}
           />
         </div>
       </div>

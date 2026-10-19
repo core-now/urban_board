@@ -29,14 +29,14 @@ export interface LineSchedule {
   directionA: {
     origin: string;
     destination: string;
-    totalMinutes: number;
+    totalMinutes?: number;
     baseMinuteDepartures: number[];
     stops: ScheduleStopItem[];
   };
   directionB: {
     origin: string;
     destination: string;
-    totalMinutes: number;
+    totalMinutes?: number;
     baseMinuteDepartures: number[];
     stops: ScheduleStopItem[];
   };
@@ -6901,6 +6901,9532 @@ export const HANNOVER_SCHEDULES: Record<string, LineSchedule> = {
 };
 
 export const HAMBURG_SCHEDULES: Record<string, LineSchedule> = {
+"1": {
+    "lineRef": "1",
+    "lineName": "Metrobus 1",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "S Rissen \u21c4 Bf. Altona",
+    "directionA": {
+      "origin": "S Rissen",
+      "destination": "Bf. Altona",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "S Rissen",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schule Marschweg",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kl\u00f6vensteenweg (S\u00fcd)",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Suurheid",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Asklepios Westklinikum (West)",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Asklepios Westklinikum (Mitte)",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Asklepios Westklinikum (Ost)",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bahn\u00fcbergang Sieversst\u00fccken",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sieversst\u00fccken",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wittland (S S\u00fclldorf)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Anne-Frank-Stra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kr\u00e4henhorst",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Karstenstra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Blankenese",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "M\u00fchlenberg",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Frahmstra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Grotefendweg",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Darbovenstieg",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S\u00fclldorfer Landstra\u00dfe",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Pieperweg",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Holtbarg",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefelder Holt",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Heerbrook",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Botterbarg",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Isfeldstra\u00dfe",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langelohstra\u00dfe (Nord)",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Knabeweg",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Elbe-Einkaufszentrum",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Windm\u00fchlenweg",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flottbeker Drift",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Zum H\u00fcnengrab (DESY)",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stutsmoor",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Trabrennbahn Bahrenfeld",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ebertallee",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "B\u00f6cklinstra\u00dfe",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Othmarschen",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "R\u00f6pers Weide",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Behringstra\u00dfe (AK Altona)",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "AK Altona (Eingang)",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Behringstra\u00dfe (AK Altona)",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Griegstra\u00dfe",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kreuzkirche Ottensen",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bleickenallee (Kinderkrankenhaus)",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gro\u00dfe Brunnenstra\u00dfe",
+          "minuteOffset": 86,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bahrenfelder Stra\u00dfe",
+          "minuteOffset": 88,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 90,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Bf. Altona",
+      "destination": "S Rissen",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bahrenfelder Stra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gro\u00dfe Brunnenstra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bleickenallee (Kinderkrankenhaus)",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kreuzkirche Ottensen",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Griegstra\u00dfe",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Behringstra\u00dfe (AK Altona)",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "AK Altona (Eingang)",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Behringstra\u00dfe (AK Altona)",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "R\u00f6pers Weide",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Othmarschen",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "B\u00f6cklinstra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ebertallee",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Trabrennbahn Bahrenfeld",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stutsmoor",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Zum H\u00fcnengrab (DESY)",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flottbeker Drift",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Windm\u00fchlenweg",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Elbe-Einkaufszentrum",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Knabeweg",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langelohstra\u00dfe (Nord)",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Isfeldstra\u00dfe",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Botterbarg",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Heerbrook",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefelder Holt",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Holtbarg",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Pieperweg",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S\u00fclldorfer Landstra\u00dfe",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Darbovenstieg",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Grotefendweg",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Frahmstra\u00dfe",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "M\u00fchlenberg",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Blankenese",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Karstenstra\u00dfe",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kr\u00e4henhorst",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Anne-Frank-Stra\u00dfe",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wittland (S S\u00fclldorf)",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sieversst\u00fccken",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bahn\u00fcbergang Sieversst\u00fccken",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Asklepios Westklinikum (Ost)",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Asklepios Westklinikum (Mitte)",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Asklepios Westklinikum (West)",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Suurheid",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kl\u00f6vensteenweg (S\u00fcd)",
+          "minuteOffset": 86,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schule Marschweg",
+          "minuteOffset": 88,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Rissen",
+          "minuteOffset": 90,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "10": {
+    "lineRef": "10",
+    "lineName": "Metrobus 10",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "Grunewaldstra\u00dfe \u21c4 U Wandsbek Markt",
+    "directionA": {
+      "origin": "Grunewaldstra\u00dfe",
+      "destination": "U Wandsbek Markt",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "Grunewaldstra\u00dfe",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Glatzer Stra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bekkamp",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bekkampsweg",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfelder Stra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfeld-Zentrum",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Denksteinweg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schiffbeker Weg",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Hohen Feld",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Universit\u00e4t der Bundeswehr",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Osterkamp",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "AK Wandsbek",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bovestra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schatzmeisterstra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Zieseni\u00dfstra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "U Wandsbek Markt",
+      "destination": "Grunewaldstra\u00dfe",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Zieseni\u00dfstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schatzmeisterstra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bovestra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "AK Wandsbek",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Osterkamp",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Universit\u00e4t der Bundeswehr",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Hohen Feld",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schiffbeker Weg",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Denksteinweg",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfeld-Zentrum",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfelder Stra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bekkampsweg",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bekkamp",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Glatzer Stra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Grunewaldstra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "11": {
+    "lineRef": "11",
+    "lineName": "Metrobus 11",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "U Wandsbek Markt \u21c4 Sorenkoppel",
+    "directionA": {
+      "origin": "U Wandsbek Markt",
+      "destination": "Sorenkoppel",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Josephstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kedenburgstra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Birtstra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Neumarkt 63",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ziethenstra\u00dfe",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schimmelmannstra\u00dfe (Mitte)",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Asserstieg",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Jenfelder Moor",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Albert-Schweitzer-Ring",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kuehnstra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "K\u00f6penicker Stra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Berliner Platz",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Potsdamer Stra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "H\u00fcllenkamp",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kinderkrankenhaus Wilhelmstift",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kielkoppelstra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthachter Weg",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Hegen",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sorenkoppel",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Sorenkoppel",
+      "destination": "U Wandsbek Markt",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Sorenkoppel",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Hegen",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthachter Weg",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kielkoppelstra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kinderkrankenhaus Wilhelmstift",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "H\u00fcllenkamp",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Potsdamer Stra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Berliner Platz",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "K\u00f6penicker Stra\u00dfe",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kuehnstra\u00dfe",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Albert-Schweitzer-Ring",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Jenfelder Moor",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Asserstieg",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schimmelmannstra\u00dfe (Mitte)",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ziethenstra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Neumarkt 63",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Birtstra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kedenburgstra\u00dfe",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Josephstra\u00dfe",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "12": {
+    "lineRef": "12",
+    "lineName": "Metrobus 12",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "S Blankenese \u21c4 Osterbrookplatz",
+    "directionA": {
+      "origin": "S Blankenese",
+      "destination": "Osterbrookplatz",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "S Blankenese",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "M\u00fchlenberg",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Winckelmannstra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sieberlingstra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Elbschlo\u00dfstra\u00dfe (Seegerichtshof)",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Teufelsbr\u00fcck (F\u00e4hre)",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Holztwiete",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Zedernweg",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Halbmondsweg",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Liebermannstra\u00dfe",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hohenzollernring (S\u00fcd)",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fischers Allee",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rothestra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathaus Altona",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Altonaer Poststra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gro\u00dfe Bergstra\u00dfe",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bl\u00fccherstra\u00dfe",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Reeperbahn",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Davidstra\u00dfe",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U St. Pauli",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Museum f\u00fcr Hamburgische Geschichte",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Handwerkskammer",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Johannes-Brahms-Platz",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Stephansplatz",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kunsthalle",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Spitalerstra\u00dfe",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Steinstra\u00dfe (Deichtorplatz)",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Repsoldstra\u00dfe",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Albertstra\u00dfe",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Hammerbrook (Nord)",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Hammerbrook (S\u00fcd)",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S\u00fcderstra\u00dfe",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ausschl\u00e4ger Weg (LBV)",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Luisenweg",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schadesweg",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Osterbrookplatz",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Osterbrookplatz",
+      "destination": "S Blankenese",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Osterbrookplatz",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schadesweg",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Luisenweg",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ausschl\u00e4ger Weg (LBV)",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S\u00fcderstra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Hammerbrook (S\u00fcd)",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Hammerbrook (Nord)",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Albertstra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Repsoldstra\u00dfe",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Steinstra\u00dfe (Deichtorplatz)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Spitalerstra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kunsthalle",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Stephansplatz",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Johannes-Brahms-Platz",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Handwerkskammer",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Museum f\u00fcr Hamburgische Geschichte",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U St. Pauli",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Davidstra\u00dfe",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Reeperbahn",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bl\u00fccherstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gro\u00dfe Bergstra\u00dfe",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Altonaer Poststra\u00dfe",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathaus Altona",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rothestra\u00dfe",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fischers Allee",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hohenzollernring (S\u00fcd)",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Liebermannstra\u00dfe",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Halbmondsweg",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Zedernweg",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Holztwiete",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Teufelsbr\u00fcck (F\u00e4hre)",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Elbschlo\u00dfstra\u00dfe (Seegerichtshof)",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sieberlingstra\u00dfe",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Winckelmannstra\u00dfe",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "M\u00fchlenberg",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Blankenese",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "13": {
+    "lineRef": "13",
+    "lineName": "Metrobus 13",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "S Veddel \u21c4 Kirchdorf (S\u00fcd)",
+    "directionA": {
+      "origin": "S Veddel",
+      "destination": "Kirchdorf (S\u00fcd)",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "S Veddel",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Harburger Chaussee",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Werkcentrum Elbinsel",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vogelh\u00fcttendeich",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "St\u00fcbenplatz",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Mannesallee",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Veringstra\u00dfe (Mitte)",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Veringstra\u00dfe (S\u00fcd)",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rotenh\u00e4user Stra\u00dfe (West)",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Mengestra\u00dfe",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathaus Wilhelmsburg",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Dratelnstra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Inselpark",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Wilhelmsburg",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Neuenfelder Stra\u00dfe (Schule)",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kirchdorfer Stra\u00dfe (Museum Elbinsel)",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Karl-Arnold-Ring",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kirchdorf (S\u00fcd)",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Kirchdorf (S\u00fcd)",
+      "destination": "S Veddel",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Kirchdorf (S\u00fcd)",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Karl-Arnold-Ring",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kirchdorfer Stra\u00dfe (Museum Elbinsel)",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Neuenfelder Stra\u00dfe (Schule)",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Wilhelmsburg",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Inselpark",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Dratelnstra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathaus Wilhelmsburg",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Mengestra\u00dfe",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rotenh\u00e4user Stra\u00dfe (West)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Veringstra\u00dfe (S\u00fcd)",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Veringstra\u00dfe (Mitte)",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Mannesallee",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "St\u00fcbenplatz",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vogelh\u00fcttendeich",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Werkcentrum Elbinsel",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Harburger Chaussee",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Veddel",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "15": {
+    "lineRef": "15",
+    "lineName": "Metrobus 15",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "S Othmarschen \u21c4 Alsterchaussee",
+    "directionA": {
+      "origin": "S Othmarschen",
+      "destination": "Alsterchaussee",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "S Othmarschen",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Emkendorfstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Reventlowstra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Agathe-Lasch-Weg",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ernst-August-Stra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wrangelpark",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Philosophenweg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hohenzollernring",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fischers Allee",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rothestra\u00dfe",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathaus Altona",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gerichtstra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Max-Brauer-Allee (Mitte)",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sternbr\u00fccke",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schulterblatt",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Weidenallee",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Schlump",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bundesstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bezirksamt Eimsb\u00fcttel",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Parkallee",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Hallerstra\u00dfe",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alsterchaussee",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Alsterchaussee",
+      "destination": "S Othmarschen",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Alsterchaussee",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Hallerstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Parkallee",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bezirksamt Eimsb\u00fcttel",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bundesstra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Schlump",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Weidenallee",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schulterblatt",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sternbr\u00fccke",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Max-Brauer-Allee (Mitte)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gerichtstra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathaus Altona",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rothestra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fischers Allee",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hohenzollernring",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Philosophenweg",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wrangelpark",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ernst-August-Stra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Agathe-Lasch-Weg",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Reventlowstra\u00dfe",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Emkendorfstra\u00dfe",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Othmarschen",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "16": {
+    "lineRef": "16",
+    "lineName": "Metrobus 16",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "Elbe-Einkaufszentrum \u21c4 Rentenversicherung Nord",
+    "directionA": {
+      "origin": "Elbe-Einkaufszentrum",
+      "destination": "Rentenversicherung Nord",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "Elbe-Einkaufszentrum",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ostermeyerstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hemmingstedter Weg",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bertha-Uhl-Kamp",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flottbeker Kirche",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kalckreuthweg (Mitte)",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Osdorfer Weg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bahrenfelder Marktplatz",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "H\u00e4ndelstra\u00dfe",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Bahrenfeld",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gr\u00fcnebergstra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Daimlerstra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Zeisehallen",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gro\u00dfe Rainstra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Altonaer Poststra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gro\u00dfe Bergstra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bl\u00fccherstra\u00dfe",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Reeperbahn",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Davidstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U St. Pauli",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Michaeliskirche",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Domstra\u00dfe",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Speersort",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jakobikirchhof",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Steintordamm",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hauptbahnhof/ZOB",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "B\u00f6ckmannstra\u00dfe",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Lohm\u00fchlenstra\u00dfe",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U L\u00fcbecker Stra\u00dfe",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wartenau",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Richardstra\u00dfe",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eilbeker Weg",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Maxstra\u00dfe",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Seumestra\u00dfe",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Friedrichsberg",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Krausestra\u00dfe",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stra\u00dfburger Platz",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Stra\u00dfburger Stra\u00dfe",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eulenkamp",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Friedrich-Ebert-Damm (West)",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stephanstra\u00dfe",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Helbingtwiete",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Stadtrand",
+          "minuteOffset": 86,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sylter Weg",
+          "minuteOffset": 88,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rentenversicherung Nord",
+          "minuteOffset": 90,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Rentenversicherung Nord",
+      "destination": "Elbe-Einkaufszentrum",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Rentenversicherung Nord",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sylter Weg",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Stadtrand",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Helbingtwiete",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stephanstra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Friedrich-Ebert-Damm (West)",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eulenkamp",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Stra\u00dfburger Stra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stra\u00dfburger Platz",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Krausestra\u00dfe",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Friedrichsberg",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Seumestra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Maxstra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eilbeker Weg",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Richardstra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wartenau",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U L\u00fcbecker Stra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Lohm\u00fchlenstra\u00dfe",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "B\u00f6ckmannstra\u00dfe",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hauptbahnhof/ZOB",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Steintordamm",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jakobikirchhof",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Speersort",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Domstra\u00dfe",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Michaeliskirche",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U St. Pauli",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Davidstra\u00dfe",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Reeperbahn",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bl\u00fccherstra\u00dfe",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gro\u00dfe Bergstra\u00dfe",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Altonaer Poststra\u00dfe",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gro\u00dfe Rainstra\u00dfe",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Zeisehallen",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Daimlerstra\u00dfe",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gr\u00fcnebergstra\u00dfe",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Bahrenfeld",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "H\u00e4ndelstra\u00dfe",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bahrenfelder Marktplatz",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Osdorfer Weg",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kalckreuthweg (Mitte)",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flottbeker Kirche",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bertha-Uhl-Kamp",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hemmingstedter Weg",
+          "minuteOffset": 86,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ostermeyerstra\u00dfe",
+          "minuteOffset": 88,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Elbe-Einkaufszentrum",
+          "minuteOffset": 90,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "18": {
+    "lineRef": "18",
+    "lineName": "Metrobus 18",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "Hauptbahnhof/ZOB \u21c4 Am St\u00fchm-S\u00fcd",
+    "directionA": {
+      "origin": "Hauptbahnhof/ZOB",
+      "destination": "Am St\u00fchm-S\u00fcd",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "Hauptbahnhof/ZOB",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Kirchenallee",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gurlittstra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "AK St. Georg",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Graumannsweg",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Mundsburger Br\u00fccke",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Mundsburg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Beethovenstra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bartholom\u00e4us-Therme",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Biedermannplatz",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Brucknerstra\u00dfe (Arbeitsgerichte)",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Saarlandstra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Burmesterstra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Barmbek",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wachtelstra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Habichtstra\u00dfe (Mitte)",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Heinrich-Helbing-Stra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bauernrosenweg",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Werner-Otto-Stra\u00dfe",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rahnstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Steilshooper Allee",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Herthastra\u00dfe",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bramfelder Dorfplatz",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Berner Chaussee",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "N\u00fc\u00dflerkamp",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hohnerkamp (Mitte)",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gumbinner Kehre",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am St\u00fchm-S\u00fcd",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Am St\u00fchm-S\u00fcd",
+      "destination": "Hauptbahnhof/ZOB",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Am St\u00fchm-S\u00fcd",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gumbinner Kehre",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hohnerkamp (Mitte)",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "N\u00fc\u00dflerkamp",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Berner Chaussee",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bramfelder Dorfplatz",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Herthastra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Steilshooper Allee",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rahnstra\u00dfe",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Werner-Otto-Stra\u00dfe",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bauernrosenweg",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Heinrich-Helbing-Stra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Habichtstra\u00dfe (Mitte)",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wachtelstra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Barmbek",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Burmesterstra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Saarlandstra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Brucknerstra\u00dfe (Arbeitsgerichte)",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Biedermannplatz",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bartholom\u00e4us-Therme",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Beethovenstra\u00dfe",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Mundsburg",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Mundsburger Br\u00fccke",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Graumannsweg",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "AK St. Georg",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gurlittstra\u00dfe",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Kirchenallee",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hauptbahnhof/ZOB",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "2": {
+    "lineRef": "2",
+    "lineName": "Metrobus 2",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "U S Berliner Tor (Beim Strohhause) \u21c4 Schenefeld, Achterndiek",
+    "directionA": {
+      "origin": "U S Berliner Tor (Beim Strohhause)",
+      "destination": "Schenefeld, Achterndiek",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "U S Berliner Tor (Beim Strohhause)",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kurt-Schumacher-Allee",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hauptbahnhof/ZOB",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Steintordamm",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Steinstra\u00dfe (Deichtorplatz)",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ericusspitze",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Singapurstra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Sandtorkai",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Kaiserkai (Elbphilharmonie)",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Baumwall",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rambachstra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Landungsbr\u00fccken",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "St. Pauli Hafenstra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hafentreppe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fischmarkt",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Behnstra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathaus Altona",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gro\u00dfe Rainstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hohenesch",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Ottensen",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Celsiusweg",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bornkampsweg",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Von-Sauer-Stra\u00dfe",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Silcherstra\u00dfe",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "August-Kirch-Stra\u00dfe",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Trabrennbahn Bahrenfeld",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Luruper Chaussee (DESY)",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stadionstra\u00dfe",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tannenberg",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rugenbarg (Nord)",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eckhoffplatz (Lurup Center)",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flurstra\u00dfe (Nord)",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Luckmoor",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Engelbrechtweg",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Schenefelder Platz",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Parkstieg",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Stadtzentrum",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Borgfelde",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Dorfplatz",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, In de Masch",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Achterndiek",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Schenefeld, Achterndiek",
+      "destination": "U S Berliner Tor (Beim Strohhause)",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Schenefeld, Achterndiek",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, In de Masch",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Dorfplatz",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Borgfelde",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Stadtzentrum",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Parkstieg",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Schenefelder Platz",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Engelbrechtweg",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Luckmoor",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flurstra\u00dfe (Nord)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eckhoffplatz (Lurup Center)",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rugenbarg (Nord)",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tannenberg",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stadionstra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Luruper Chaussee (DESY)",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Trabrennbahn Bahrenfeld",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "August-Kirch-Stra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Silcherstra\u00dfe",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Von-Sauer-Stra\u00dfe",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bornkampsweg",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Celsiusweg",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Ottensen",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hohenesch",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gro\u00dfe Rainstra\u00dfe",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathaus Altona",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Behnstra\u00dfe",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fischmarkt",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hafentreppe",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "St. Pauli Hafenstra\u00dfe",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Landungsbr\u00fccken",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rambachstra\u00dfe",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Baumwall",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Kaiserkai (Elbphilharmonie)",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Sandtorkai",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Singapurstra\u00dfe",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ericusspitze",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Steinstra\u00dfe (Deichtorplatz)",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Steintordamm",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hauptbahnhof/ZOB",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kurt-Schumacher-Allee",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Berliner Tor (Beim Strohhause)",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "20": {
+    "lineRef": "20",
+    "lineName": "Metrobus 20",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "S R\u00fcbenkamp \u21c4 Bf. Altona",
+    "directionA": {
+      "origin": "S R\u00fcbenkamp",
+      "destination": "Bf. Altona",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "S R\u00fcbenkamp",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kapstadtring",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Dakarweg",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "\u00dcberseering (West)",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jahnring (Mitte)",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ohlsdorfer Stra\u00dfe (Planetarium)",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Winterhuder Marktplatz",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Hudtwalckerstra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eppendorfer Marktplatz",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Julius-Reincke-Stieg (Bethanien)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eppendorfer Park (UKE)",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "UK Eppendorf",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "L\u00f6wenstra\u00dfe (Facharztklinik)",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "G\u00e4rtnerstra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kottwitzstra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Goebenstra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schulweg",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fruchtallee (Hamburg-Haus)",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alsenplatz",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Holstenstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Max-Brauer-Allee (Mitte)",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gerichtstra\u00dfe",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Bf. Altona",
+      "destination": "S R\u00fcbenkamp",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gerichtstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Max-Brauer-Allee (Mitte)",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Holstenstra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alsenplatz",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fruchtallee (Hamburg-Haus)",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schulweg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Goebenstra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kottwitzstra\u00dfe",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "G\u00e4rtnerstra\u00dfe",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "L\u00f6wenstra\u00dfe (Facharztklinik)",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "UK Eppendorf",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eppendorfer Park (UKE)",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Julius-Reincke-Stieg (Bethanien)",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eppendorfer Marktplatz",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Hudtwalckerstra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Winterhuder Marktplatz",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ohlsdorfer Stra\u00dfe (Planetarium)",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jahnring (Mitte)",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "\u00dcberseering (West)",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Dakarweg",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kapstadtring",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S R\u00fcbenkamp",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "21": {
+    "lineRef": "21",
+    "lineName": "Metrobus 21",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "Teufelsbr\u00fcck (F\u00e4hre) \u21c4 U Niendorf Nord",
+    "directionA": {
+      "origin": "Teufelsbr\u00fcck (F\u00e4hre)",
+      "destination": "U Niendorf Nord",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "Teufelsbr\u00fcck (F\u00e4hre)",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ohnsorgweg",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Marxsenweg",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Baron-Voght-Stra\u00dfe (Mitte)",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Klein Flottbek",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langkamp",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hemmingstedter Weg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ostermeyerstra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Elbe-Einkaufszentrum",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Knabeweg",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langelohstra\u00dfe (Nord)",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sandort",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rugenfeld",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Grubenstieg",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Immenbusch",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Achtern Born",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "B\u00f6ttcherkamp",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Schenefelder Platz",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Engelbrechtweg",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Trebelstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Recknitzstra\u00dfe",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jevenstedter Stra\u00dfe",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Franzosenkoppel",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Katzbachstra\u00dfe",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fangdieckstra\u00dfe",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langbargheide (Nord)",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "L\u00fcdersring",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langbargheide (S\u00fcd)",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "A S Eidelstedt",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "M\u00fchlenauweg",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eidelstedter Platz",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wiebischenkamp",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Deepenbrook (M\u00f6bel H\u00f6ffner)",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eidelstedter Brook",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Spanische Furt",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Graf-Johann-Weg",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "W\u00e4hlingsweg",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Frohmestra\u00dfe (Mitte)",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Oldesloer Stra\u00dfe",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Modering",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vielohwisch",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wagrierweg",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vielohweg (Mitte)",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Niendorf Nord",
+          "minuteOffset": 86,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "U Niendorf Nord",
+      "destination": "Teufelsbr\u00fcck (F\u00e4hre)",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "U Niendorf Nord",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vielohweg (Mitte)",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wagrierweg",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vielohwisch",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Modering",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Oldesloer Stra\u00dfe",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Frohmestra\u00dfe (Mitte)",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "W\u00e4hlingsweg",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Graf-Johann-Weg",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Spanische Furt",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eidelstedter Brook",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Deepenbrook (M\u00f6bel H\u00f6ffner)",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wiebischenkamp",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eidelstedter Platz",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "M\u00fchlenauweg",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "A S Eidelstedt",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langbargheide (S\u00fcd)",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "L\u00fcdersring",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langbargheide (Nord)",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fangdieckstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Katzbachstra\u00dfe",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Franzosenkoppel",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jevenstedter Stra\u00dfe",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Recknitzstra\u00dfe",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Trebelstra\u00dfe",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Engelbrechtweg",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Schenefelder Platz",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "B\u00f6ttcherkamp",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Achtern Born",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Immenbusch",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Grubenstieg",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rugenfeld",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sandort",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langelohstra\u00dfe (Nord)",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Knabeweg",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Elbe-Einkaufszentrum",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ostermeyerstra\u00dfe",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hemmingstedter Weg",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langkamp",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Klein Flottbek",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Baron-Voght-Stra\u00dfe (Mitte)",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Marxsenweg",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ohnsorgweg",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Teufelsbr\u00fcck (F\u00e4hre)",
+          "minuteOffset": 86,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "22": {
+    "lineRef": "22",
+    "lineName": "Metrobus 22",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "S Blankenese \u21c4 U Kellinghusenstra\u00dfe",
+    "directionA": {
+      "origin": "S Blankenese",
+      "destination": "U Kellinghusenstra\u00dfe",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "S Blankenese",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "M\u00fchlenberg",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Frahmstra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tietzestra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "D\u00fcpenautal",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Isfeld",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langelohstra\u00dfe (Nord)",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Knabeweg",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Elbe-Einkaufszentrum",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flurkamp",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geranienweg",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Achtern Styg",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flurstra\u00dfe/Rugenbarg",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kressenweg",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rugenbarg (Nord)",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vorhornweg",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langbargheide (S\u00fcd)",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hellgrundweg (Arenen)",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schnackenburgallee",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Stellingen",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Volksparkstra\u00dfe",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathaus Stellingen",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Hagenbecks Tierpark",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schillingsbekweg",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Oddernskamp",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Behrmannplatz",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Siemersplatz",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Offakamp",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Frickestra\u00dfe",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tarpenbekstra\u00dfe",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eppendorfer Marktplatz",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Kellinghusenstra\u00dfe",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "U Kellinghusenstra\u00dfe",
+      "destination": "S Blankenese",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "U Kellinghusenstra\u00dfe",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eppendorfer Marktplatz",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tarpenbekstra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Frickestra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Offakamp",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Siemersplatz",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Behrmannplatz",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Oddernskamp",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schillingsbekweg",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Hagenbecks Tierpark",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathaus Stellingen",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Volksparkstra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Stellingen",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schnackenburgallee",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hellgrundweg (Arenen)",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langbargheide (S\u00fcd)",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vorhornweg",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rugenbarg (Nord)",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kressenweg",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flurstra\u00dfe/Rugenbarg",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Achtern Styg",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geranienweg",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flurkamp",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Elbe-Einkaufszentrum",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Knabeweg",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langelohstra\u00dfe (Nord)",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Isfeld",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "D\u00fcpenautal",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tietzestra\u00dfe",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Frahmstra\u00dfe",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "M\u00fchlenberg",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Blankenese",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "23": {
+    "lineRef": "23",
+    "lineName": "Metrobus 23",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "U Billstedt \u21c4 Lufthansa-Basis (Haupteingang)",
+    "directionA": {
+      "origin": "U Billstedt",
+      "destination": "Lufthansa-Basis (Haupteingang)",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "U Billstedt",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "\u00d6jendorfer Weg",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schiffbeker H\u00f6he",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kattensteert",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Querkamp",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stengelestra\u00dfe",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hasencleverstra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Horner Rennbahn",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Trib\u00fcnenweg",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Husarendenkmal",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Zieseni\u00dfstra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wandsbeker Allee",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Stra\u00dfburger Stra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Alter Teichweg",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Olivaer Stra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "L\u00e4mmersieth (Mitte)",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Barmbek",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Genslerstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Alte W\u00f6hr",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lauensteinstra\u00dfe",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Dakarweg",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kapstadtring",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Manilabr\u00fccke",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sydneystra\u00dfe",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Alsterdorf",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Traute-Lafrenz-Stra\u00dfe",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Brabandstra\u00dfe",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alsterkrugchaussee (Mitte)",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Heselst\u00fccken",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lufthansa-Basis (Haupteingang)",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Lufthansa-Basis (Haupteingang)",
+      "destination": "U Billstedt",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Lufthansa-Basis (Haupteingang)",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Heselst\u00fccken",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alsterkrugchaussee (Mitte)",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Brabandstra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Traute-Lafrenz-Stra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Alsterdorf",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sydneystra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Manilabr\u00fccke",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kapstadtring",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Dakarweg",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lauensteinstra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Alte W\u00f6hr",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Genslerstra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Barmbek",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "L\u00e4mmersieth (Mitte)",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Olivaer Stra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Alter Teichweg",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Stra\u00dfburger Stra\u00dfe",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wandsbeker Allee",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Zieseni\u00dfstra\u00dfe",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Husarendenkmal",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Trib\u00fcnenweg",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Horner Rennbahn",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hasencleverstra\u00dfe",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stengelestra\u00dfe",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Querkamp",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kattensteert",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schiffbeker H\u00f6he",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "\u00d6jendorfer Weg",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Billstedt",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "24": {
+    "lineRef": "24",
+    "lineName": "Metrobus 24",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "U Niendorf Markt \u21c4 Bf. Rahlstedt (Doberaner Weg)",
+    "directionA": {
+      "origin": "U Niendorf Markt",
+      "destination": "Bf. Rahlstedt (Doberaner Weg)",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "U Niendorf Markt",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fuhlsb\u00fctteler Weg",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "An der Lohe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Herzog-Bruno-Weg",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Graf-Anton-Weg",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wendlohstra\u00dfe",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vietinghoffweg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gottschalkweg",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vielohweg (Mitte)",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Niendorf Nord",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Pommernweg",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Keltenweg",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sperlingsweg",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Krohnstiegtunnel",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ermlandweg",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wrangelkoppel",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Samlandweg",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rittmerskamp",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Langenhorn Markt (Krohnstieg)",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Schulwald",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lademannbogen",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Glash\u00fctter Landstra\u00dfe",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Brillkamp",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Hehsel",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ruscheweyhstra\u00dfe",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Norbert-Schmid-Platz",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Goldr\u00f6schenweg",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alte Landstra\u00dfe (Nord)",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schulbergredder",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alstertal-Einkaufszentrum",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Poppenb\u00fcttel (Wentzelplatz)",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Poppenb\u00fcttel (Wentzelplatz)",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alstertal-Einkaufszentrum",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stadtbahnstra\u00dfe (Nord)",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Saseler Markt",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Op de Elg",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Steinwegel",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Saselbekstra\u00dfe",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "H\u00fcltkoppel",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "R\u00f6genfeld",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Halenreie",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Volksdorf",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eulenkrugstra\u00dfe",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Meiendorfer Weg",
+          "minuteOffset": 86,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ringstra\u00dfe",
+          "minuteOffset": 88,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Von-Supp\u00e9-Stra\u00dfe",
+          "minuteOffset": 90,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lapplandring",
+          "minuteOffset": 92,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Offenbachweg",
+          "minuteOffset": 94,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Skaldenweg",
+          "minuteOffset": 96,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hellmesbergerweg",
+          "minuteOffset": 98,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wildschwanbrook (Mitte)",
+          "minuteOffset": 100,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wildschwanbrook",
+          "minuteOffset": 102,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Saseler Stra\u00dfe",
+          "minuteOffset": 104,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gerstenwiese",
+          "minuteOffset": 106,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bargteheider Stra\u00dfe (Nord)",
+          "minuteOffset": 108,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sandkule",
+          "minuteOffset": 110,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Rahlstedt (Doberaner Weg)",
+          "minuteOffset": 112,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Bf. Rahlstedt (Doberaner Weg)",
+      "destination": "U Niendorf Markt",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Bf. Rahlstedt (Doberaner Weg)",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sandkule",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bargteheider Stra\u00dfe (Nord)",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gerstenwiese",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Saseler Stra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wildschwanbrook",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wildschwanbrook (Mitte)",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hellmesbergerweg",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Skaldenweg",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Offenbachweg",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lapplandring",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Von-Supp\u00e9-Stra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ringstra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Meiendorfer Weg",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eulenkrugstra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Volksdorf",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Halenreie",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "R\u00f6genfeld",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "H\u00fcltkoppel",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Saselbekstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Steinwegel",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Op de Elg",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Saseler Markt",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stadtbahnstra\u00dfe (Nord)",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alstertal-Einkaufszentrum",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Poppenb\u00fcttel (Wentzelplatz)",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Poppenb\u00fcttel (Wentzelplatz)",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alstertal-Einkaufszentrum",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schulbergredder",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alte Landstra\u00dfe (Nord)",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Goldr\u00f6schenweg",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Norbert-Schmid-Platz",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ruscheweyhstra\u00dfe",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Hehsel",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Brillkamp",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Glash\u00fctter Landstra\u00dfe",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lademannbogen",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Schulwald",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Langenhorn Markt (Krohnstieg)",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rittmerskamp",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Samlandweg",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wrangelkoppel",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ermlandweg",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Krohnstiegtunnel",
+          "minuteOffset": 86,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sperlingsweg",
+          "minuteOffset": 88,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Keltenweg",
+          "minuteOffset": 90,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Pommernweg",
+          "minuteOffset": 92,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Niendorf Nord",
+          "minuteOffset": 94,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vielohweg (Mitte)",
+          "minuteOffset": 96,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gottschalkweg",
+          "minuteOffset": 98,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vietinghoffweg",
+          "minuteOffset": 100,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wendlohstra\u00dfe",
+          "minuteOffset": 102,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Graf-Anton-Weg",
+          "minuteOffset": 104,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Herzog-Bruno-Weg",
+          "minuteOffset": 106,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "An der Lohe",
+          "minuteOffset": 108,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fuhlsb\u00fctteler Weg",
+          "minuteOffset": 110,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Niendorf Markt",
+          "minuteOffset": 112,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "25": {
+    "lineRef": "25",
+    "lineName": "Metrobus 25",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "Bf. Altona \u21c4 U Burgstra\u00dfe",
+    "directionA": {
+      "origin": "Bf. Altona",
+      "destination": "U Burgstra\u00dfe",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gerichtstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Max-Brauer-Allee (Mitte)",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Holstenstra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alsenplatz",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fruchtallee (Hamburg-Haus)",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schulweg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Goebenstra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kottwitzstra\u00dfe",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "G\u00e4rtnerstra\u00dfe",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "L\u00f6wenstra\u00dfe (Facharztklinik)",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "UK Eppendorf",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eppendorfer Park (UKE)",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Julius-Reincke-Stieg (Bethanien)",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tarpenbekstra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lokstedter Weg",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eppendorfer Marktplatz",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Kellinghusenstra\u00dfe",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Hudtwalckerstra\u00dfe",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Winterhuder Marktplatz",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Sierichstra\u00dfe",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Dorotheenstra\u00dfe",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Goldbekplatz",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gertigstra\u00dfe",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hans-Henny-Jahnn-Weg",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hebbelstra\u00dfe",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Beethovenstra\u00dfe",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Mundsburg",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Uhlandstra\u00dfe",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Uhlandstra\u00dfe (G\u00fcntherstra\u00dfe)",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wartenau",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Landwehr (Ramazan-Avci-Platz)",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bethesdastra\u00dfe",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Burgstra\u00dfe",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "U Burgstra\u00dfe",
+      "destination": "Bf. Altona",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "U Burgstra\u00dfe",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bethesdastra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Landwehr (Ramazan-Avci-Platz)",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wartenau",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Uhlandstra\u00dfe (G\u00fcntherstra\u00dfe)",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Uhlandstra\u00dfe",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Mundsburg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Beethovenstra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hebbelstra\u00dfe",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hans-Henny-Jahnn-Weg",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gertigstra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Goldbekplatz",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Dorotheenstra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Sierichstra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Winterhuder Marktplatz",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Hudtwalckerstra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Kellinghusenstra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eppendorfer Marktplatz",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lokstedter Weg",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tarpenbekstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Julius-Reincke-Stieg (Bethanien)",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eppendorfer Park (UKE)",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "UK Eppendorf",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "L\u00f6wenstra\u00dfe (Facharztklinik)",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "G\u00e4rtnerstra\u00dfe",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kottwitzstra\u00dfe",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Goebenstra\u00dfe",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schulweg",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fruchtallee (Hamburg-Haus)",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alsenplatz",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Holstenstra\u00dfe",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Max-Brauer-Allee (Mitte)",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gerichtstra\u00dfe",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Altona",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "26": {
+    "lineRef": "26",
+    "lineName": "Metrobus 26",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "Gewerbepark Victoria \u21c4 S R\u00fcbenkamp",
+    "directionA": {
+      "origin": "Gewerbepark Victoria",
+      "destination": "S R\u00fcbenkamp",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "Gewerbepark Victoria",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Victoriaring",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hoffmannstieg",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Prehnsweg",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sieker Landstra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schweriner Stra\u00dfe",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Rahlstedt (Amtsstra\u00dfe)",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Liliencronpark",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Forum Gymnasium Rahlstedt",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Boltenhagener Stra\u00dfe",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Scharbeutzer Stra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rahlstedter Weg (Mitte)",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Farmsen",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tegelweg",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Haldesdorfer Stra\u00dfe (Nord)",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ellernreihe (Mitte)",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Steilshooper Allee",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fabriciusstra\u00dfe",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gustav-Seitz-Weg",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alfred-Mahlau-Weg",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fritz-Flinte-Ring",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gr\u00fcndgensstra\u00dfe (West)",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eichenlohweg",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hebebrandstra\u00dfe",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S R\u00fcbenkamp",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "S R\u00fcbenkamp",
+      "destination": "Gewerbepark Victoria",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "S R\u00fcbenkamp",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hebebrandstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eichenlohweg",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gr\u00fcndgensstra\u00dfe (West)",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fritz-Flinte-Ring",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alfred-Mahlau-Weg",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gustav-Seitz-Weg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fabriciusstra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Steilshooper Allee",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ellernreihe (Mitte)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Haldesdorfer Stra\u00dfe (Nord)",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tegelweg",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Farmsen",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rahlstedter Weg (Mitte)",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Scharbeutzer Stra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Boltenhagener Stra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Forum Gymnasium Rahlstedt",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Liliencronpark",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Rahlstedt (Amtsstra\u00dfe)",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schweriner Stra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sieker Landstra\u00dfe",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Prehnsweg",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hoffmannstieg",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Victoriaring",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gewerbepark Victoria",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "27": {
+    "lineRef": "27",
+    "lineName": "Metrobus 27",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "S Wellingsb\u00fcttel \u21c4 U Billstedt",
+    "directionA": {
+      "origin": "S Wellingsb\u00fcttel",
+      "destination": "U Billstedt",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "S Wellingsb\u00fcttel",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rolfinckstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Waldingstra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Grootmoor",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gut Karlsh\u00f6he",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Thomas-Mann-Stra\u00dfe",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Buddenbrookweg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Karlsh\u00f6he",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stuhtsweg",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Neusurenland",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Pflegezentrum Farmsen",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Berufsf\u00f6rderungswerk Hamburg",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Farmsen",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rahlstedter Weg (Mitte)",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Paracelsusstra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Pulverhof (Mitte)",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stemmeshay",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Tonndorf",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Studio Hamburg",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wilsonstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "K\u00f6penicker Stra\u00dfe",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Berliner Platz",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Liegnitzer Stra\u00dfe",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schweidnitzer Stra\u00dfe",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfelder Stra\u00dfe",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfeld-Zentrum",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Denksteinweg",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schiffbeker Weg",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Pflegezentrum Holstenhof",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "R\u00fcbezahlstra\u00dfe",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Aschenputtelstra\u00dfe",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fuchsbergredder",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Manshardtstra\u00dfe",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Prinzenweg",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Meriandamm",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schiffbeker H\u00f6he",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Billstedt",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "U Billstedt",
+      "destination": "S Wellingsb\u00fcttel",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "U Billstedt",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schiffbeker H\u00f6he",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Meriandamm",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Prinzenweg",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Manshardtstra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fuchsbergredder",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Aschenputtelstra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "R\u00fcbezahlstra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Pflegezentrum Holstenhof",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schiffbeker Weg",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Denksteinweg",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfeld-Zentrum",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfelder Stra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schweidnitzer Stra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Liegnitzer Stra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Berliner Platz",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "K\u00f6penicker Stra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wilsonstra\u00dfe",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Studio Hamburg",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Tonndorf",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stemmeshay",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Pulverhof (Mitte)",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Paracelsusstra\u00dfe",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rahlstedter Weg (Mitte)",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Farmsen",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Berufsf\u00f6rderungswerk Hamburg",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Pflegezentrum Farmsen",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Neusurenland",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stuhtsweg",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Karlsh\u00f6he",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Buddenbrookweg",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Thomas-Mann-Stra\u00dfe",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gut Karlsh\u00f6he",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Grootmoor",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Waldingstra\u00dfe",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rolfinckstra\u00dfe",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Wellingsb\u00fcttel",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "28": {
+    "lineRef": "28",
+    "lineName": "Metrobus 28",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "U Niendorf Markt \u21c4 U Wandsbek Markt",
+    "directionA": {
+      "origin": "U Niendorf Markt",
+      "destination": "U Wandsbek Markt",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "U Niendorf Markt",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vogt-Cordes-Damm",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Niendorfer Stra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bekst\u00fcck",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stavenhagenstra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Warnckesweg",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Spreenende",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Licentiatenberg",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Paeplowstieg",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lufthansa-Basis (Haupteingang)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Heselst\u00fccken",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alsterkrugchaussee (Mitte)",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Moltrechtweg",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Brabandstra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Traute-Lafrenz-Stra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Alsterdorf",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sydneystra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Manilabr\u00fccke",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kapstadtring",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S R\u00fcbenkamp",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jahnbr\u00fccke",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Habichtsplatz",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Habichtstra\u00dfe",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Habichtstra\u00dfe (Mitte)",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "L\u00e4mmersieth (Nord)",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Alter Teichweg",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Stra\u00dfburger Stra\u00dfe",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wandsbeker Allee",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "U Wandsbek Markt",
+      "destination": "U Niendorf Markt",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wandsbeker Allee",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Stra\u00dfburger Stra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Alter Teichweg",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "L\u00e4mmersieth (Nord)",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Habichtstra\u00dfe (Mitte)",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Habichtstra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Habichtsplatz",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jahnbr\u00fccke",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S R\u00fcbenkamp",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kapstadtring",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Manilabr\u00fccke",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sydneystra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Alsterdorf",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Traute-Lafrenz-Stra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Brabandstra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Moltrechtweg",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alsterkrugchaussee (Mitte)",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Heselst\u00fccken",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lufthansa-Basis (Haupteingang)",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Paeplowstieg",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Licentiatenberg",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Spreenende",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Warnckesweg",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stavenhagenstra\u00dfe",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bekst\u00fcck",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Niendorfer Stra\u00dfe",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Vogt-Cordes-Damm",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Niendorf Markt",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "29": {
+    "lineRef": "29",
+    "lineName": "Metrobus 29",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "Gewerbepark Merkur \u21c4 Bf. Bergedorf",
+    "directionA": {
+      "origin": "Gewerbepark Merkur",
+      "destination": "Bf. Bergedorf",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "Gewerbepark Merkur",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Neuer H\u00f6ltigbaum",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Naturschutzgebiet H\u00f6ltigbaum",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Neurahlstedter Graben",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Waterbl\u00f6ckenwiese",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Heckende",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Pahlbl\u00f6ckensstieg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schweriner Stra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rahlstedt Center",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Rahlstedt (Amtsstra\u00dfe)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Rahlstedt (Amtsstra\u00dfe)",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Altes Rathaus Rahlstedt",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Buchwaldstra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Amtsstra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Ohlendorffturm",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Immenseeweg",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Brunskamp",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sorenkoppel",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Hegen",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthachter Weg",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kielkoppelstra\u00dfe",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kinderkrankenhaus Wilhelmstift",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "H\u00fcllenkamp",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Potsdamer Stra\u00dfe",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Berliner Platz",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "K\u00f6penicker Stra\u00dfe",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kaskadenpark",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Otto-Hahn-Schule Jenfeld",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfelder Allee",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfelder Stra\u00dfe",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfeld-Zentrum",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hans-Rubbert-Stra\u00dfe",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fuchsbergweg",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rispengrasweg",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rehkoppel",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fuchsbergredder",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Manshardtstra\u00dfe",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Prinzenweg",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Meriandamm",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schiffbeker H\u00f6he",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Billstedt",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Billstedt",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Frobeniusweg",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Billstedter M\u00fchlenweg",
+          "minuteOffset": 86,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lohkamp",
+          "minuteOffset": 88,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kirchsteinbek",
+          "minuteOffset": 90,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Havighorster Redder (West)",
+          "minuteOffset": 92,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "M\u00fcnterweg",
+          "minuteOffset": 94,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U M\u00fcmmelmannsberg",
+          "minuteOffset": 96,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Steinbeker Grenzdamm",
+          "minuteOffset": 98,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Boberg",
+          "minuteOffset": 100,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "BG Klinikum Boberg",
+          "minuteOffset": 102,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Grandkoppel (West)",
+          "minuteOffset": 104,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Grandkoppel",
+          "minuteOffset": 106,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Emilie-G\u00fcnther-Weg",
+          "minuteOffset": 108,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "An der Bergkoppel",
+          "minuteOffset": 110,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lohbr\u00fcgger Kirchstra\u00dfe",
+          "minuteOffset": 112,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lohbr\u00fcgger Markt",
+          "minuteOffset": 114,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alte Holstenstra\u00dfe",
+          "minuteOffset": 116,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Bergedorf",
+          "minuteOffset": 118,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Bf. Bergedorf",
+      "destination": "Gewerbepark Merkur",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Bf. Bergedorf",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alte Holstenstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lohbr\u00fcgger Markt",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lohbr\u00fcgger Kirchstra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "An der Bergkoppel",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Emilie-G\u00fcnther-Weg",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Grandkoppel",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Grandkoppel (West)",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "BG Klinikum Boberg",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Boberg",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Steinbeker Grenzdamm",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U M\u00fcmmelmannsberg",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "M\u00fcnterweg",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Havighorster Redder (West)",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kirchsteinbek",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lohkamp",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Billstedter M\u00fchlenweg",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Frobeniusweg",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Billstedt",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Billstedt",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schiffbeker H\u00f6he",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Meriandamm",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Prinzenweg",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Manshardtstra\u00dfe",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fuchsbergredder",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rehkoppel",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rispengrasweg",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Fuchsbergweg",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hans-Rubbert-Stra\u00dfe",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfeld-Zentrum",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfelder Stra\u00dfe",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfelder Allee",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Otto-Hahn-Schule Jenfeld",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kaskadenpark",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "K\u00f6penicker Stra\u00dfe",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Berliner Platz",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Potsdamer Stra\u00dfe",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "H\u00fcllenkamp",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kinderkrankenhaus Wilhelmstift",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kielkoppelstra\u00dfe",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthachter Weg",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Hegen",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sorenkoppel",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Brunskamp",
+          "minuteOffset": 86,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Immenseeweg",
+          "minuteOffset": 88,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Ohlendorffturm",
+          "minuteOffset": 90,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Amtsstra\u00dfe",
+          "minuteOffset": 92,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Buchwaldstra\u00dfe",
+          "minuteOffset": 94,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Altes Rathaus Rahlstedt",
+          "minuteOffset": 96,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Rahlstedt (Amtsstra\u00dfe)",
+          "minuteOffset": 98,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Rahlstedt (Amtsstra\u00dfe)",
+          "minuteOffset": 100,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rahlstedt Center",
+          "minuteOffset": 102,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schweriner Stra\u00dfe",
+          "minuteOffset": 104,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Pahlbl\u00f6ckensstieg",
+          "minuteOffset": 106,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Heckende",
+          "minuteOffset": 108,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Waterbl\u00f6ckenwiese",
+          "minuteOffset": 110,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Neurahlstedter Graben",
+          "minuteOffset": 112,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Naturschutzgebiet H\u00f6ltigbaum",
+          "minuteOffset": 114,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Neuer H\u00f6ltigbaum",
+          "minuteOffset": 116,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gewerbepark Merkur",
+          "minuteOffset": 118,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "3": {
+    "lineRef": "3",
+    "lineName": "Metrobus 3",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "Kraftwerk Tiefstack \u21c4 Schenefeld, Schenefelder Platz",
+    "directionA": {
+      "origin": "Kraftwerk Tiefstack",
+      "destination": "Schenefeld, Schenefelder Platz",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "Kraftwerk Tiefstack",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Tiefstack",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ausschl\u00e4ger Allee (Kfz-Verwahrstelle)",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rothenburgstra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Zollvereinsstra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Thiedingreihe",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Billhorner Deich",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rothenburgsorter Marktplatz",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Billhorner M\u00fchlenweg",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Billhorner Br\u00fcckenstra\u00dfe",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Nagelsweg",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lippeltstra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Spaldingstra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Steinstra\u00dfe (Deichtorplatz)",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Steintordamm",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hauptbahnhof/ZOB",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hauptbahnhof/ZOB",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Steintordamm",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/M\u00f6nckebergstra\u00dfe",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gerhart-Hauptmann-Platz",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathausmarkt",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U R\u00f6dingsmarkt (Gro\u00dfer Burstah)",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Axel-Springer-Platz",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bezirksamt Hamburg-Mitte",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sievekingplatz",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Feldstra\u00dfe",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Neuer Pferdemarkt",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bernstorffstra\u00dfe",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sternbr\u00fccke",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Holstenstra\u00dfe",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kaltenkircher Platz",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sch\u00fctzenstra\u00dfe (Mitte)",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bornkampsweg",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Von-Sauer-Stra\u00dfe",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Silcherstra\u00dfe",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "August-Kirch-Stra\u00dfe",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Trabrennbahn Bahrenfeld",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Luruper Chaussee (DESY)",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stadionstra\u00dfe",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tannenberg",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rugenbarg (Nord)",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eckhoffplatz (Lurup Center)",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flurstra\u00dfe (Nord)",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Luckmoor",
+          "minuteOffset": 86,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Engelbrechtweg",
+          "minuteOffset": 88,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Schenefelder Platz",
+          "minuteOffset": 90,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Schenefeld, Schenefelder Platz",
+      "destination": "Kraftwerk Tiefstack",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Schenefeld, Schenefelder Platz",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Engelbrechtweg",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Luckmoor",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flurstra\u00dfe (Nord)",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eckhoffplatz (Lurup Center)",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rugenbarg (Nord)",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tannenberg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stadionstra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Luruper Chaussee (DESY)",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Trabrennbahn Bahrenfeld",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "August-Kirch-Stra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Silcherstra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Von-Sauer-Stra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bornkampsweg",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sch\u00fctzenstra\u00dfe (Mitte)",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kaltenkircher Platz",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Holstenstra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sternbr\u00fccke",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bernstorffstra\u00dfe",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Neuer Pferdemarkt",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Feldstra\u00dfe",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sievekingplatz",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bezirksamt Hamburg-Mitte",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Axel-Springer-Platz",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U R\u00f6dingsmarkt (Gro\u00dfer Burstah)",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathausmarkt",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gerhart-Hauptmann-Platz",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/M\u00f6nckebergstra\u00dfe",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Steintordamm",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hauptbahnhof/ZOB",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hauptbahnhof/ZOB",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Steintordamm",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Steinstra\u00dfe (Deichtorplatz)",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Spaldingstra\u00dfe",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lippeltstra\u00dfe",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Nagelsweg",
+          "minuteOffset": 70,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Billhorner Br\u00fcckenstra\u00dfe",
+          "minuteOffset": 72,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Billhorner M\u00fchlenweg",
+          "minuteOffset": 74,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rothenburgsorter Marktplatz",
+          "minuteOffset": 76,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Billhorner Deich",
+          "minuteOffset": 78,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Thiedingreihe",
+          "minuteOffset": 80,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Zollvereinsstra\u00dfe",
+          "minuteOffset": 82,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rothenburgstra\u00dfe",
+          "minuteOffset": 84,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Ausschl\u00e4ger Allee (Kfz-Verwahrstelle)",
+          "minuteOffset": 86,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Tiefstack",
+          "minuteOffset": 88,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kraftwerk Tiefstack",
+          "minuteOffset": 90,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "7": {
+    "lineRef": "7",
+    "lineName": "Metrobus 7",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "Borchertring \u21c4 U S Barmbek",
+    "directionA": {
+      "origin": "Borchertring",
+      "destination": "U S Barmbek",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "Borchertring",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gr\u00fcndgensstra\u00dfe (Ost)",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Erich-Ziegel-Ring",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gr\u00fcndgensstra\u00dfe (Mitte)",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gustav-Seitz-Weg",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alfred-Mahlau-Weg",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schwarzer Weg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Richeystra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langenfort",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Habichtstra\u00dfe (Steilshooper Stra\u00dfe)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Harzensweg",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hellbrookstra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Barmbek",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "U S Barmbek",
+      "destination": "Borchertring",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "U S Barmbek",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hellbrookstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Harzensweg",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Habichtstra\u00dfe (Steilshooper Stra\u00dfe)",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Langenfort",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Richeystra\u00dfe",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schwarzer Weg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Alfred-Mahlau-Weg",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gustav-Seitz-Weg",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gr\u00fcndgensstra\u00dfe (Mitte)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Erich-Ziegel-Ring",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gr\u00fcndgensstra\u00dfe (Ost)",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Borchertring",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "8": {
+    "lineRef": "8",
+    "lineName": "Metrobus 8",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "U Wandsbek Markt \u21c4 S Poppenb\u00fcttel (Wentzelplatz)",
+    "directionA": {
+      "origin": "U Wandsbek Markt",
+      "destination": "S Poppenb\u00fcttel (Wentzelplatz)",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wendemuthstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hogrevestra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gladowstra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Waldd\u00f6rferstra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Friedrich-Ebert-Damm (West)",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tilsiter Stra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wandsbek-Gartenstadt",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Haldesdorfer Stra\u00dfe",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Werner-Otto-Stra\u00dfe (Mitte)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Werner-Otto-Stra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rahnstra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Steilshooper Allee",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Herthastra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bramfelder Dorfplatz",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Berner Chaussee",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "K\u00f6nigsberger Stra\u00dfe",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Maisredder",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Damm",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rolfinckstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Pfeilshofer Weg",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Frahmredder",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stadtbahnstra\u00dfe (Mitte)",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Poppenb\u00fcttel (Wentzelplatz)",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "S Poppenb\u00fcttel (Wentzelplatz)",
+      "destination": "U Wandsbek Markt",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "S Poppenb\u00fcttel (Wentzelplatz)",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stadtbahnstra\u00dfe (Mitte)",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Frahmredder",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Pfeilshofer Weg",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rolfinckstra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Damm",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Maisredder",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "K\u00f6nigsberger Stra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Berner Chaussee",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bramfelder Dorfplatz",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Herthastra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Steilshooper Allee",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rahnstra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Werner-Otto-Stra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Werner-Otto-Stra\u00dfe (Mitte)",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Haldesdorfer Stra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wandsbek-Gartenstadt",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Tilsiter Stra\u00dfe",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Friedrich-Ebert-Damm (West)",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Waldd\u00f6rferstra\u00dfe",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gladowstra\u00dfe",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hogrevestra\u00dfe",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wendemuthstra\u00dfe",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "9": {
+    "lineRef": "9",
+    "lineName": "Metrobus 9",
+    "color": "#ff4d00",
+    "stammstrecke": "BUS",
+    "corridorName": "Bf. Rahlstedt (Amtsstra\u00dfe) \u21c4 U Wandsbek Markt",
+    "directionA": {
+      "origin": "Bf. Rahlstedt (Amtsstra\u00dfe)",
+      "destination": "U Wandsbek Markt",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "Bf. Rahlstedt (Amtsstra\u00dfe)",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wilhelm-Grimm-Stra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Brockdorffstra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Loher Stra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Pulverhof (S\u00fcd)",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Martensallee",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wilsonstra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Studio Hamburg",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Tonndorf (Tonndorfer Hauptstra\u00dfe)",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Friedhof Tonndorf",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Nordmarkstra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "\u00d6lm\u00fchlenweg (S\u00fcd)",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kurf\u00fcrstenstra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eichtalstra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Holzm\u00fchlenstra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wendemuthstra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "U Wandsbek Markt",
+      "destination": "Bf. Rahlstedt (Amtsstra\u00dfe)",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wendemuthstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Holzm\u00fchlenstra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eichtalstra\u00dfe",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kurf\u00fcrstenstra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "\u00d6lm\u00fchlenweg (S\u00fcd)",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Nordmarkstra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Friedhof Tonndorf",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Tonndorf (Tonndorfer Hauptstra\u00dfe)",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Studio Hamburg",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wilsonstra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Martensallee",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Am Pulverhof (S\u00fcd)",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Loher Stra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Brockdorffstra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Wilhelm-Grimm-Stra\u00dfe",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Rahlstedt (Amtsstra\u00dfe)",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "X22": {
+    "lineRef": "X22",
+    "lineName": "Expressbus X22",
+    "color": "#009944",
+    "stammstrecke": "BUS",
+    "corridorName": "U Hagenbecks Tierpark \u21c4 Jenfeld-Zentrum",
+    "directionA": {
+      "origin": "U Hagenbecks Tierpark",
+      "destination": "Jenfeld-Zentrum",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "U Hagenbecks Tierpark",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Siemersplatz",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lokstedter Weg",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eppendorfer Marktplatz",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Hudtwalckerstra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Winterhuder Marktplatz",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Maria-Louisen-Stra\u00dfe (Nord)",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Semperstra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flotowstra\u00dfe",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Biedermannplatz",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Hamburger Stra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eilbeker Weg",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Wandsbeker Chaussee",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Universit\u00e4t der Bundeswehr",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schiffbeker Weg",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Jenfeld-Zentrum",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Jenfeld-Zentrum",
+      "destination": "U Hagenbecks Tierpark",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Jenfeld-Zentrum",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schiffbeker Weg",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Universit\u00e4t der Bundeswehr",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Wandsbek Markt",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Wandsbeker Chaussee",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eilbeker Weg",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Hamburger Stra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Biedermannplatz",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Flotowstra\u00dfe",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Semperstra\u00dfe",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Maria-Louisen-Stra\u00dfe (Nord)",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Winterhuder Marktplatz",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Hudtwalckerstra\u00dfe",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Eppendorfer Marktplatz",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lokstedter Weg",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Siemersplatz",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Hagenbecks Tierpark",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "X3": {
+    "lineRef": "X3",
+    "lineName": "Expressbus X3",
+    "color": "#009944",
+    "stammstrecke": "BUS",
+    "corridorName": "U Me\u00dfberg \u21c4 Schenefeld, Schenefelder Platz",
+    "directionA": {
+      "origin": "U Me\u00dfberg",
+      "destination": "Schenefeld, Schenefelder Platz",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "U Me\u00dfberg",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Speersort",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Jungfernstieg",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U G\u00e4nsemarkt",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Feldstra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Holstenstra\u00dfe",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sch\u00fctzenstra\u00dfe (Mitte)",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Von-Sauer-Stra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Trabrennbahn Bahrenfeld",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Luruper Chaussee (DESY)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stadionstra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kressenweg",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Immenbusch",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Achtern Born",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "B\u00f6ttcherkamp",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schenefeld, Schenefelder Platz",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Schenefeld, Schenefelder Platz",
+      "destination": "U Me\u00dfberg",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Schenefeld, Schenefelder Platz",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "B\u00f6ttcherkamp",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Achtern Born",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Immenbusch",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kressenweg",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Stadionstra\u00dfe",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Luruper Chaussee (DESY)",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Trabrennbahn Bahrenfeld",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Von-Sauer-Stra\u00dfe",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sch\u00fctzenstra\u00dfe (Mitte)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Holstenstra\u00dfe",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Feldstra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U G\u00e4nsemarkt",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Jungfernstieg",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Speersort",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Me\u00dfberg",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "X30": {
+    "lineRef": "X30",
+    "lineName": "Expressbus X30",
+    "color": "#009944",
+    "stammstrecke": "BUS",
+    "corridorName": "S Harburg Rathaus (H\u00f6lertwiete) \u21c4 Bf. Bergedorf",
+    "directionA": {
+      "origin": "S Harburg Rathaus (H\u00f6lertwiete)",
+      "destination": "Bf. Bergedorf",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "S Harburg Rathaus (H\u00f6lertwiete)",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Harburg Rathaus (Ei\u00dfendorfer Stra\u00dfe)",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Knoopstra\u00dfe/Bremer Stra\u00dfe",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Moorstra\u00dfe (Phoenix-Center)",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Felix-Jud-Ring (Mitte)",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Michael-Pritzl-Weg",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Von-Scheliha-Stra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Nettelnburg (S\u00fcdeingang)",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Oberer Landweg (Eisenbahnbr\u00fccke)",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kurt-A.-K\u00f6rber-Chaussee (Ost)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Bergedorf",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "Bf. Bergedorf",
+      "destination": "S Harburg Rathaus (H\u00f6lertwiete)",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "Bf. Bergedorf",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Kurt-A.-K\u00f6rber-Chaussee (Ost)",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Oberer Landweg (Eisenbahnbr\u00fccke)",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Nettelnburg (S\u00fcdeingang)",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Von-Scheliha-Stra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Michael-Pritzl-Weg",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Felix-Jud-Ring (Mitte)",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Moorstra\u00dfe (Phoenix-Center)",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Knoopstra\u00dfe/Bremer Stra\u00dfe",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Harburg Rathaus (Ei\u00dfendorfer Stra\u00dfe)",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "S Harburg Rathaus (H\u00f6lertwiete)",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+  "X80": {
+    "lineRef": "X80",
+    "lineName": "Expressbus X80",
+    "color": "#009944",
+    "stammstrecke": "BUS",
+    "corridorName": "Lauenburg, ZOB \u21c4 U R\u00f6dingsmarkt (Gro\u00dfer Burstah)",
+    "directionA": {
+      "origin": "Lauenburg, ZOB",
+      "destination": "U R\u00f6dingsmarkt (Gro\u00dfer Burstah)",
+      "baseMinuteDepartures": [
+        2,
+        12,
+        22,
+        32,
+        42,
+        52
+      ],
+      "stops": [
+        {
+          "stopName": "Lauenburg, ZOB",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lauenburg, Albinusstra\u00dfe",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lauenburg, Sportplatz",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lauenburg, Birnbaumkamp",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gl\u00fcsing, Berliner Stra\u00dfe",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schnakenbek, Twiete",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gr\u00fcnhof, Krukower Weg",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gr\u00fcnhof, Steinberg",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, Gr\u00fcner J\u00e4ger",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, Waldfriedhof",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, Jugendherberge",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, Berliner Stra\u00dfe",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, ZOB",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, An der Post",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, D\u00fcneberger Stra\u00dfe",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, Sch\u00e4ferstrift",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, Besenhorst",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lehfeld",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Bergedorf",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sander Markt",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lohbr\u00fcgger Markt",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lohbr\u00fcgger Kirchstra\u00dfe",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Grandkoppel",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "BG Klinikum Boberg",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Boberg",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Billstedter Hauptstra\u00dfe",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bauerberg",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Burgstra\u00dfe",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Borgfelder Stra\u00dfe",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Berliner Tor (Beim Strohhause)",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hauptbahnhof/ZOB",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Steintordamm",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gerhart-Hauptmann-Platz",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathausmarkt",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U R\u00f6dingsmarkt (Gro\u00dfer Burstah)",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "directionB": {
+      "origin": "U R\u00f6dingsmarkt (Gro\u00dfer Burstah)",
+      "destination": "Lauenburg, ZOB",
+      "baseMinuteDepartures": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "stops": [
+        {
+          "stopName": "U R\u00f6dingsmarkt (Gro\u00dfer Burstah)",
+          "minuteOffset": 0,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Rathausmarkt",
+          "minuteOffset": 2,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gerhart-Hauptmann-Platz",
+          "minuteOffset": 4,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "HBF/Steintordamm",
+          "minuteOffset": 6,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Hauptbahnhof/ZOB",
+          "minuteOffset": 8,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U S Berliner Tor (Beim Strohhause)",
+          "minuteOffset": 10,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Borgfelder Stra\u00dfe",
+          "minuteOffset": 12,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "U Burgstra\u00dfe",
+          "minuteOffset": 14,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bauerberg",
+          "minuteOffset": 16,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Billstedter Hauptstra\u00dfe",
+          "minuteOffset": 18,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Boberg",
+          "minuteOffset": 20,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "BG Klinikum Boberg",
+          "minuteOffset": 22,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Grandkoppel",
+          "minuteOffset": 24,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lohbr\u00fcgger Kirchstra\u00dfe",
+          "minuteOffset": 26,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lohbr\u00fcgger Markt",
+          "minuteOffset": 28,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Sander Markt",
+          "minuteOffset": 30,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Bf. Bergedorf",
+          "minuteOffset": 32,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lehfeld",
+          "minuteOffset": 34,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, Besenhorst",
+          "minuteOffset": 36,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, Sch\u00e4ferstrift",
+          "minuteOffset": 38,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, D\u00fcneberger Stra\u00dfe",
+          "minuteOffset": 40,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, An der Post",
+          "minuteOffset": 42,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, ZOB",
+          "minuteOffset": 44,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, Berliner Stra\u00dfe",
+          "minuteOffset": 46,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, Jugendherberge",
+          "minuteOffset": 48,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, Waldfriedhof",
+          "minuteOffset": 50,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Geesthacht, Gr\u00fcner J\u00e4ger",
+          "minuteOffset": 52,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gr\u00fcnhof, Steinberg",
+          "minuteOffset": 54,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gr\u00fcnhof, Krukower Weg",
+          "minuteOffset": 56,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Schnakenbek, Twiete",
+          "minuteOffset": 58,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Gl\u00fcsing, Berliner Stra\u00dfe",
+          "minuteOffset": 60,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lauenburg, Birnbaumkamp",
+          "minuteOffset": 62,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lauenburg, Sportplatz",
+          "minuteOffset": 64,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lauenburg, Albinusstra\u00dfe",
+          "minuteOffset": 66,
+          "isHighPlatform": false
+        },
+        {
+          "stopName": "Lauenburg, ZOB",
+          "minuteOffset": 68,
+          "isHighPlatform": false
+        }
+      ]
+    },
+    "frequency": {
+      "peak": "10 Min.",
+      "offPeak": "10 Min.",
+      "night": "20 Min."
+    },
+    "operatingHours": {
+      "firstTrain": "04:30",
+      "lastTrain": "00:30",
+      "nightService": true
+    }
+  },
+
   "4": {
     "lineRef": "4",
     "lineName": "Metrobus 4 (Wildacker ⇄ Eidelstedt ⇄ Schlump ⇄ Hbf/ZOB)",
