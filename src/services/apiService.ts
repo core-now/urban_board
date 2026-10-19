@@ -100,7 +100,7 @@ export interface GtfsRtDataResult {
 
 import { ALL_HANNOVER_STATIONS } from '../data/hannoverStations';
 import { ALL_HAMBURG_STATIONS } from '../data/hamburgStations';
-import { HANNOVER_TRANSIT_ROUTES, HAMBURG_TRANSIT_ROUTES } from '../data/transitRoutes';
+import { HANNOVER_TRANSIT_ROUTES, HAMBURG_TRANSIT_ROUTES, TransitLineRoute } from '../data/transitRoutes';
 import { transitEngine } from './transitEngine';
 
 export interface LiveIoTSensor {
@@ -626,12 +626,71 @@ export async function searchTransitStops(query: string, city: 'H' | 'HH' = 'H'):
   ).slice(0, 10);
 }
 
-// 10. Live OSM Overpass Route Track Fetcher
-export async function fetchLiveOsmLineRoute(lineRef: string, city: 'H' | 'HH' = 'H') {
-  if (city === 'HH') {
-    return HAMBURG_TRANSIT_ROUTES[lineRef] || null;
+// 10. Live OSM Overpass Route Track Fetcher (mit dynamischem On-the-Fly Overpass-Fallback)
+export async function fetchLiveOsmLineRoute(lineRef: string, city: 'H' | 'HH' = 'H'): Promise<TransitLineRoute | null> {
+  const directMap = city === 'HH' ? HAMBURG_TRANSIT_ROUTES : HANNOVER_TRANSIT_ROUTES;
+  if (directMap[lineRef]) {
+    return directMap[lineRef];
   }
-  return HANNOVER_TRANSIT_ROUTES[lineRef] || null;
+
+  // Dynamischer Abruf via Overpass API für Linien aus dem erweiterten HVV-/GVH-Netz
+  const cleanRef = lineRef.trim();
+  const areaBbox = city === 'HH' ? '53.35,9.65,53.75,10.35' : '52.15,9.40,52.65,10.15';
+  
+  const query = `[out:json][timeout:15];
+(
+  relation["type"="route"]["route"~"bus|tram|train|subway"]["ref"="${cleanRef}"](${areaBbox});
+);
+out body geom 1;
+>;
+out skel qt;`;
+
+  try {
+    const res = await executeOverpassQuery(query);
+    if (res.success && res.elements && res.elements.length > 0) {
+      // Suche die Hauptrelation mit Geometrie
+      const relation = res.elements.find((el: any) => el.tags && (el.tags.ref === cleanRef || el.tags.name));
+      if (relation) {
+        // Sammle Koordinaten
+        const coordinates: [number, number][] = [];
+        const stops: string[] = [];
+
+        // Fall 1: Relation hat direkten Geometry-Array
+        if ((relation as any).geometry && Array.isArray((relation as any).geometry)) {
+          (relation as any).geometry.forEach((pt: any) => {
+            if (pt.lat && pt.lon) coordinates.push([pt.lat, pt.lon]);
+          });
+        }
+
+        // Fall 2: Wenn Nodes vorhanden sind, filtern wir Stop-Positionen
+        res.elements.forEach((el: any) => {
+          if (el.tags && (el.tags.highway === 'bus_stop' || el.tags.railway === 'stop' || el.tags.public_transport === 'stop_position')) {
+            if (el.tags.name && !stops.includes(el.tags.name)) {
+              stops.push(el.tags.name);
+            }
+          }
+        });
+
+        if (coordinates.length > 2) {
+          return {
+            id: `osm-route-${cleanRef.toLowerCase()}`,
+            ref: cleanRef,
+            name: relation.tags.name || `Linie ${cleanRef}`,
+            type: relation.tags.route === 'bus' ? 'bus' : 'sbahn',
+            color: relation.tags.color || '#ff8000',
+            from: stops[0] || 'Start',
+            to: stops[stops.length - 1] || 'Ziel',
+            stops: stops.length > 0 ? stops : [`Linie ${cleanRef} Start`, `Linie ${cleanRef} Ziel`],
+            coordinates
+          };
+        }
+      }
+    }
+  } catch {
+    // Overpass offline or rate-limited
+  }
+
+  return null;
 }
 
 // 11. Official HVV PDF Linienfahrplan Fetcher (tbgl-search)

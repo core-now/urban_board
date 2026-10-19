@@ -92,6 +92,10 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
+  // Schritt 2 Filter & Suche
+  const [lineSearchQuery, setLineSearchQuery] = useState<string>('');
+  const [busSubFilter, setBusSubFilter] = useState<'ALL' | 'METRO' | 'EXPRESS' | 'STADT' | 'SPRINTH'>('ALL');
+
   // Sync category & line when activeCity changes
   useEffect(() => {
     if (activeCity === 'HH') {
@@ -170,10 +174,45 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
     return list;
   }, [isHamburg]);
 
-  // Filter Linien basierend auf ausgewähltem Verkehrsmittel über Stufe 2 der TransitEngine
+  // Filter Linien basierend auf ausgewähltem Verkehrsmittel & Subfilter/Suchbegriff
   const linesForSelectedMode = useMemo(() => {
-    return transitEngine.getLinesForMode(activeCity, selectedMode);
-  }, [activeCity, selectedMode]);
+    let list = transitEngine.getLinesForMode(activeCity, selectedMode);
+
+    // Spezieller Subfilter für Busse
+    if (selectedMode === 'BUS' && busSubFilter !== 'ALL') {
+      list = list.filter(l => {
+        const ref = l.lineRef;
+        const name = (l.lineName || '').toLowerCase();
+        if (busSubFilter === 'METRO') {
+          return name.includes('metrobus') || (!ref.startsWith('X') && !ref.startsWith('S') && Number(ref) <= 30);
+        }
+        if (busSubFilter === 'EXPRESS') {
+          return ref.startsWith('X') || name.includes('express');
+        }
+        if (busSubFilter === 'SPRINTH') {
+          return name.includes('sprinth') || ['300', '400', '500', '600', '700', '800', '900'].includes(ref);
+        }
+        if (busSubFilter === 'STADT') {
+          return !name.includes('metrobus') && !ref.startsWith('X') && !name.includes('sprinth');
+        }
+        return true;
+      });
+    }
+
+    // Textsuche nach Liniennummer oder Haltestelle
+    if (lineSearchQuery.trim().length > 0) {
+      const q = lineSearchQuery.toLowerCase().trim();
+      list = list.filter(l => 
+        l.lineRef.toLowerCase().includes(q) ||
+        (l.lineName && l.lineName.toLowerCase().includes(q)) ||
+        (l.corridorName && l.corridorName.toLowerCase().includes(q)) ||
+        (l.directionA?.origin && l.directionA.origin.toLowerCase().includes(q)) ||
+        (l.directionA?.destination && l.directionA.destination.toLowerCase().includes(q))
+      );
+    }
+
+    return list;
+  }, [activeCity, selectedMode, busSubFilter, lineSearchQuery]);
 
   const activeSchedule: LineSchedule = schedulesMap[selectedLineRef] || linesList[0];
   const activeDir = selectedDirection === 'A' ? activeSchedule?.directionA : activeSchedule?.directionB;
@@ -471,10 +510,92 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                   </button>
                 </div>
 
+                {/* Suchleiste für Linien & Haltestellen */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={lineSearchQuery}
+                    onChange={(e) => setLineSearchQuery(e.target.value)}
+                    placeholder="Linie (z.B. 5, X3, 100) oder Endstation suchen..."
+                    className="w-full bg-anthrazit-950 border border-anthrazit-700 px-2.5 py-1.5 text-xs text-anthrazit-100 placeholder-anthrazit-500 focus:outline-none focus:border-accent"
+                  />
+                  {lineSearchQuery && (
+                    <button
+                      onClick={() => setLineSearchQuery('')}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 text-anthrazit-400 hover:text-accent text-xs"
+                    >
+                      ✕
+                    </button>
+                  )}
+                </div>
+
+                {/* Subkategorien für Bus (MetroBus, ExpressBus, Stadtbus, sprintH) */}
+                {selectedMode === 'BUS' && (
+                  <div className="flex items-center space-x-1 overflow-x-auto pb-1 text-[11px] font-mono border-b border-anthrazit-800">
+                    <button
+                      onClick={() => setBusSubFilter('ALL')}
+                      className={`px-2 py-0.5 border cursor-pointer shrink-0 transition-colors ${
+                        busSubFilter === 'ALL'
+                          ? 'bg-accent text-anthrazit-950 font-bold border-accent'
+                          : 'bg-anthrazit-950 text-anthrazit-400 border-anthrazit-800 hover:border-anthrazit-600'
+                      }`}
+                    >
+                      Alle Busse
+                    </button>
+                    {isHamburg ? (
+                      <>
+                        <button
+                          onClick={() => setBusSubFilter('METRO')}
+                          className={`px-2 py-0.5 border cursor-pointer shrink-0 transition-colors ${
+                            busSubFilter === 'METRO'
+                              ? 'bg-accent text-anthrazit-950 font-bold border-accent'
+                              : 'bg-anthrazit-950 text-anthrazit-400 border-anthrazit-800 hover:border-anthrazit-600'
+                          }`}
+                        >
+                          MetroBus (1-29)
+                        </button>
+                        <button
+                          onClick={() => setBusSubFilter('EXPRESS')}
+                          className={`px-2 py-0.5 border cursor-pointer shrink-0 transition-colors ${
+                            busSubFilter === 'EXPRESS'
+                              ? 'bg-accent text-anthrazit-950 font-bold border-accent'
+                              : 'bg-anthrazit-950 text-anthrazit-400 border-anthrazit-800 hover:border-anthrazit-600'
+                          }`}
+                        >
+                          XpressBus (X)
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button
+                          onClick={() => setBusSubFilter('STADT')}
+                          className={`px-2 py-0.5 border cursor-pointer shrink-0 transition-colors ${
+                            busSubFilter === 'STADT'
+                              ? 'bg-accent text-anthrazit-950 font-bold border-accent'
+                              : 'bg-anthrazit-950 text-anthrazit-400 border-anthrazit-800 hover:border-anthrazit-600'
+                          }`}
+                        >
+                          Stadtbus (100-200)
+                        </button>
+                        <button
+                          onClick={() => setBusSubFilter('SPRINTH')}
+                          className={`px-2 py-0.5 border cursor-pointer shrink-0 transition-colors ${
+                            busSubFilter === 'SPRINTH'
+                              ? 'bg-accent text-anthrazit-950 font-bold border-accent'
+                              : 'bg-anthrazit-950 text-anthrazit-400 border-anthrazit-800 hover:border-anthrazit-600'
+                          }`}
+                        >
+                          sprintH (800)
+                        </button>
+                      </>
+                    )}
+                  </div>
+                )}
+
                 <div className="space-y-1.5 pt-1 max-h-80 overflow-y-auto pr-1">
                   {linesForSelectedMode.length === 0 ? (
                     <div className="p-3 text-center text-anthrazit-500 text-xs">
-                      Keine Linien in dieser Kategorie vorhanden.
+                      Keine Linien für diese Filterkriterien gefunden.
                     </div>
                   ) : (
                     linesForSelectedMode.map((line) => {

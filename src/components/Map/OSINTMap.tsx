@@ -52,7 +52,7 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
   const hoveredPreviewLayerGroupRef = useRef<L.LayerGroup | null>(null);
   const routeLayerGroupRef = useRef<L.LayerGroup | null>(null);
 
-  const [showAllLines, setShowAllLines] = useState<boolean>(true);
+  const [showAllLines, setShowAllLines] = useState<boolean>(false);
 
   const [activeTileProvider, setActiveTileProvider] = useState<MapTileProvider>(
     theme === 'dark' ? 'esri-dark' : 'esri-light'
@@ -763,7 +763,7 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
         <div className="relative">
           <button
             onClick={() => setShowTileMenu(!showTileMenu)}
-            className="flex items-center space-x-1.5 px-3 py-1.5 rounded bg-anthrazit-900/90 hover:bg-anthrazit-850 border border-anthrazit-700 text-anthrazit-200 shadow-panel backdrop-blur cursor-pointer"
+            className="flex items-center space-x-1.5 px-3 py-1.5 bg-anthrazit-900/90 hover:bg-anthrazit-850 border border-anthrazit-700 text-anthrazit-200 shadow-panel backdrop-blur cursor-pointer"
             title="Karten-Stil wählen"
           >
             <MapIcon className="w-3.5 h-3.5 text-accent" />
@@ -772,7 +772,7 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
           </button>
 
           {showTileMenu && (
-            <div className="absolute right-0 mt-1.5 w-52 rounded bg-anthrazit-900 border border-anthrazit-700 shadow-2xl p-1 space-y-1">
+            <div className="absolute right-0 mt-1.5 w-52 bg-anthrazit-900 border border-anthrazit-700 shadow-2xl p-1 space-y-1">
               {[
                 { id: 'esri-dark', name: 'Esri Dark Canvas', desc: 'OSINT Anthrazit (Standard)' },
                 { id: 'esri-light', name: 'Esri Light Canvas', desc: 'Hell & Analytisch' },
@@ -785,7 +785,7 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
                     setActiveTileProvider(prov.id as MapTileProvider);
                     setShowTileMenu(false);
                   }}
-                  className={`w-full flex flex-col text-left px-2.5 py-1.5 rounded text-xs transition-colors cursor-pointer ${
+                  className={`w-full flex flex-col text-left px-2.5 py-1.5 text-xs transition-colors cursor-pointer ${
                     activeTileProvider === prov.id
                       ? 'bg-accent/15 text-accent font-bold border border-accent/30'
                       : 'text-anthrazit-300 hover:bg-anthrazit-850 hover:text-anthrazit-100'
