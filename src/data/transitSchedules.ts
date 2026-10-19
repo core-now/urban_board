@@ -5093,7 +5093,7 @@ export const HANNOVER_SCHEDULES: Record<string, LineSchedule> = {
           "isHighPlatform": true
         },
         {
-          "stopName": "Großburgwedel",
+          "stopName": "Großburgwedel (Region Hannover)",
           "minuteOffset": 30,
           "isHighPlatform": true
         },
@@ -5118,7 +5118,7 @@ export const HANNOVER_SCHEDULES: Record<string, LineSchedule> = {
           "isHighPlatform": true
         },
         {
-          "stopName": "Großburgwedel",
+          "stopName": "Großburgwedel (Region Hannover)",
           "minuteOffset": 5,
           "isHighPlatform": true
         },
@@ -5764,7 +5764,7 @@ export const HANNOVER_SCHEDULES: Record<string, LineSchedule> = {
           "isHighPlatform": true
         },
         {
-          "stopName": "Großburgwedel",
+          "stopName": "Großburgwedel (Region Hannover)",
           "minuteOffset": 72,
           "isHighPlatform": true
         },
@@ -5829,7 +5829,7 @@ export const HANNOVER_SCHEDULES: Record<string, LineSchedule> = {
           "isHighPlatform": true
         },
         {
-          "stopName": "Großburgwedel",
+          "stopName": "Großburgwedel (Region Hannover)",
           "minuteOffset": 30,
           "isHighPlatform": true
         },
@@ -5931,7 +5931,7 @@ export const HANNOVER_SCHEDULES: Record<string, LineSchedule> = {
           "isHighPlatform": true
         },
         {
-          "stopName": "Großburgwedel",
+          "stopName": "Großburgwedel (Region Hannover)",
           "minuteOffset": 20,
           "isHighPlatform": true
         },
@@ -6056,7 +6056,7 @@ export const HANNOVER_SCHEDULES: Record<string, LineSchedule> = {
           "isHighPlatform": true
         },
         {
-          "stopName": "Großburgwedel",
+          "stopName": "Großburgwedel (Region Hannover)",
           "minuteOffset": 110,
           "isHighPlatform": true
         },
@@ -7030,12 +7030,12 @@ export const HAMBURG_SCHEDULES: Record<string, LineSchedule> = {
   },
   "5": {
     "lineRef": "5",
-    "lineName": "Metrobus 5 (Burgwedel ⇄ Niendorf ⇄ Hoheluft ⇄ Dammtor ⇄ Hbf/ZOB)",
+    "lineName": "Metrobus 5 (Hamburg-Schnelsen (A Burgwedel) ⇄ Niendorf ⇄ Hoheluft ⇄ Dammtor ⇄ Hbf/ZOB)",
     "stammstrecke": "BUS",
     "corridorName": "Europas meistgenutzte Buslinie (Metrobus 5)",
     "color": "#84cc16",
     "directionA": {
-      "origin": "Burgwedel",
+      "origin": "Hamburg-Schnelsen (A Burgwedel)",
       "destination": "Hauptbahnhof / ZOB",
       "totalMinutes": 44,
       "baseMinuteDepartures": [
@@ -7054,7 +7054,7 @@ export const HAMBURG_SCHEDULES: Record<string, LineSchedule> = {
       ],
       "stops": [
         {
-          "stopName": "Burgwedel",
+          "stopName": "Hamburg-Schnelsen (A Burgwedel)",
           "minuteOffset": 0,
           "isHighPlatform": false
         },
@@ -7112,7 +7112,7 @@ export const HAMBURG_SCHEDULES: Record<string, LineSchedule> = {
     },
     "directionB": {
       "origin": "Hauptbahnhof / ZOB",
-      "destination": "Burgwedel",
+      "destination": "Hamburg-Schnelsen (A Burgwedel)",
       "totalMinutes": 44,
       "baseMinuteDepartures": [
         1,
@@ -7180,7 +7180,7 @@ export const HAMBURG_SCHEDULES: Record<string, LineSchedule> = {
           "isHighPlatform": false
         },
         {
-          "stopName": "Burgwedel",
+          "stopName": "Hamburg-Schnelsen (A Burgwedel)",
           "minuteOffset": 40,
           "isHighPlatform": false
         }
@@ -11456,7 +11456,7 @@ export const HAMBURG_SCHEDULES: Record<string, LineSchedule> = {
           "isHighPlatform": true
         },
         {
-          "stopName": "Burgwedel",
+          "stopName": "Hamburg-Schnelsen (A Burgwedel)",
           "minuteOffset": 16,
           "isHighPlatform": true
         },
@@ -11583,7 +11583,7 @@ export const HAMBURG_SCHEDULES: Record<string, LineSchedule> = {
           "isHighPlatform": true
         },
         {
-          "stopName": "Burgwedel",
+          "stopName": "Hamburg-Schnelsen (A Burgwedel)",
           "minuteOffset": 44,
           "isHighPlatform": true
         },

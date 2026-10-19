@@ -22,8 +22,6 @@ import {
   ScheduleStopItem,
   generateStationTimetable 
 } from '../data/transitSchedules';
-import { ALL_HANNOVER_STATIONS } from '../data/hannoverStations';
-import { ALL_HAMBURG_STATIONS } from '../data/hamburgStations';
 import { 
   fetchLiveDepartures, 
   searchTransitStops, 
@@ -31,6 +29,7 @@ import {
   LiveDeparture, 
   fetchLiveOsmLineRoute 
 } from '../services/apiService';
+import { transitEngine } from '../services/transitEngine';
 
 interface TransitCockpitProps {
   activeCity: 'H' | 'HH';
@@ -169,60 +168,17 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
     return list;
   }, [isHamburg]);
 
-  // Filter Linien basierend auf ausgewähltem Verkehrsmittel
+  // Filter Linien basierend auf ausgewähltem Verkehrsmittel über Stufe 2 der TransitEngine
   const linesForSelectedMode = useMemo(() => {
-    return linesList.filter(l => {
-      if (selectedMode === 'METRO') {
-        if (isHamburg) return l.stammstrecke === 'U' || l.lineRef.startsWith('U');
-        return ['A', 'B', 'C', 'D'].includes(l.stammstrecke || '');
-      }
-      if (selectedMode === 'SBAHN') {
-        return l.stammstrecke === 'S' || l.lineRef.startsWith('S');
-      }
-      if (selectedMode === 'REGIO') {
-        return l.stammstrecke === 'R' || l.lineRef.startsWith('RE') || l.lineRef.startsWith('RB') || l.lineRef.startsWith('A');
-      }
-      if (selectedMode === 'BUS') {
-        return l.stammstrecke === 'BUS';
-      }
-      if (selectedMode === 'FERRY') {
-        return l.stammstrecke === 'F' || ['61', '62', '72', '73', '75'].includes(l.lineRef);
-      }
-      return false;
-    });
-  }, [linesList, selectedMode, isHamburg]);
+    return transitEngine.getLinesForMode(activeCity, selectedMode);
+  }, [activeCity, selectedMode]);
 
   const activeSchedule: LineSchedule = schedulesMap[selectedLineRef] || linesList[0];
   const activeDir = selectedDirection === 'A' ? activeSchedule?.directionA : activeSchedule?.directionB;
 
-  // Station auswählen & zur Station fliegen
+  // Station auswählen & zur Station fliegen über Stufe 6 der TransitEngine (Disambiguierung)
   const handleSelectStopItem = (stopItem: ScheduleStopItem, advanceToStep4 = true) => {
-    let stopObj: TransitStop;
-    if (isHamburg) {
-      const match = ALL_HAMBURG_STATIONS.find(s => 
-        s.name.toLowerCase().includes(stopItem.stopName.toLowerCase()) || 
-        stopItem.stopName.toLowerCase().includes(s.name.toLowerCase())
-      );
-      stopObj = match || {
-        id: `hh-${stopItem.stopName.toLowerCase().replace(/\s+/g, '-')}`,
-        name: stopItem.stopName,
-        lat: 53.5511,
-        lng: 9.9937,
-        type: activeSchedule?.lineName || 'ÖPNV'
-      };
-    } else {
-      const match = ALL_HANNOVER_STATIONS.find(s => 
-        s.name.toLowerCase().includes(stopItem.stopName.toLowerCase()) || 
-        stopItem.stopName.toLowerCase().includes(s.name.toLowerCase())
-      );
-      stopObj = match || {
-        id: `hn-${stopItem.stopName.toLowerCase().replace(/\s+/g, '-')}`,
-        name: stopItem.stopName,
-        lat: 52.3759,
-        lng: 9.7320,
-        type: activeSchedule?.lineName || 'ÖPNV'
-      };
-    }
+    const stopObj = transitEngine.matchStopToStation(stopItem.stopName, activeCity);
 
     onSelectTransitStop(stopObj);
     onFlyToStation(stopObj.lat, stopObj.lng, stopObj.name);

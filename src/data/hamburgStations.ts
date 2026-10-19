@@ -85,6 +85,9 @@ export const ALL_HAMBURG_STATIONS: TransitStop[] = [
   { id: 'hh-faehre-oevielgoenne', name: 'Övelgönne / Museumshafen', type: 'Fähre 62', lat: 53.5430, lng: 9.9140 },
   { id: 'hh-faehre-bubendey', name: 'Bubendey-Ufer', type: 'Fähre 62', lat: 53.5410, lng: 9.8950 },
   { id: 'hh-faehre-finkenwerder', name: 'Finkenwerder (Airbus)', type: 'Fähre 62/64', lat: 53.5420, lng: 9.8730 },
-  { id: 'hh-faehre-neuhof', name: 'Neuhof (Köhlbrand / Fähre 61)', type: 'Fähre 61', lat: 53.5180, lng: 9.9490 }
+  { id: 'hh-faehre-neuhof', name: 'Neuhof (Köhlbrand / Fähre 61)', type: 'Fähre 61', lat: 53.5180, lng: 9.9490 },
+
+  // --- AKN / METROBUS 5 KNOTEN SCHNELSEN ---
+  { id: 'hh-akn-burgwedel', name: 'Hamburg-Schnelsen (A Burgwedel)', type: 'AKN A1 • Metrobus 5', lat: 53.6420, lng: 9.9140 }
 ];
 

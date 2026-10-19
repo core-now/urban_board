@@ -100,8 +100,8 @@ export interface GtfsRtDataResult {
 
 import { ALL_HANNOVER_STATIONS } from '../data/hannoverStations';
 import { ALL_HAMBURG_STATIONS } from '../data/hamburgStations';
-import { HANNOVER_SCHEDULES, HAMBURG_SCHEDULES } from '../data/transitSchedules';
 import { HANNOVER_TRANSIT_ROUTES, HAMBURG_TRANSIT_ROUTES } from '../data/transitRoutes';
+import { transitEngine } from './transitEngine';
 
 export interface LiveIoTSensor {
   id: string;
@@ -581,110 +581,27 @@ export async function fetchLiveDepartures(stationId: string, durationMinutes: nu
     }
   }
 
-  // Dynamic realistic live departures tailored to the specific station and lines
-  const now = new Date();
+  // Dynamic realistic live departures using the central 7-stage TransitEngine
   const isHH = city === 'HH' || fallbackStationName.toLowerCase().includes('hamburg');
-  const allSchedules = isHH ? HAMBURG_SCHEDULES : HANNOVER_SCHEDULES;
+  const activeCity: 'H' | 'HH' = isHH ? 'HH' : 'H';
+  const disambiguatedStation = transitEngine.disambiguateStationName(fallbackStationName, activeCity);
 
-  const stationNameClean = fallbackStationName
-    .toLowerCase()
-    .replace(/hamburg|hannover|\(.*\)/gi, '')
-    .trim();
+  const engineDepartures = transitEngine.prepareDeparturesForStation(
+    fallbackStationName,
+    activeCity,
+    durationMinutes
+  );
 
-  const matchedDepartures: (LiveDeparture & { _time: number })[] = [];
-
-  for (const [lineKey, schedule] of Object.entries(allSchedules)) {
-    // Check Direction A
-    const stopA = schedule.directionA.stops.find(s => 
-      s.stopName.toLowerCase().includes(cleanQuery) || 
-      cleanQuery.includes(s.stopName.toLowerCase()) ||
-      (stationNameClean.length >= 3 && s.stopName.toLowerCase().includes(stationNameClean))
-    );
-    if (stopA) {
-      for (let h = 0; h < 2; h++) {
-        const hour = (now.getHours() + h) % 24;
-        for (const baseMin of schedule.directionA.baseMinuteDepartures) {
-          const totalMin = baseMin + stopA.minuteOffset;
-          const depH = (hour + Math.floor(totalMin / 60)) % 24;
-          const depM = totalMin % 60;
-          const depDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + (h > 0 && depH < now.getHours() ? 1 : 0), depH, depM, 0);
-          const diffMin = (depDate.getTime() - now.getTime()) / 60000;
-
-          if (diffMin >= 0 && diffMin <= durationMinutes) {
-            const timeStr = depDate.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
-            const isDelayed = (depM % 7 === 0);
-            const delay = isDelayed ? 1 : 0;
-            const actualDate = new Date(depDate.getTime() + delay * 60000);
-            const actualStr = actualDate.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
-
-            matchedDepartures.push({
-              tripId: `${lineKey}-dirA-${depH}-${depM}`,
-              line: schedule.lineName.split('(')[0].trim(),
-              direction: schedule.directionA.destination,
-              plannedWhen: timeStr,
-              when: actualStr,
-              delayMinutes: delay,
-              platform: stopA.isHighPlatform ? 'Gleis 1' : 'Steig 1',
-              type: lineKey.startsWith('S') ? 'train' : lineKey.startsWith('U') ? 'subway' : (lineKey === '61' || lineKey === '62' || lineKey === '72') ? 'tram' : 'subway',
-              _time: depDate.getTime()
-            });
-          }
-        }
-      }
-    }
-
-    // Check Direction B
-    const stopB = schedule.directionB.stops.find(s => 
-      s.stopName.toLowerCase().includes(cleanQuery) || 
-      cleanQuery.includes(s.stopName.toLowerCase()) ||
-      (stationNameClean.length >= 3 && s.stopName.toLowerCase().includes(stationNameClean))
-    );
-    if (stopB) {
-      for (let h = 0; h < 2; h++) {
-        const hour = (now.getHours() + h) % 24;
-        for (const baseMin of schedule.directionB.baseMinuteDepartures) {
-          const totalMin = baseMin + stopB.minuteOffset;
-          const depH = (hour + Math.floor(totalMin / 60)) % 24;
-          const depM = totalMin % 60;
-          const depDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + (h > 0 && depH < now.getHours() ? 1 : 0), depH, depM, 0);
-          const diffMin = (depDate.getTime() - now.getTime()) / 60000;
-
-          if (diffMin >= 0 && diffMin <= durationMinutes) {
-            const timeStr = depDate.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
-            const isDelayed = (depM % 9 === 0);
-            const delay = isDelayed ? 2 : 0;
-            const actualDate = new Date(depDate.getTime() + delay * 60000);
-            const actualStr = actualDate.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
-
-            matchedDepartures.push({
-              tripId: `${lineKey}-dirB-${depH}-${depM}`,
-              line: schedule.lineName.split('(')[0].trim(),
-              direction: schedule.directionB.destination,
-              plannedWhen: timeStr,
-              when: actualStr,
-              delayMinutes: delay,
-              platform: stopB.isHighPlatform ? 'Gleis 2' : 'Steig 2',
-              type: lineKey.startsWith('S') ? 'train' : lineKey.startsWith('U') ? 'subway' : (lineKey === '61' || lineKey === '62' || lineKey === '72') ? 'tram' : 'subway',
-              _time: depDate.getTime()
-            });
-          }
-        }
-      }
-    }
-  }
-
-  // Sort chronologically
-  matchedDepartures.sort((a, b) => a._time - b._time);
-
-  if (matchedDepartures.length > 0) {
+  if (engineDepartures.length > 0) {
     return {
       success: true,
-      departures: matchedDepartures.slice(0, 15).map(({ _time, ...dep }) => dep),
-      stationName: fallbackStationName
+      departures: engineDepartures.slice(0, 16),
+      stationName: disambiguatedStation
     };
   }
 
   // Generic fallback if not on schedule
+  const now = new Date();
   const formatTime = (minutesOffset: number) => {
     const d = new Date(now.getTime() + minutesOffset * 60000);
     return d.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });

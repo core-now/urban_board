@@ -128,4 +128,7 @@ export const ALL_HANNOVER_STATIONS: TransitStop[] = [
   { id: 'hn-rethen', name: 'Rethen', type: 'Stadtbahn 1', lat: 52.28815, lng: 9.81515 },
   { id: 'hn-gleidingen', name: 'Gleidingen', type: 'Stadtbahn 1', lat: 52.26115, lng: 9.81815 },
   { id: 'hn-sarstedt', name: 'Sarstedt', type: 'Stadtbahn 1', lat: 52.23815, lng: 9.82215 },
+
+  // --- S-BAHN S4 / METRONOM REGION HANNOVER ---
+  { id: 'hn-grossburgwedel', name: 'Großburgwedel (Region Hannover)', type: 'S-Bahn S4 • Metronom RE2/RE3', lat: 52.4950, lng: 9.8650 }
 ];

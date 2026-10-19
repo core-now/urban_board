@@ -2264,7 +2264,7 @@ export const HANNOVER_TRANSIT_ROUTES: Record<string, TransitLineRoute> = {
       "Burgdorf",
       "Otze",
       "Ehlershausen",
-      "Großburgwedel",
+      "Großburgwedel (Region Hannover)",
       "Celle"
     ],
     "coordinates": [
@@ -2560,7 +2560,7 @@ export const HANNOVER_TRANSIT_ROUTES: Record<string, TransitLineRoute> = {
       "Sarstedt",
       "Hannover Hbf",
       "Langenhagen Mitte",
-      "Großburgwedel",
+      "Großburgwedel (Region Hannover)",
       "Celle",
       "Eschede",
       "Unterlüß",
@@ -2653,7 +2653,7 @@ export const HANNOVER_TRANSIT_ROUTES: Record<string, TransitLineRoute> = {
     "stops": [
       "Hannover Hbf",
       "Langenhagen Mitte",
-      "Großburgwedel",
+      "Großburgwedel (Region Hannover)",
       "Celle",
       "Eschede",
       "Unterlüß",
@@ -3167,10 +3167,10 @@ export const HAMBURG_TRANSIT_ROUTES: Record<string, TransitLineRoute> = {
     "name": "Metrobus 5 (Europas meistgenutzte Buslinie)",
     "type": "bus",
     "color": "#84cc16",
-    "from": "Burgwedel",
+    "from": "Hamburg-Schnelsen (A Burgwedel)",
     "to": "Hauptbahnhof / ZOB",
     "stops": [
-      "Burgwedel",
+      "Hamburg-Schnelsen (A Burgwedel)",
       "Niendorf Markt",
       "Nedderfeld",
       "Gärtnerstraße",
@@ -5014,7 +5014,7 @@ export const HAMBURG_TRANSIT_ROUTES: Record<string, TransitLineRoute> = {
       "Eidelstedt Zentrum",
       "Hörgensweg",
       "Schnelsen",
-      "Burgwedel",
+      "Hamburg-Schnelsen (A Burgwedel)",
       "Bönningstedt",
       "Hasloh",
       "Quickborn Süd",
