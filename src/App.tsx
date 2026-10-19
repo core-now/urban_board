@@ -283,15 +283,15 @@ export const App: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Bottom Navigation Bar (Fokus auf Map + Transit) */}
-      <nav className="md:hidden h-14 bg-anthrazit-950 border-t border-anthrazit-800 flex items-center justify-around px-2 z-30 shrink-0 font-mono text-xs">
+      {/* Mobile Bottom Navigation Bar (Fokus auf Map + Transit - schlank & platzsparend) */}
+      <nav className="md:hidden h-11 bg-anthrazit-950 border-t border-anthrazit-800 flex items-center justify-around px-2 z-30 shrink-0 font-mono text-xs">
         <button
           onClick={() => setMobileTab('map')}
-          className={`flex-1 py-2 flex flex-col items-center justify-center space-y-1 min-h-[44px] cursor-pointer ${
-            mobileTab === 'map' ? 'text-accent font-bold' : 'text-anthrazit-400'
+          className={`flex-1 py-1 flex items-center justify-center space-x-1.5 min-h-[36px] cursor-pointer ${
+            mobileTab === 'map' ? 'text-accent font-bold bg-anthrazit-900 border border-accent/30' : 'text-anthrazit-400 hover:text-anthrazit-200'
           }`}
         >
-          <Compass className="w-4 h-4" />
+          <Compass className="w-3.5 h-3.5" />
           <span className="text-[10px]">Netz-Karte</span>
         </button>
 
@@ -300,11 +300,11 @@ export const App: React.FC = () => {
             setMobileTab('transit');
             setIsTransitCockpitOpen(true);
           }}
-          className={`flex-1 py-2 flex flex-col items-center justify-center space-y-1 min-h-[44px] cursor-pointer ${
-            mobileTab === 'transit' ? 'text-accent font-bold' : 'text-anthrazit-400'
+          className={`flex-1 py-1 flex items-center justify-center space-x-1.5 min-h-[36px] cursor-pointer ${
+            mobileTab === 'transit' ? 'text-accent font-bold bg-anthrazit-900 border border-accent/30' : 'text-anthrazit-400 hover:text-anthrazit-200'
           }`}
         >
-          <Train className="w-4 h-4" />
+          <Train className="w-3.5 h-3.5" />
           <span className="text-[10px]">Fahrplan-Cockpit</span>
         </button>
       </nav>

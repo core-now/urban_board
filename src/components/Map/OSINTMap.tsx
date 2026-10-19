@@ -690,16 +690,16 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
 
       {/* Floating Active Route Banner */}
       {activeRoute && (
-        <div className="absolute top-3 left-3 z-30 font-mono text-xs max-w-sm rounded bg-anthrazit-950/95 border border-accent text-anthrazit-100 shadow-2xl p-2.5 backdrop-blur flex items-center justify-between space-x-3">
-          <div className="flex items-center space-x-2 min-w-0">
-            <span className="px-2 py-0.5 rounded bg-accent text-anthrazit-950 font-bold font-mono text-[11px] shrink-0">
+        <div className="absolute top-2 left-2 z-30 font-mono text-xs max-w-[calc(100vw-120px)] sm:max-w-sm bg-anthrazit-950/95 border border-accent text-anthrazit-100 shadow-2xl p-1.5 sm:p-2.5 backdrop-blur flex items-center justify-between space-x-2">
+          <div className="flex items-center space-x-1.5 sm:space-x-2 min-w-0">
+            <span className="px-1.5 sm:px-2 py-0.5 bg-accent text-anthrazit-950 font-bold font-mono text-[10px] sm:text-[11px] shrink-0">
               {activeRoute.name}
             </span>
             <div className="truncate">
-              <span className="font-bold block truncate text-[11px]">
+              <span className="font-bold block truncate text-[10px] sm:text-[11px]">
                 {activeRoute.from} ➔ {activeRoute.to}
               </span>
-              <span className="text-[10px] text-anthrazit-400">
+              <span className="text-[9px] sm:text-[10px] text-anthrazit-400">
                 {activeRoute.stops.length} Stationen im Linienverlauf
               </span>
             </div>
@@ -707,10 +707,10 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
           {onClearRoute && (
             <button
               onClick={onClearRoute}
-              className="p-1 rounded hover:bg-anthrazit-800 text-anthrazit-400 hover:text-accent cursor-pointer shrink-0"
+              className="p-1 hover:bg-anthrazit-800 text-anthrazit-400 hover:text-accent cursor-pointer shrink-0"
               title="Linie ausblenden"
             >
-              <X className="w-4 h-4" />
+              <X className="w-3.5 h-3.5" />
             </button>
           )}
         </div>
@@ -718,16 +718,16 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
 
       {/* Floating Overpass Live Layer Banner */}
       {overpassLiveElements && overpassLiveElements.length > 0 && (
-        <div className="absolute top-14 left-3 z-30 font-mono text-xs max-w-sm rounded bg-anthrazit-950/95 border border-accent text-anthrazit-100 shadow-2xl p-2.5 backdrop-blur flex items-center justify-between space-x-3">
-          <div className="flex items-center space-x-2 min-w-0">
-            <span className="px-2 py-0.5 rounded bg-accent text-anthrazit-950 font-bold font-mono text-[11px] shrink-0">
+        <div className="absolute top-12 left-2 z-30 font-mono text-xs max-w-[calc(100vw-120px)] sm:max-w-sm bg-anthrazit-950/95 border border-accent text-anthrazit-100 shadow-2xl p-1.5 sm:p-2.5 backdrop-blur flex items-center justify-between space-x-2">
+          <div className="flex items-center space-x-1.5 sm:space-x-2 min-w-0">
+            <span className="px-1.5 sm:px-2 py-0.5 bg-accent text-anthrazit-950 font-bold font-mono text-[10px] sm:text-[11px] shrink-0">
               OVERPASS
             </span>
             <div className="truncate">
-              <span className="font-bold block truncate text-[11px]">
+              <span className="font-bold block truncate text-[10px] sm:text-[11px]">
                 {overpassLiveElements.length} OSM-Knoten aktiv
               </span>
-              <span className="text-[10px] text-anthrazit-400">
+              <span className="text-[9px] sm:text-[10px] text-anthrazit-400">
                 Live aus OpenStreetMap geladen
               </span>
             </div>
@@ -735,40 +735,41 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
           {onClearOverpassElements && (
             <button
               onClick={onClearOverpassElements}
-              className="p-1 rounded hover:bg-anthrazit-800 text-anthrazit-400 hover:text-accent cursor-pointer shrink-0"
+              className="p-1 hover:bg-anthrazit-800 text-anthrazit-400 hover:text-accent cursor-pointer shrink-0"
               title="Overpass-Knoten von der Karte entfernen"
             >
-              <X className="w-4 h-4" />
+              <X className="w-3.5 h-3.5" />
             </button>
           )}
         </div>
       )}
 
       {/* Top Right Controls: Network Lines Toggle & Tile Switcher */}
-      <div className="absolute top-3 right-3 z-30 font-mono text-xs flex items-center space-x-2">
+      <div className="absolute top-2 right-2 z-30 font-mono text-xs flex items-center space-x-1 sm:space-x-2">
         {/* Toggle All Network Lines */}
         <button
           onClick={() => setShowAllLines(!showAllLines)}
-          className={`flex items-center space-x-1.5 px-3 py-1.5 bg-anthrazit-900/90 hover:bg-anthrazit-850 border text-xs shadow-panel backdrop-blur cursor-pointer transition-colors ${
+          className={`flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-anthrazit-900/90 hover:bg-anthrazit-850 border text-[10px] sm:text-xs shadow-panel backdrop-blur cursor-pointer transition-colors ${
             showAllLines 
               ? 'border-accent text-accent font-bold' 
               : 'border-anthrazit-700 text-anthrazit-400 hover:text-anthrazit-200'
           }`}
           title="Gesamtes Liniennetz mit offiziellen Linienfarben ein-/ausblenden"
         >
-          <GitBranch className="w-3.5 h-3.5" />
-          <span>{showAllLines ? 'Netzplan: AN' : 'Netzplan: AUS'}</span>
+          <GitBranch className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+          <span className="hidden xs:inline">{showAllLines ? 'Netzplan: AN' : 'Netzplan: AUS'}</span>
+          <span className="xs:hidden">{showAllLines ? 'Netz' : 'Netz'}</span>
         </button>
 
         <div className="relative">
           <button
             onClick={() => setShowTileMenu(!showTileMenu)}
-            className="flex items-center space-x-1.5 px-3 py-1.5 bg-anthrazit-900/90 hover:bg-anthrazit-850 border border-anthrazit-700 text-anthrazit-200 shadow-panel backdrop-blur cursor-pointer"
+            className="flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-anthrazit-900/90 hover:bg-anthrazit-850 border border-anthrazit-700 text-anthrazit-200 shadow-panel backdrop-blur cursor-pointer text-[10px] sm:text-xs"
             title="Karten-Stil wählen"
           >
-            <MapIcon className="w-3.5 h-3.5 text-accent" />
-            <span className="capitalize">{activeTileProvider.replace('-', ' ')}</span>
-            <Layers className="w-3 h-3 text-anthrazit-400 ml-1" />
+            <MapIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-accent" />
+            <span className="hidden sm:inline capitalize">{activeTileProvider.replace('-', ' ')}</span>
+            <Layers className="w-3 h-3 text-anthrazit-400" />
           </button>
 
           {showTileMenu && (
@@ -800,8 +801,8 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
         </div>
       </div>
 
-      {/* Bottom Floating Coordinate Bar */}
-      <div className="absolute bottom-2 left-3 z-20 bg-anthrazit-900/90 dark:bg-anthrazit-950/90 backdrop-blur border border-anthrazit-800 text-[11px] font-mono text-anthrazit-300 px-3 py-1.5 rounded flex items-center space-x-3 shadow-panel">
+      {/* Bottom Floating Coordinate Bar (auf Mobilgeräten ausgeblendet für maximalen Karten-Viewport) */}
+      <div className="hidden sm:flex absolute bottom-2 left-3 z-20 bg-anthrazit-900/90 dark:bg-anthrazit-950/90 backdrop-blur border border-anthrazit-800 text-[11px] font-mono text-anthrazit-300 px-3 py-1.5 items-center space-x-3 shadow-panel">
         <div className="flex items-center space-x-1">
           <span className="text-accent font-bold">LAT:</span>
           <span>{cursorCoords.lat}° N</span>

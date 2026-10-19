@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
   }, []);
 
   return (
-    <header className="h-14 lg:h-16 border-b border-anthrazit-800 bg-anthrazit-900/95 dark:bg-anthrazit-950/95 backdrop-blur-md px-3 sm:px-4 flex items-center justify-between z-30 select-none shrink-0">
+    <header className="h-11 sm:h-12 lg:h-14 border-b border-anthrazit-800 bg-anthrazit-900/95 dark:bg-anthrazit-950/95 backdrop-blur-md px-2 sm:px-4 flex items-center justify-between z-30 select-none shrink-0">
       {/* Links: Logo HBOARD + City Switcher [H] | [HH] */}
       <div className="flex items-center space-x-2 sm:space-x-3">
         {/* Mobile Tools/Sensoren Trigger */}
@@ -130,7 +130,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center bg-anthrazit-950 border border-anthrazit-800 p-0.5 space-x-0.5">
           <button
             onClick={() => onSelectCity('H')}
-            className={`px-3 py-1.5 min-h-[40px] text-xs font-mono font-bold transition-all cursor-pointer flex items-center space-x-1.5 ${
+            className={`px-2 sm:px-3 py-1 min-h-[32px] sm:min-h-[36px] text-xs font-mono font-bold transition-all cursor-pointer flex items-center space-x-1 sm:space-x-1.5 ${
               activeCity === 'H'
                 ? 'bg-accent text-anthrazit-950 border border-accent/60'
                 : 'text-anthrazit-400 hover:text-anthrazit-200 hover:bg-anthrazit-850 border border-transparent'
@@ -144,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={() => onSelectCity('HH')}
-            className={`px-3 py-1.5 min-h-[40px] text-xs font-mono font-bold transition-all cursor-pointer flex items-center space-x-1.5 ${
+            className={`px-2 sm:px-3 py-1 min-h-[32px] sm:min-h-[36px] text-xs font-mono font-bold transition-all cursor-pointer flex items-center space-x-1 sm:space-x-1.5 ${
               activeCity === 'HH'
                 ? 'bg-accent text-anthrazit-950 border border-accent/60'
                 : 'text-anthrazit-400 hover:text-anthrazit-200 hover:bg-anthrazit-850 border border-transparent'
@@ -181,19 +181,19 @@ export const Header: React.FC<HeaderProps> = ({
         {onOpenLiveDelays && (
           <button
             onClick={onOpenLiveDelays}
-            className="flex items-center space-x-1 sm:space-x-1.5 px-2.5 sm:px-3 py-1.5 min-h-[40px] bg-accent/20 hover:bg-accent/30 border border-accent/80 text-xs font-mono text-accent font-bold transition-all cursor-pointer shadow-accent-sm"
+            className="flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-3 py-1 min-h-[32px] sm:min-h-[36px] bg-accent/20 hover:bg-accent/30 border border-accent/80 text-xs font-mono text-accent font-bold transition-all cursor-pointer shadow-accent-sm"
             title="GTFS-RT Live-Verspätungen, Ausfälle & Störungs-Modal öffnen"
           >
             <span className="inline-block w-2 h-2 bg-accent animate-pulse shrink-0"></span>
             <span className="hidden sm:inline">[⚠️ Live-Verspätungen]</span>
-            <span className="sm:hidden font-bold">⚠️ DELAYS</span>
+            <span className="sm:hidden text-[11px] font-bold">⚠️ DELAYS</span>
           </button>
         )}
 
         {/* Global Search Button */}
         <button
           onClick={onOpenSearch}
-          className="flex items-center space-x-2 px-3 py-1.5 min-h-[40px] bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-xs text-anthrazit-300 transition-colors cursor-pointer group"
+          className="flex items-center space-x-1.5 px-2 sm:px-3 py-1 min-h-[32px] sm:min-h-[36px] bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-xs text-anthrazit-300 transition-colors cursor-pointer group"
           title="Haltestellen- & Liniensuche (Strg + K)"
         >
           <Search className="w-3.5 h-3.5 text-anthrazit-400 group-hover:text-accent" />
@@ -207,7 +207,7 @@ export const Header: React.FC<HeaderProps> = ({
         {onToggleTransitCockpit && (
           <button
             onClick={onToggleTransitCockpit}
-            className={`hidden md:flex items-center space-x-1.5 px-3 py-1.5 min-h-[40px] border text-xs font-mono transition-colors cursor-pointer ${
+            className={`hidden md:flex items-center space-x-1.5 px-3 py-1 min-h-[36px] border text-xs font-mono transition-colors cursor-pointer ${
               isTransitCockpitOpen
                 ? 'bg-accent/15 border-accent text-accent font-bold'
                 : 'bg-anthrazit-850 hover:bg-anthrazit-800 border-anthrazit-700 text-anthrazit-300'
@@ -225,7 +225,7 @@ export const Header: React.FC<HeaderProps> = ({
             value={selectedDistrict}
             onChange={(e) => onSelectDistrict(e.target.value)}
             aria-label="Stadtbezirk filtern"
-            className="text-xs min-h-[40px] bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-anthrazit-200 px-2 py-1 focus:outline-none focus:border-accent font-mono transition-colors"
+            className="text-xs min-h-[36px] bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-anthrazit-200 px-2 py-1 focus:outline-none focus:border-accent font-mono transition-colors"
           >
             {districts.map((district) => (
               <option key={district} value={district}>
@@ -239,13 +239,13 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           onClick={onToggleTheme}
           aria-label={theme === 'dark' ? 'Light Mode aktivieren' : 'Dark Mode aktivieren'}
-          className="p-2.5 min-h-[40px] min-w-[40px] flex items-center justify-center bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-anthrazit-300 hover:text-accent transition-colors cursor-pointer"
+          className="p-1.5 sm:p-2 min-h-[32px] min-w-[32px] sm:min-h-[36px] sm:min-w-[36px] flex items-center justify-center bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-anthrazit-300 hover:text-accent transition-colors cursor-pointer"
           title={theme === 'dark' ? 'Light Mode aktivieren' : 'Dark Mode aktivieren'}
         >
           {theme === 'dark' ? (
-            <Sun className="w-4 h-4 text-accent" />
+            <Sun className="w-3.5 h-3.5 text-accent" />
           ) : (
-            <Moon className="w-4 h-4 text-anthrazit-700" />
+            <Moon className="w-3.5 h-3.5 text-anthrazit-700" />
           )}
         </button>
 
@@ -253,10 +253,10 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="relative md:hidden">
           <button
             onClick={() => setIsMobileQuickMenuOpen(prev => !prev)}
-            className="p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-accent font-bold transition-colors cursor-pointer"
+            className="p-1.5 min-h-[32px] min-w-[32px] flex items-center justify-center bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-accent font-bold transition-colors cursor-pointer"
             title="Weitere Optionen & Menü"
           >
-            {isMobileQuickMenuOpen ? <X className="w-4 h-4" /> : <MoreVertical className="w-4 h-4" />}
+            {isMobileQuickMenuOpen ? <X className="w-3.5 h-3.5" /> : <MoreVertical className="w-3.5 h-3.5" />}
           </button>
 
           {isMobileQuickMenuOpen && (
