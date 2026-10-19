@@ -109,19 +109,19 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
     if (activeRoute && activeRoute.ref) {
       setSelectedLineRef(activeRoute.ref);
       // Determine mode
-      if (activeRoute.ref.startsWith('U') || ['1','2','3','4','5','6','7','8','9','10','11','17'].includes(activeRoute.ref)) {
+      if (activeRoute.ref.startsWith('U') || (!isHamburg && ['1','2','3','4','5','6','7','8','9','10','11','13','17'].includes(activeRoute.ref))) {
         setSelectedMode('METRO');
       } else if (activeRoute.ref.startsWith('S')) {
         setSelectedMode('SBAHN');
-      } else if (activeRoute.ref.startsWith('RE') || activeRoute.ref.startsWith('RB')) {
+      } else if (activeRoute.ref.startsWith('RE') || activeRoute.ref.startsWith('RB') || activeRoute.ref.startsWith('A')) {
         setSelectedMode('REGIO');
-      } else if (['61', '62', '72'].includes(activeRoute.ref)) {
+      } else if (['61', '62', '72', '73', '75'].includes(activeRoute.ref)) {
         setSelectedMode('FERRY');
       } else {
         setSelectedMode('BUS');
       }
     }
-  }, [activeRoute]);
+  }, [activeRoute, isHamburg]);
 
   // Verkehrsmittel-Kacheln für Schritt 1
   const availableModes: { id: TransitMode; label: string; subLabel: string; icon: React.ReactNode; color: string }[] = useMemo(() => {
@@ -136,21 +136,21 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
       {
         id: 'SBAHN',
         label: 'S-Bahn',
-        subLabel: isHamburg ? 'S-Bahn Hamburg S1-S5' : 'S-Bahn Hannover S1-S7',
+        subLabel: isHamburg ? 'S-Bahn Hamburg S1-S5' : 'S-Bahn Hannover S1-S51',
         icon: <Train className="w-4 h-4" />,
         color: 'border-emerald-500/40 text-emerald-400'
       },
       {
         id: 'REGIO',
         label: 'Regio / DB',
-        subLabel: 'Regional-Express & DB Regio',
+        subLabel: isHamburg ? 'Regionalbahn & AKN' : 'Regional-Express & DB Regio',
         icon: <Train className="w-4 h-4" />,
         color: 'border-red-500/40 text-red-400'
       },
       {
         id: 'BUS',
         label: 'Bus',
-        subLabel: isHamburg ? 'Metrobus & Stadtbus' : 'ÜSTRA Stadt- & Ringbusse',
+        subLabel: isHamburg ? 'Metrobus & Schnellbus' : 'ÜSTRA Stadt- & SprintH-Busse',
         icon: <Bus className="w-4 h-4" />,
         color: 'border-lime-500/40 text-lime-400'
       }
@@ -160,7 +160,7 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
       list.push({
         id: 'FERRY',
         label: 'HADAG Fähre',
-        subLabel: 'Hafen- & Elbfähren 61, 62, 72',
+        subLabel: 'Hafen- & Elbfähren 61, 62, 72, 73, 75',
         icon: <Ship className="w-4 h-4" />,
         color: 'border-cyan-500/40 text-cyan-400'
       });
@@ -174,19 +174,19 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
     return linesList.filter(l => {
       if (selectedMode === 'METRO') {
         if (isHamburg) return l.stammstrecke === 'U' || l.lineRef.startsWith('U');
-        return ['A', 'B', 'C', 'D'].includes(l.stammstrecke || '') || (!l.lineRef.startsWith('S') && !l.lineRef.startsWith('RE') && l.stammstrecke !== 'BUS');
+        return ['A', 'B', 'C', 'D'].includes(l.stammstrecke || '');
       }
       if (selectedMode === 'SBAHN') {
         return l.stammstrecke === 'S' || l.lineRef.startsWith('S');
       }
       if (selectedMode === 'REGIO') {
-        return l.stammstrecke === 'R' || l.lineRef.startsWith('RE') || l.lineRef.startsWith('RB');
+        return l.stammstrecke === 'R' || l.lineRef.startsWith('RE') || l.lineRef.startsWith('RB') || l.lineRef.startsWith('A');
       }
       if (selectedMode === 'BUS') {
-        return l.stammstrecke === 'BUS' || (!l.lineRef.startsWith('U') && !l.lineRef.startsWith('S') && !l.lineRef.startsWith('RE') && !['61', '62', '72'].includes(l.lineRef) && ['100', '200', '5'].includes(l.lineRef));
+        return l.stammstrecke === 'BUS';
       }
       if (selectedMode === 'FERRY') {
-        return l.stammstrecke === 'F' || ['61', '62', '72'].includes(l.lineRef);
+        return l.stammstrecke === 'F' || ['61', '62', '72', '73', '75'].includes(l.lineRef);
       }
       return false;
     });
@@ -239,12 +239,12 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
     // Falls aktuelle Linie nicht im neuen Mode liegt, nimm die erste Linie des neuen Mode
     const candidateLines = linesList.filter(l => {
       if (mode === 'METRO') {
-        return isHamburg ? (l.stammstrecke === 'U' || l.lineRef.startsWith('U')) : (['A', 'B', 'C', 'D'].includes(l.stammstrecke || '') || !l.lineRef.startsWith('S'));
+        return isHamburg ? (l.stammstrecke === 'U' || l.lineRef.startsWith('U')) : ['A', 'B', 'C', 'D'].includes(l.stammstrecke || '');
       }
       if (mode === 'SBAHN') return l.stammstrecke === 'S' || l.lineRef.startsWith('S');
-      if (mode === 'REGIO') return l.stammstrecke === 'R' || l.lineRef.startsWith('RE');
-      if (mode === 'BUS') return l.stammstrecke === 'BUS' || ['100', '5'].includes(l.lineRef);
-      if (mode === 'FERRY') return l.stammstrecke === 'F' || ['61', '62', '72'].includes(l.lineRef);
+      if (mode === 'REGIO') return l.stammstrecke === 'R' || l.lineRef.startsWith('RE') || l.lineRef.startsWith('RB') || l.lineRef.startsWith('A');
+      if (mode === 'BUS') return l.stammstrecke === 'BUS';
+      if (mode === 'FERRY') return l.stammstrecke === 'F' || ['61', '62', '72', '73', '75'].includes(l.lineRef);
       return false;
     });
     if (candidateLines.length > 0 && !candidateLines.find(c => c.lineRef === selectedLineRef)) {
@@ -501,6 +501,8 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                   ) : (
                     linesForSelectedMode.map((line) => {
                       const isSelected = selectedLineRef === line.lineRef;
+                      const isLineCanceled = line.isDisrupted && line.disruptionType === 'CANCELED';
+
                       return (
                         <button
                           key={line.lineRef}
@@ -508,6 +510,8 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                           className={`w-full p-2 border text-left transition-all cursor-pointer flex items-center justify-between ${
                             isSelected
                               ? 'bg-accent/20 border-accent shadow-sm'
+                              : isLineCanceled
+                              ? 'bg-red-950/20 border-red-900/60 hover:border-red-600'
                               : 'bg-anthrazit-950 border-anthrazit-800 hover:border-accent/60'
                           }`}
                         >
@@ -519,8 +523,15 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                               {line.lineRef}
                             </span>
                             <div className="min-w-0">
-                              <div className="text-xs font-bold text-anthrazit-100 truncate">
-                                {line.directionA?.origin} ⇄ {line.directionA?.destination}
+                              <div className="flex items-center space-x-1.5">
+                                <span className={`text-xs font-bold truncate ${isLineCanceled ? 'line-through text-red-300' : 'text-anthrazit-100'}`}>
+                                  {line.directionA?.origin} ⇄ {line.directionA?.destination}
+                                </span>
+                                {isLineCanceled && (
+                                  <span className="px-1.5 py-0.5 bg-red-600 text-white font-mono font-black text-[9px] shrink-0 tracking-wider">
+                                    AUSFALL
+                                  </span>
+                                )}
                               </div>
                               <div className="text-[10px] text-anthrazit-400 truncate">
                                 {line.corridorName}
@@ -529,7 +540,11 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                           </div>
 
                           <div className="flex items-center space-x-1 shrink-0 text-[10px] text-accent font-bold">
-                            <span>{line.directionA?.stops.length || 0} Halte</span>
+                            {isLineCanceled ? (
+                              <span className="text-red-400 font-bold">SEV aktiv</span>
+                            ) : (
+                              <span>{line.directionA?.stops.length || 0} Halte</span>
+                            )}
                             <ChevronRight className="w-3.5 h-3.5" />
                           </div>
                         </button>
@@ -543,6 +558,33 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
             {/* SCHRITT 3: RICHTUNG & HALTESTELLE WÄHLEN */}
             {currentStep === 3 && activeSchedule && (
               <div className="space-y-2 bg-anthrazit-900 border border-anthrazit-800 p-2.5">
+                {/* PROMINENTER AUSFALL-BANNER FÜR S2 ODER ÄHNLICHE DISRUPTED LINES */}
+                {activeSchedule.isDisrupted && (
+                  <div className="p-2.5 bg-red-950/80 border-2 border-red-600 text-white space-y-2 animate-in fade-in">
+                    <div className="flex items-start space-x-2">
+                      <span className="text-base shrink-0">🚨</span>
+                      <div className="min-w-0">
+                        <div className="font-bold text-xs uppercase tracking-wider text-red-200">
+                          BAUARBEITEN / GESAMTAUSFALL: Die {activeSchedule.lineRef} entfällt aktuell vollständig.
+                        </div>
+                        <div className="text-[11px] text-red-300 mt-0.5">
+                          {activeSchedule.disruptionNotice || 'Ersatzverkehr mit Bussen (S2EV) ist eingerichtet.'}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 1-Klick-Button zum Wechsel auf Ersatzverkehr falls vorhanden */}
+                    {schedulesMap[`${activeSchedule.lineRef}EV`] && (
+                      <button
+                        onClick={() => handleSelectLine(`${activeSchedule.lineRef}EV`, true)}
+                        className="w-full py-1.5 px-3 bg-red-600 hover:bg-red-500 text-white font-bold text-xs flex items-center justify-center space-x-1.5 cursor-pointer uppercase tracking-wider transition-colors shadow-md"
+                      >
+                        <span>➔ Zu {activeSchedule.lineRef}EV wechseln</span>
+                      </button>
+                    )}
+                  </div>
+                )}
+
                 {/* Linien-Header mit Schnellnavigation zurück */}
                 <div className="flex items-center justify-between pb-1.5 border-b border-anthrazit-800">
                   <div className="flex items-center space-x-1.5 min-w-0">

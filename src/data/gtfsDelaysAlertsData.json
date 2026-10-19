@@ -6,10 +6,26 @@
     "timestampIso": "2026-10-19T17:48:49Z",
     "updateIntervalSeconds": 10,
     "totalEntities": 5427,
-    "delaysExtracted": 406,
-    "alertsCount": 5
+    "delaysExtracted": 409,
+    "alertsCount": 6
   },
   "alerts": [
+    {
+      "id": "alert-hh-s2-gesamtausfall",
+      "city": "HH",
+      "title": "S-Bahn Hamburg S2: GESAMTAUSFALL (Bauarbeiten Verbindungsbahn / Hbf)",
+      "severity": "SEVERE",
+      "cause": "Bauarbeiten Verbindungsbahn & Hbf",
+      "effect": "NO_SERVICE",
+      "header": "S2: Kein Zugverkehr auf der gesamten Linie Altona ⇄ Bergedorf ⇄ Aumühle.",
+      "description": "Wegen umfangreicher Gleis-, Weichen- und Oberleitungsarbeiten auf der Verbindungsbahn und im Hamburger Hauptbahnhof entfallen alle Fahrten der S-Bahn-Linie S2 bis auf Weiteres. Als Ersatz verkehren Busse der Linie S2EV (Altona ⇄ Bergedorf) sowie die parallel verkehrende S5 (via Dammtor) und S3 (via City-Tunnel).",
+      "lines": [
+        "S2",
+        "S2EV"
+      ],
+      "validFrom": "2026-10-16T00:00:00Z",
+      "validTo": "2026-11-02T23:59:00Z"
+    },
     {
       "id": "alert-hh-s1-sev",
       "city": "HH",
@@ -90,6 +106,45 @@
     }
   ],
   "delays": [
+    {
+      "id": "gtfs-delay-s2-cancel-01",
+      "city": "HH",
+      "line": "S2",
+      "headsign": "Aumühle",
+      "stopName": "Hamburg Hbf",
+      "delayMinutes": 0,
+      "scheduledTime": "12:08",
+      "realtimeTime": "AUSFALL",
+      "status": "CANCELED",
+      "cause": "Bauarbeiten Verbindungsbahn – Gesamtausfall der Linie S2",
+      "cancelled": true
+    },
+    {
+      "id": "gtfs-delay-s2-cancel-02",
+      "city": "HH",
+      "line": "S2",
+      "headsign": "Hamburg-Altona",
+      "stopName": "Hamburg-Bergedorf",
+      "delayMinutes": 0,
+      "scheduledTime": "12:14",
+      "realtimeTime": "AUSFALL",
+      "status": "CANCELED",
+      "cause": "Bauarbeiten Verbindungsbahn – Gesamtausfall der Linie S2",
+      "cancelled": true
+    },
+    {
+      "id": "gtfs-delay-s2ev-01",
+      "city": "HH",
+      "line": "S2EV",
+      "headsign": "Hamburg-Bergedorf (Ersatzverkehr)",
+      "stopName": "Hamburg-Altona",
+      "delayMinutes": 4,
+      "scheduledTime": "12:10",
+      "realtimeTime": "12:14",
+      "status": "SEV",
+      "cause": "Schienenersatzverkehr für Linie S2 aktiv",
+      "cancelled": false
+    },
     {
       "id": "hh-sev-s1",
       "tripId": "s1ev-101",

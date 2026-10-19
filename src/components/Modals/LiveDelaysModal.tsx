@@ -106,6 +106,17 @@ export const LiveDelaysModal: React.FC<LiveDelaysModalProps> = ({
       }
 
       return true;
+    }).sort((a, b) => {
+      // Prioritize S2 and total cancellations at the very top
+      const aIsS2OrEV = a.line === 'S2' || a.line.includes('S2EV') ? 1 : 0;
+      const bIsS2OrEV = b.line === 'S2' || b.line.includes('S2EV') ? 1 : 0;
+      if (aIsS2OrEV !== bIsS2OrEV) return bIsS2OrEV - aIsS2OrEV;
+
+      const aCanceled = a.cancelled || a.status === 'CANCELED' || a.status === 'SEV' ? 1 : 0;
+      const bCanceled = b.cancelled || b.status === 'CANCELED' || b.status === 'SEV' ? 1 : 0;
+      if (aCanceled !== bCanceled) return bCanceled - aCanceled;
+
+      return b.delayMinutes - a.delayMinutes;
     });
   }, [delays, selectedCityFilter, filterMode, searchQuery]);
 
