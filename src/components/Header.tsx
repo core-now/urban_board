@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Sun, 
   Moon, 
@@ -10,8 +10,9 @@ import {
   Menu,
   MoreVertical,
   X,
-  Zap,
-  SlidersHorizontal
+  SlidersHorizontal,
+  Compass,
+  Cpu
 } from 'lucide-react';
 import { ThemeMode } from '../types';
 
@@ -27,13 +28,16 @@ interface HeaderProps {
   onOpenLinklist: () => void;
   onOpenGlossary: () => void;
   onOpenAdmin?: () => void;
-  onToggleMobileSidebar?: () => void;
+  onToggleToolsFlyout?: () => void;
+  isToolsFlyoutOpen?: boolean;
+  onToggleTransitCockpit?: () => void;
+  isTransitCockpitOpen?: boolean;
   activeMarkerCount: number;
 }
 
 // Mini Federal State Flag for Niedersachsen (Schwarz-Rot-Gold with white Saxon Steed)
 const NiedersachsenFlag: React.FC<{ className?: string }> = ({ className = 'w-4 h-2.5' }) => (
-  <svg viewBox="0 0 30 20" className={`shrink-0 rounded-[2px] overflow-hidden shadow-xs border border-anthrazit-700/60 ${className}`} aria-hidden="true">
+  <svg viewBox="0 0 30 20" className={`shrink-0 overflow-hidden shadow-xs border border-anthrazit-700/60 ${className}`} aria-hidden="true">
     <rect width="30" height="6.67" fill="#000000" />
     <rect y="6.67" width="30" height="6.67" fill="#DD0000" />
     <rect y="13.34" width="30" height="6.67" fill="#FFCE00" />
@@ -46,7 +50,7 @@ const NiedersachsenFlag: React.FC<{ className?: string }> = ({ className = 'w-4 
 
 // Mini Federal State Flag for Hamburg (Red banner with iconic white 3-tower castle)
 const HamburgFlag: React.FC<{ className?: string }> = ({ className = 'w-4 h-2.5' }) => (
-  <svg viewBox="0 0 30 20" className={`shrink-0 rounded-[2px] overflow-hidden shadow-xs border border-anthrazit-700/60 ${className}`} aria-hidden="true">
+  <svg viewBox="0 0 30 20" className={`shrink-0 overflow-hidden shadow-xs border border-anthrazit-700/60 ${className}`} aria-hidden="true">
     <rect width="30" height="20" fill="#D00000" />
     <g fill="#FFFFFF" transform="translate(6.5, 2.5) scale(0.85)">
       <path d="M1,14 L19,14 L19,17 L1,17 Z" />
@@ -77,145 +81,166 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenLinklist,
   onOpenGlossary,
   onOpenAdmin,
-  onToggleMobileSidebar,
+  onToggleToolsFlyout,
+  isToolsFlyoutOpen = false,
+  onToggleTransitCockpit,
+  isTransitCockpitOpen = true,
   activeMarkerCount
 }) => {
   const [isMobileQuickMenuOpen, setIsMobileQuickMenuOpen] = useState(false);
-  const [time, setTime] = useState({
-    local: '',
-    utc: ''
-  });
+  const [currentTime, setCurrentTime] = useState<string>('');
 
-  useEffect(() => {
+  React.useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      setTime({
-        local: now.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
-        utc: now.toISOString().substring(11, 19) + ' UTC'
-      });
+      setCurrentTime(now.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
     };
-
     updateTime();
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
   }, []);
 
-  const cityCoords = activeCity === 'HH' ? '53.5511°N 9.9937°E' : '52.3759°N 9.7320°E';
-
   return (
-    <header className="h-14 lg:h-16 border-b border-anthrazit-800 bg-anthrazit-900/95 dark:bg-anthrazit-950/95 backdrop-blur-md px-3 sm:px-4 flex flex-wrap items-center justify-between z-30 select-none">
-      {/* Brand & City Indicator with Stylish Flag Buttons */}
+    <header className="h-14 lg:h-16 border-b border-anthrazit-800 bg-anthrazit-900/95 dark:bg-anthrazit-950/95 backdrop-blur-md px-3 sm:px-4 flex items-center justify-between z-30 select-none shrink-0">
+      {/* Links: Logo HBOARD + City Switcher [H] | [HH] */}
       <div className="flex items-center space-x-2 sm:space-x-3">
-        {onToggleMobileSidebar && (
+        {/* Mobile Tools/Sensoren Trigger */}
+        {onToggleToolsFlyout && (
           <button
-            onClick={onToggleMobileSidebar}
-            className="md:hidden p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center rounded bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-accent cursor-pointer"
-            title="Sektoren & Layer öffnen"
+            onClick={onToggleToolsFlyout}
+            className={`md:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center border font-mono text-xs cursor-pointer transition-colors ${
+              isToolsFlyoutOpen
+                ? 'bg-accent text-anthrazit-950 border-accent font-bold'
+                : 'bg-anthrazit-850 hover:bg-anthrazit-800 border-anthrazit-700 text-accent'
+            }`}
+            title="Sensoren & Werkzeuge Flyout öffnen"
           >
             <Menu className="w-4 h-4" />
           </button>
         )}
-        <div className="flex items-center justify-center w-8 h-8 rounded bg-anthrazit-850 border border-accent/40 text-accent font-mono font-bold text-base shadow-accent-sm">
-          ⬡
-        </div>
+
         <div className="flex items-center space-x-2">
-          <span className="font-mono font-bold tracking-wider text-sm text-anthrazit-100 uppercase hidden xs:inline">
+          <div className="flex items-center justify-center w-8 h-8 bg-anthrazit-850 border border-accent/40 text-accent font-mono font-bold text-base shadow-accent-sm">
+            ⬡
+          </div>
+          <span className="font-mono font-bold tracking-wider text-sm text-anthrazit-100 uppercase hidden sm:inline">
             HBOARD
           </span>
+        </div>
 
-          {/* Tactical Flag-Enhanced City Switcher */}
-          <div className="flex items-center rounded-lg bg-anthrazit-950/90 border border-anthrazit-800 p-0.5 space-x-0.5 shadow-inner">
-            <button
-              onClick={() => onSelectCity('H')}
-              className={`px-3 py-2 min-h-[44px] rounded-md text-xs font-mono font-bold transition-all cursor-pointer flex items-center space-x-1.5 ${
-                activeCity === 'H'
-                  ? 'bg-accent text-anthrazit-950 shadow-sm border border-accent/60'
-                  : 'text-anthrazit-400 hover:text-anthrazit-200 hover:bg-anthrazit-850/80 border border-transparent'
-              }`}
-              title="Sektor Hannover (Niedersachsen) aktivieren"
-            >
-              <NiedersachsenFlag className="w-4 h-2.5" />
-              <span>H</span>
-              <span className="hidden md:inline text-xs font-medium opacity-90">Hannover</span>
-            </button>
+        {/* City Switcher [H] HANNOVER | [HH] HAMBURG */}
+        <div className="flex items-center bg-anthrazit-950 border border-anthrazit-800 p-0.5 space-x-0.5">
+          <button
+            onClick={() => onSelectCity('H')}
+            className={`px-3 py-1.5 min-h-[40px] text-xs font-mono font-bold transition-all cursor-pointer flex items-center space-x-1.5 ${
+              activeCity === 'H'
+                ? 'bg-accent text-anthrazit-950 border border-accent/60'
+                : 'text-anthrazit-400 hover:text-anthrazit-200 hover:bg-anthrazit-850 border border-transparent'
+            }`}
+            title="Sektor Hannover (GVH) aktivieren"
+          >
+            <NiedersachsenFlag className="w-3.5 h-2.5" />
+            <span>[H]</span>
+            <span className="hidden md:inline font-medium opacity-90 text-[11px]">HANNOVER</span>
+          </button>
 
-            <button
-              onClick={() => onSelectCity('HH')}
-              className={`px-3 py-2 min-h-[44px] rounded-md text-xs font-mono font-bold transition-all cursor-pointer flex items-center space-x-1.5 ${
-                activeCity === 'HH'
-                  ? 'bg-accent text-anthrazit-950 shadow-sm border border-accent/60'
-                  : 'text-anthrazit-400 hover:text-anthrazit-200 hover:bg-anthrazit-850/80 border border-transparent'
-              }`}
-              title="Sektor Hamburg (Freie und Hansestadt Hamburg) aktivieren"
-            >
-              <HamburgFlag className="w-4 h-2.5" />
-              <span>HH</span>
-              <span className="hidden md:inline text-xs font-medium opacity-90">Hamburg</span>
-            </button>
-          </div>
-
-          <span className="hidden lg:inline-block text-xs font-mono text-anthrazit-400">
-            {cityCoords}
-          </span>
+          <button
+            onClick={() => onSelectCity('HH')}
+            className={`px-3 py-1.5 min-h-[40px] text-xs font-mono font-bold transition-all cursor-pointer flex items-center space-x-1.5 ${
+              activeCity === 'HH'
+                ? 'bg-accent text-anthrazit-950 border border-accent/60'
+                : 'text-anthrazit-400 hover:text-anthrazit-200 hover:bg-anthrazit-850 border border-transparent'
+            }`}
+            title="Sektor Hamburg (HVV) aktivieren"
+          >
+            <HamburgFlag className="w-3.5 h-2.5" />
+            <span>[HH]</span>
+            <span className="hidden md:inline font-medium opacity-90 text-[11px]">HAMBURG</span>
+          </button>
         </div>
       </div>
 
-      {/* Center OSINT Quick Stats & Search */}
-      <div className="hidden md:flex items-center space-x-4">
-        {/* Live Ticker */}
-        <div className="flex items-center space-x-3 px-3 py-1 rounded bg-anthrazit-900 border border-anthrazit-800 text-xs font-mono text-anthrazit-300">
-          <div className="flex items-center space-x-1.5">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-            </span>
-            <span className="text-accent font-semibold">LIVE</span>
-          </div>
-          <span className="text-anthrazit-600">|</span>
-          <div className="flex items-center space-x-1">
-            <Layers className="w-3.5 h-3.5 text-anthrazit-400" />
-            <span>{activeMarkerCount} Nodes</span>
-          </div>
-          <span className="text-anthrazit-600">|</span>
-          <div className="flex items-center space-x-1">
-            <Clock className="w-3.5 h-3.5 text-anthrazit-400" />
-            <span>{time.local}</span>
-            <span className="text-anthrazit-500">({time.utc})</span>
-          </div>
+      {/* Mitte: Schlanke Live-Uhrzeit (HH:MM:SS) & Status-Indikator */}
+      <div className="hidden md:flex items-center space-x-3 px-3 py-1.5 bg-anthrazit-950 border border-anthrazit-800 text-xs font-mono text-anthrazit-300">
+        <div className="flex items-center space-x-1.5">
+          <span className="inline-block w-2 h-2 bg-emerald-500 shadow-sm"></span>
+          <span className="text-emerald-400 font-bold tracking-wider">LIVE</span>
         </div>
+        <span className="text-anthrazit-700">|</span>
+        <div className="flex items-center space-x-1 text-anthrazit-200">
+          <Clock className="w-3.5 h-3.5 text-accent" />
+          <span className="font-semibold tracking-widest">{currentTime || '00:00:00'}</span>
+        </div>
+        <span className="text-anthrazit-700">|</span>
+        <div className="flex items-center space-x-1 text-anthrazit-400 text-[11px]">
+          <Layers className="w-3 h-3 text-anthrazit-400" />
+          <span>{activeMarkerCount} Nodes</span>
+        </div>
+      </div>
 
+      {/* Rechts: Schnellsuche, Tools-Flyout-Button, Admin-Button */}
+      <div className="flex items-center space-x-1.5 sm:space-x-2">
         {/* Global Search Button */}
         <button
           onClick={onOpenSearch}
-          className="flex items-center space-x-2 px-3 py-2 min-h-[44px] rounded bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700/60 text-xs text-anthrazit-300 transition-colors cursor-pointer group"
+          className="flex items-center space-x-2 px-3 py-1.5 min-h-[40px] bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-xs text-anthrazit-300 transition-colors cursor-pointer group"
           title="OSINT Schnellsuche (Strg + K)"
         >
           <Search className="w-3.5 h-3.5 text-anthrazit-400 group-hover:text-accent" />
-          <span className="text-anthrazit-400">Knoten / Straßen suchen...</span>
-          <kbd className="hidden lg:inline-block px-1.5 py-0.5 rounded bg-anthrazit-900 border border-anthrazit-700 text-xs font-mono text-anthrazit-400">
+          <span className="hidden lg:inline text-anthrazit-400 text-xs">Suche...</span>
+          <kbd className="hidden sm:inline-block px-1.5 py-0.5 bg-anthrazit-950 border border-anthrazit-700 text-[10px] font-mono text-accent">
             Ctrl+K
           </kbd>
         </button>
-      </div>
 
-      {/* Right Actions (Desktop: Full Row / Mobile: Compact Icons + Settings Popover) */}
-      <div className="flex items-center space-x-1.5 sm:space-x-2">
-        {/* Mobile Quick Search Button */}
+        {/* Sensoren & Tools Flyout Toggle Button (Desktop & Mobile) */}
+        {onToggleToolsFlyout && (
+          <button
+            onClick={onToggleToolsFlyout}
+            className={`hidden sm:flex items-center space-x-1.5 px-3 py-1.5 min-h-[40px] border text-xs font-mono transition-colors cursor-pointer ${
+              isToolsFlyoutOpen
+                ? 'bg-accent text-anthrazit-950 border-accent font-bold shadow-accent-sm'
+                : 'bg-anthrazit-850 hover:bg-anthrazit-800 border-anthrazit-700 text-anthrazit-200 hover:text-accent'
+            }`}
+            title="Sensoren, Kameras, IoT & Cyber-Tools Flyout"
+          >
+            <Cpu className="w-3.5 h-3.5 text-accent" />
+            <span>Tools & Sensoren</span>
+          </button>
+        )}
+
+        {/* Transit Cockpit Toggle Button (Desktop) */}
+        {onToggleTransitCockpit && (
+          <button
+            onClick={onToggleTransitCockpit}
+            className={`hidden md:flex items-center space-x-1.5 px-3 py-1.5 min-h-[40px] border text-xs font-mono transition-colors cursor-pointer ${
+              isTransitCockpitOpen
+                ? 'bg-accent/15 border-accent text-accent font-bold'
+                : 'bg-anthrazit-850 hover:bg-anthrazit-800 border-anthrazit-700 text-anthrazit-300'
+            }`}
+            title="Transit-Cockpit ein-/ausblenden"
+          >
+            <Compass className="w-3.5 h-3.5" />
+            <span>Cockpit</span>
+          </button>
+        )}
+
+        {/* Desktop Admin / Ops Hub Trigger */}
         <button
-          onClick={onOpenSearch}
-          className="md:hidden p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center rounded bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-anthrazit-300 hover:text-accent transition-colors cursor-pointer"
-          title="OSINT Schnellsuche"
+          onClick={onOpenAdmin}
+          className="hidden md:flex items-center space-x-1 px-3 py-1.5 min-h-[40px] bg-accent/15 hover:bg-accent/25 border border-accent/50 text-xs font-mono text-accent transition-colors cursor-pointer"
+          title="Admin & Operations Dashboard öffnen (PW: 4dm1n)"
         >
-          <Search className="w-4 h-4 text-accent" />
+          <span className="font-bold">⚡ OPS</span>
         </button>
 
         {/* Desktop District Filter Dropdown */}
-        <div className="hidden md:flex items-center">
+        <div className="hidden xl:flex items-center">
           <select
             value={selectedDistrict}
             onChange={(e) => onSelectDistrict(e.target.value)}
             aria-label="Stadtbezirk filtern"
-            className="text-xs min-h-[44px] bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-anthrazit-200 rounded px-3 py-2 focus:outline-none focus:border-accent font-mono transition-colors"
+            className="text-xs min-h-[40px] bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-anthrazit-200 px-2 py-1 focus:outline-none focus:border-accent font-mono transition-colors"
           >
             {districts.map((district) => (
               <option key={district} value={district}>
@@ -225,40 +250,11 @@ export const Header: React.FC<HeaderProps> = ({
           </select>
         </div>
 
-        {/* Desktop Admin / Ops Hub Trigger */}
-        <button
-          onClick={onOpenAdmin}
-          className="hidden md:flex items-center space-x-1.5 px-3 py-2 min-h-[44px] rounded bg-accent/15 hover:bg-accent/25 border border-accent/50 text-xs font-mono text-accent transition-colors cursor-pointer shadow-sm"
-          title="Admin & Operations Dashboard öffnen (PW: 4dm1n)"
-        >
-          <span className="font-bold">⚡ OPS</span>
-        </button>
-
-        {/* Desktop Glossary & Beginner Help Modal Trigger */}
-        <button
-          onClick={onOpenGlossary}
-          className="hidden md:flex items-center space-x-1.5 px-3 py-2 min-h-[44px] rounded bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700/70 text-xs font-mono text-anthrazit-300 hover:text-anthrazit-100 transition-colors cursor-pointer"
-          title="Glossar & Erklärungen für Einsteiger öffnen"
-        >
-          <HelpCircle className="w-3.5 h-3.5 text-accent" />
-          <span>Hilfe</span>
-        </button>
-
-        {/* Desktop Linkliste Modal Trigger */}
-        <button
-          onClick={onOpenLinklist}
-          className="hidden md:flex items-center space-x-1.5 px-3 py-2 min-h-[44px] rounded bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700/70 text-xs font-mono text-anthrazit-300 hover:text-anthrazit-100 transition-colors cursor-pointer"
-          title="Hannover OSINT Linkliste & Quellen öffnen"
-        >
-          <Bookmark className="w-3.5 h-3.5 text-accent" />
-          <span>Quellen</span>
-        </button>
-
         {/* Light / Dark Mode Toggle */}
         <button
           onClick={onToggleTheme}
           aria-label={theme === 'dark' ? 'Light Mode aktivieren' : 'Dark Mode aktivieren'}
-          className="p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center rounded bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700/70 text-anthrazit-300 hover:text-accent transition-colors cursor-pointer"
+          className="p-2.5 min-h-[40px] min-w-[40px] flex items-center justify-center bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-anthrazit-300 hover:text-accent transition-colors cursor-pointer"
           title={theme === 'dark' ? 'Light Mode aktivieren' : 'Dark Mode aktivieren'}
         >
           {theme === 'dark' ? (
@@ -272,62 +268,67 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="relative md:hidden">
           <button
             onClick={() => setIsMobileQuickMenuOpen(prev => !prev)}
-            className="p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center rounded bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-accent font-bold transition-colors cursor-pointer"
-            title="Tools, OPS & Einstellungen"
+            className="p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-accent font-bold transition-colors cursor-pointer"
+            title="Weitere Optionen & Menü"
           >
             {isMobileQuickMenuOpen ? <X className="w-4 h-4" /> : <MoreVertical className="w-4 h-4" />}
           </button>
 
-          {/* Mobile Quick Popover Dropdown */}
           {isMobileQuickMenuOpen && (
             <>
               <div 
-                className="fixed inset-0 z-40 bg-anthrazit-950/60 backdrop-blur-xs"
+                className="fixed inset-0 z-40 bg-anthrazit-950/60"
                 onClick={() => setIsMobileQuickMenuOpen(false)}
               />
-              <div className="absolute right-0 top-12 w-64 p-3 rounded-xl bg-anthrazit-900 border border-anthrazit-700 shadow-2xl z-50 space-y-2 font-mono text-xs animate-in fade-in slide-in-from-top-2 duration-150">
+              <div className="absolute right-0 top-12 w-64 p-3 bg-anthrazit-900 border border-anthrazit-700 shadow-2xl z-50 space-y-2 font-mono text-xs">
                 <div className="text-xs font-bold text-anthrazit-400 uppercase pb-1 border-b border-anthrazit-800 flex items-center justify-between">
-                  <span>OSINT Tools & Settings</span>
-                  <span className="text-accent text-xs">v0.1</span>
+                  <span>HBOARD Quick Actions</span>
+                  <span className="text-accent text-xs">v0.2</span>
                 </div>
 
-                {/* OPS Admin Hub Button */}
+                <button
+                  onClick={() => {
+                    onToggleToolsFlyout?.();
+                    setIsMobileQuickMenuOpen(false);
+                  }}
+                  className="w-full py-2 px-3 min-h-[44px] bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-700 text-anthrazit-100 flex items-center space-x-2 font-bold cursor-pointer"
+                >
+                  <Cpu className="w-4 h-4 text-accent" />
+                  <span>🛠️ Sensoren & Werkzeuge</span>
+                </button>
+
                 <button
                   onClick={() => {
                     onOpenAdmin?.();
                     setIsMobileQuickMenuOpen(false);
                   }}
-                  className="w-full py-2 px-3 min-h-[44px] rounded bg-accent/15 hover:bg-accent/25 border border-accent/40 text-accent flex items-center space-x-2 font-bold cursor-pointer"
+                  className="w-full py-2 px-3 min-h-[44px] bg-accent/15 hover:bg-accent/25 border border-accent/40 text-accent flex items-center space-x-2 font-bold cursor-pointer"
                 >
-                  <Zap className="w-4 h-4 text-accent" />
                   <span>⚡ OPS & Admin Center</span>
                 </button>
 
-                {/* Glossary / Help Button */}
                 <button
                   onClick={() => {
                     onOpenGlossary();
                     setIsMobileQuickMenuOpen(false);
                   }}
-                  className="w-full py-2 px-3 min-h-[44px] rounded bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-750 text-anthrazit-200 flex items-center space-x-2 cursor-pointer"
+                  className="w-full py-2 px-3 min-h-[44px] bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-750 text-anthrazit-200 flex items-center space-x-2 cursor-pointer"
                 >
                   <HelpCircle className="w-4 h-4 text-accent" />
-                  <span>📖 Glossar & Einsteiger-Hilfe</span>
+                  <span>📖 Glossar & Hilfe</span>
                 </button>
 
-                {/* Linklist / Sources Button */}
                 <button
                   onClick={() => {
                     onOpenLinklist();
                     setIsMobileQuickMenuOpen(false);
                   }}
-                  className="w-full py-2 px-3 min-h-[44px] rounded bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-750 text-anthrazit-200 flex items-center space-x-2 cursor-pointer"
+                  className="w-full py-2 px-3 min-h-[44px] bg-anthrazit-850 hover:bg-anthrazit-800 border border-anthrazit-750 text-anthrazit-200 flex items-center space-x-2 cursor-pointer"
                 >
                   <Bookmark className="w-4 h-4 text-accent" />
-                  <span>🔗 Primärquellen & Linkliste</span>
+                  <span>🔗 Primärquellen & Links</span>
                 </button>
 
-                {/* District Select Dropdown on Mobile */}
                 <div className="pt-1 border-t border-anthrazit-800 space-y-1">
                   <div className="text-xs text-anthrazit-400 font-bold uppercase flex items-center space-x-1">
                     <SlidersHorizontal className="w-3 h-3 text-accent" />
@@ -339,7 +340,7 @@ export const Header: React.FC<HeaderProps> = ({
                       onSelectDistrict(e.target.value);
                       setIsMobileQuickMenuOpen(false);
                     }}
-                    className="w-full text-xs min-h-[44px] bg-anthrazit-950 border border-anthrazit-700 text-anthrazit-200 rounded px-3 py-2 focus:outline-none focus:border-accent font-mono"
+                    className="w-full text-xs min-h-[44px] bg-anthrazit-950 border border-anthrazit-700 text-anthrazit-200 px-3 py-2 focus:outline-none focus:border-accent font-mono"
                   >
                     {districts.map((district) => (
                       <option key={district} value={district}>
