@@ -363,6 +363,17 @@ export class TransitEngine {
     const isHH = city === 'HH';
     const isS2InHH = isHH && schedule.lineRef === 'S2';
 
+    // 1. Terminierungs-Prüfung: Wenn die Station die Endstation dieser Richtung ist,
+    // endet die Fahrt hier (Ankunft) und wird nicht als Abfahrt in diese Richtung gelistet!
+    const currentStopClean = this.disambiguateStationName(stop.stopName, city).toLowerCase();
+    const destClean = this.disambiguateStationName(dir.destination, city).toLowerCase();
+    const isLastStop = dir.stops.length > 0 && 
+      this.disambiguateStationName(dir.stops[dir.stops.length - 1].stopName, city).toLowerCase() === currentStopClean;
+
+    if (isLastStop || destClean === currentStopClean || destClean.includes(currentStopClean) || currentStopClean.includes(destClean)) {
+      return;
+    }
+
     for (let h = 0; h < 2; h++) {
       const hour = (now.getHours() + h) % 24;
       for (const baseMin of dir.baseMinuteDepartures) {
