@@ -19,7 +19,7 @@ export interface TimetableHourRow {
 export interface LineSchedule {
   lineRef: string;
   lineName: string;
-  stammstrecke: 'A' | 'B' | 'C' | 'D' | 'S' | 'U' | 'F';
+  stammstrecke: 'A' | 'B' | 'C' | 'D' | 'S' | 'U' | 'F' | 'R' | 'BUS';
   corridorName: string;
   color: string;
   directionA: {
@@ -551,6 +551,95 @@ export const HANNOVER_SCHEDULES: Record<string, LineSchedule> = {
     },
     frequency: { peak: '30 Min.', offPeak: '60 Min.', night: '60 Min. Fr/Sa' },
     operatingHours: { firstTrain: '04:30', lastTrain: '00:45', nightService: true }
+  },
+
+  // --- 🚆 REGIO / DB HANNOVER ---
+  'RE60': {
+    lineRef: 'RE60',
+    lineName: 'Regional-Express RE60 (WestfalenBahn)',
+    stammstrecke: 'R',
+    corridorName: 'Braunschweig Hbf ⇄ Hannover Hbf ⇄ Minden ⇄ Rheine',
+    color: '#ef4444',
+    directionA: {
+      origin: 'Braunschweig Hbf',
+      destination: 'Rheine',
+      totalMinutes: 110,
+      baseMinuteDepartures: [18],
+      stops: [
+        { stopName: 'Braunschweig Hbf', minuteOffset: 0, isHighPlatform: true, transferLines: ['ICE', 'IC', 'Regio'] },
+        { stopName: 'Peine', minuteOffset: 15, isHighPlatform: true },
+        { stopName: 'Lehrte', minuteOffset: 28, isHighPlatform: true, transferLines: ['S3', 'S7', 'Regio'] },
+        { stopName: 'Hannover Hbf', minuteOffset: 38, isHighPlatform: true, transferLines: ['Fernverkehr', 'S-Bahn', 'Stadtbahn'] },
+        { stopName: 'Wunstorf', minuteOffset: 50, isHighPlatform: true, transferLines: ['S1', 'S2', 'RE70'] },
+        { stopName: 'Haste', minuteOffset: 58, isHighPlatform: true, transferLines: ['S1'] },
+        { stopName: 'Stadthagen', minuteOffset: 67, isHighPlatform: true },
+        { stopName: 'Bückeburg', minuteOffset: 76, isHighPlatform: true },
+        { stopName: 'Minden (Westf)', minuteOffset: 84, isHighPlatform: true, transferLines: ['RE6', 'S1'] },
+        { stopName: 'Löhne (Westf)', minuteOffset: 95, isHighPlatform: true },
+        { stopName: 'Osnabrück Hbf', minuteOffset: 120, isHighPlatform: true, transferLines: ['ICE', 'Regio'] },
+        { stopName: 'Rheine', minuteOffset: 145, isHighPlatform: true }
+      ]
+    },
+    directionB: {
+      origin: 'Rheine',
+      destination: 'Braunschweig Hbf',
+      totalMinutes: 110,
+      baseMinuteDepartures: [40],
+      stops: [
+        { stopName: 'Rheine', minuteOffset: 0, isHighPlatform: true },
+        { stopName: 'Osnabrück Hbf', minuteOffset: 25, isHighPlatform: true },
+        { stopName: 'Minden (Westf)', minuteOffset: 61, isHighPlatform: true },
+        { stopName: 'Wunstorf', minuteOffset: 95, isHighPlatform: true },
+        { stopName: 'Hannover Hbf', minuteOffset: 107, isHighPlatform: true },
+        { stopName: 'Lehrte', minuteOffset: 117, isHighPlatform: true },
+        { stopName: 'Peine', minuteOffset: 130, isHighPlatform: true },
+        { stopName: 'Braunschweig Hbf', minuteOffset: 145, isHighPlatform: true }
+      ]
+    },
+    frequency: { peak: '60 Min.', offPeak: '60 Min.', night: 'Einzeltakt' },
+    operatingHours: { firstTrain: '05:18', lastTrain: '23:18', nightService: false }
+  },
+
+  // --- 🚌 BUS HANNOVER ---
+  '100': {
+    lineRef: '100',
+    lineName: 'Ringbus 100 (Erlebnisbus Hannover)',
+    stammstrecke: 'BUS',
+    corridorName: 'Kröpcke ⇄ Lindener Marktplatz ⇄ Glocksee ⇄ Kröpcke',
+    color: '#84cc16',
+    directionA: {
+      origin: 'August-Holweg-Platz',
+      destination: 'Kröpcke',
+      totalMinutes: 28,
+      baseMinuteDepartures: [4, 14, 24, 34, 44, 54],
+      stops: [
+        { stopName: 'August-Holweg-Platz', minuteOffset: 0 },
+        { stopName: 'Lindener Marktplatz', minuteOffset: 3, transferLines: ['9'] },
+        { stopName: 'Am Küchengarten', minuteOffset: 6, transferLines: ['10'] },
+        { stopName: 'Glocksee', minuteOffset: 9, transferLines: ['10'] },
+        { stopName: 'Königsworther Platz', minuteOffset: 13, transferLines: ['4', '5'] },
+        { stopName: 'Christuskirche', minuteOffset: 17, transferLines: ['6', '11'] },
+        { stopName: 'Hauptbahnhof / Ernst-August-Platz', minuteOffset: 22, transferLines: ['S-Bahn', 'Fernverkehr'] },
+        { stopName: 'Kröpcke', minuteOffset: 26, transferLines: ['Stadtbahn A/B/C'] }
+      ]
+    },
+    directionB: {
+      origin: 'Kröpcke',
+      destination: 'August-Holweg-Platz',
+      totalMinutes: 28,
+      baseMinuteDepartures: [8, 18, 28, 38, 48, 58],
+      stops: [
+        { stopName: 'Kröpcke', minuteOffset: 0 },
+        { stopName: 'Aegidientorplatz', minuteOffset: 4 },
+        { stopName: 'Rathaus / Bleichenstraße', minuteOffset: 8 },
+        { stopName: 'Waterlooplatz', minuteOffset: 12, transferLines: ['3', '7', '9'] },
+        { stopName: 'Schwarzer Bär', minuteOffset: 16, transferLines: ['9', '17'] },
+        { stopName: 'Lindener Marktplatz', minuteOffset: 20 },
+        { stopName: 'August-Holweg-Platz', minuteOffset: 25 }
+      ]
+    },
+    frequency: { peak: '10 Min.', offPeak: '15 Min.', night: '30 Min.' },
+    operatingHours: { firstTrain: '05:04', lastTrain: '00:34', nightService: true }
   }
 };
 
@@ -1125,5 +1214,105 @@ export const HAMBURG_SCHEDULES: Record<string, LineSchedule> = {
     },
     frequency: { peak: '20 Min.', offPeak: '20 Min.', night: 'Bis 23:30 Uhr bei Konzertbetrieb' },
     operatingHours: { firstTrain: '08:00', lastTrain: '23:30', nightService: false }
+  },
+
+  // --- 🚆 REGIO / DB HAMBURG ---
+  'RE1': {
+    lineRef: 'RE1',
+    lineName: 'Hanse-Express RE1 (DB Regio)',
+    stammstrecke: 'R',
+    corridorName: 'Hamburg Hbf ⇄ Bergedorf ⇄ Büchen ⇄ Schwerin ⇄ Rostock Hbf',
+    color: '#ef4444',
+    directionA: {
+      origin: 'Hamburg Hbf',
+      destination: 'Rostock Hbf',
+      totalMinutes: 125,
+      baseMinuteDepartures: [21],
+      stops: [
+        { stopName: 'Hamburg Hbf', minuteOffset: 0, isHighPlatform: true, transferLines: ['ICE', 'S-Bahn', 'U-Bahn'] },
+        { stopName: 'Hamburg-Bergedorf', minuteOffset: 11, isHighPlatform: true, transferLines: ['S2'] },
+        { stopName: 'Schwarzenbek', minuteOffset: 22, isHighPlatform: true },
+        { stopName: 'Müssen', minuteOffset: 29, isHighPlatform: true },
+        { stopName: 'Büchen', minuteOffset: 36, isHighPlatform: true, transferLines: ['RE83'] },
+        { stopName: 'Boizenburg (Elbe)', minuteOffset: 48, isHighPlatform: true },
+        { stopName: 'Brahlstorf', minuteOffset: 57, isHighPlatform: true },
+        { stopName: 'Hagenow Land', minuteOffset: 69, isHighPlatform: true },
+        { stopName: 'Schwerin Süd', minuteOffset: 84, isHighPlatform: true },
+        { stopName: 'Schwerin Hbf', minuteOffset: 92, isHighPlatform: true, transferLines: ['ICE', 'RE4'] },
+        { stopName: 'Bad Kleinen', minuteOffset: 105, isHighPlatform: true },
+        { stopName: 'Bützow', minuteOffset: 116, isHighPlatform: true },
+        { stopName: 'Rostock Hbf', minuteOffset: 135, isHighPlatform: true, transferLines: ['Fernverkehr', 'S-Bahn'] }
+      ]
+    },
+    directionB: {
+      origin: 'Rostock Hbf',
+      destination: 'Hamburg Hbf',
+      totalMinutes: 125,
+      baseMinuteDepartures: [0],
+      stops: [
+        { stopName: 'Rostock Hbf', minuteOffset: 0, isHighPlatform: true },
+        { stopName: 'Bützow', minuteOffset: 19, isHighPlatform: true },
+        { stopName: 'Bad Kleinen', minuteOffset: 30, isHighPlatform: true },
+        { stopName: 'Schwerin Hbf', minuteOffset: 43, isHighPlatform: true },
+        { stopName: 'Schwerin Süd', minuteOffset: 51, isHighPlatform: true },
+        { stopName: 'Hagenow Land', minuteOffset: 66, isHighPlatform: true },
+        { stopName: 'Büchen', minuteOffset: 98, isHighPlatform: true },
+        { stopName: 'Hamburg-Bergedorf', minuteOffset: 114, isHighPlatform: true },
+        { stopName: 'Hamburg Hbf', minuteOffset: 125, isHighPlatform: true }
+      ]
+    },
+    frequency: { peak: '60 Min. (HVZ 30 Min.)', offPeak: '60 Min.', night: '120 Min.' },
+    operatingHours: { firstTrain: '04:45', lastTrain: '00:30', nightService: false }
+  },
+
+  // --- 🚌 METROBUS HAMBURG ---
+  '5': {
+    lineRef: '5',
+    lineName: 'Metrobus 5 (Europas meistgenutzte Buslinie)',
+    stammstrecke: 'BUS',
+    corridorName: 'Hauptbahnhof / ZOB ⇄ Dammtor ⇄ Uni ⇄ Hoheluft ⇄ Niendorf Markt ⇄ Burgwedel',
+    color: '#84cc16',
+    directionA: {
+      origin: 'Hauptbahnhof / ZOB',
+      destination: 'Burgwedel',
+      totalMinutes: 44,
+      baseMinuteDepartures: [2, 7, 12, 17, 22, 27, 32, 37, 42, 47, 52, 57],
+      stops: [
+        { stopName: 'Hauptbahnhof / ZOB', minuteOffset: 0, transferLines: ['U-Bahn', 'S-Bahn', 'Fernverkehr'] },
+        { stopName: 'Gerhart-Hauptmann-Platz', minuteOffset: 2 },
+        { stopName: 'Jungfernstieg', minuteOffset: 5, transferLines: ['U1', 'U2', 'U4', 'S1', 'S3'] },
+        { stopName: 'Gänsemarkt (Oper)', minuteOffset: 7, transferLines: ['U2'] },
+        { stopName: 'Dammtor Bahnhof', minuteOffset: 10, transferLines: ['S2', 'S5', 'Fernverkehr'] },
+        { stopName: 'Staatsbibliothek / Uni Hamburg', minuteOffset: 13 },
+        { stopName: 'Grindelhof', minuteOffset: 15 },
+        { stopName: 'Bezirksamt Eimsbüttel', minuteOffset: 18 },
+        { stopName: 'Hoheluftbrücke', minuteOffset: 21, transferLines: ['U3'] },
+        { stopName: 'Gärtnerstraße', minuteOffset: 25, transferLines: ['Metrobus 20', '25'] },
+        { stopName: 'Nedderfeld', minuteOffset: 31 },
+        { stopName: 'Niendorf Markt', minuteOffset: 38, transferLines: ['U2'] },
+        { stopName: 'Burgwedel', minuteOffset: 44, transferLines: ['A1 AKN'] }
+      ]
+    },
+    directionB: {
+      origin: 'Burgwedel',
+      destination: 'Hauptbahnhof / ZOB',
+      totalMinutes: 44,
+      baseMinuteDepartures: [1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56],
+      stops: [
+        { stopName: 'Burgwedel', minuteOffset: 0 },
+        { stopName: 'Niendorf Markt', minuteOffset: 6, transferLines: ['U2'] },
+        { stopName: 'Nedderfeld', minuteOffset: 13 },
+        { stopName: 'Gärtnerstraße', minuteOffset: 19 },
+        { stopName: 'Hoheluftbrücke', minuteOffset: 23, transferLines: ['U3'] },
+        { stopName: 'Bezirksamt Eimsbüttel', minuteOffset: 26 },
+        { stopName: 'Grindelhof', minuteOffset: 29 },
+        { stopName: 'Dammtor Bahnhof', minuteOffset: 34, transferLines: ['S2', 'S5'] },
+        { stopName: 'Gänsemarkt', minuteOffset: 37 },
+        { stopName: 'Jungfernstieg', minuteOffset: 39 },
+        { stopName: 'Hauptbahnhof / ZOB', minuteOffset: 44 }
+      ]
+    },
+    frequency: { peak: '3-5 Min.', offPeak: '5 Min. (Takt 5)', night: '20 Min. durchgehend (Nachtbus)' },
+    operatingHours: { firstTrain: '24/7', lastTrain: '24/7', nightService: true }
   }
 };
