@@ -41,6 +41,7 @@ interface TransitCockpitProps {
   selectedTransitStop: TransitStop | null;
   onSelectTransitStop: (stop: TransitStop | null) => void;
   onFlyToStation: (lat: number, lng: number, name?: string) => void;
+  onOpenLiveDelays?: () => void;
 }
 
 // Verkehrsmittel-Kategorien
@@ -54,7 +55,8 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
   onSelectRoute,
   selectedTransitStop,
   onSelectTransitStop,
-  onFlyToStation
+  onFlyToStation,
+  onOpenLiveDelays
 }) => {
   const isHamburg = activeCity === 'HH';
   const schedulesMap = isHamburg ? HAMBURG_SCHEDULES : HANNOVER_SCHEDULES;
@@ -594,12 +596,22 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                     const isSelected = selectedTransitStop?.name.toLowerCase().includes(stop.stopName.toLowerCase()) ||
                       stop.stopName.toLowerCase().includes(selectedTransitStop?.name.toLowerCase() || '___');
 
+                    const isSkippedOrNotice = stop.notice && (
+                      stop.notice.toLowerCase().includes('entfällt') ||
+                      stop.notice.toLowerCase().includes('ausfall') ||
+                      stop.notice.toLowerCase().includes('baustelle') ||
+                      stop.notice.toLowerCase().includes('sev') ||
+                      stop.notice.toLowerCase().includes('gesperrt')
+                    );
+
                     return (
                       <div
                         key={stop.stopName + idx}
                         onClick={() => handleSelectStopItem(stop, true)}
                         className={`px-2 py-1.5 border transition-all cursor-pointer flex items-center justify-between text-xs ${
-                          isSelected
+                          isSkippedOrNotice
+                            ? 'bg-red-950/30 border-red-800/80 hover:border-red-600'
+                            : isSelected
                             ? 'bg-accent/20 border-accent text-accent font-bold shadow-sm'
                             : isOrigin || isDestination
                             ? 'bg-anthrazit-950 border-anthrazit-700 text-anthrazit-100 hover:border-accent hover:text-accent'
@@ -608,17 +620,26 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                       >
                         <div className="flex items-center space-x-2 min-w-0 pr-1">
                           <span className={`w-4 h-4 flex items-center justify-center text-[10px] font-mono shrink-0 ${
-                            isSelected
+                            isSkippedOrNotice
+                              ? 'bg-red-600 text-white font-bold'
+                              : isSelected
                               ? 'bg-accent text-anthrazit-950 font-bold'
                               : 'bg-anthrazit-800 text-anthrazit-400'
                           }`}>
                             {idx + 1}
                           </span>
-                          <span className="truncate text-xs">{stop.stopName}</span>
+                          <span className={`truncate text-xs ${isSkippedOrNotice ? 'line-through text-red-300 font-medium' : ''}`}>
+                            {stop.stopName}
+                          </span>
+                          {isSkippedOrNotice && (
+                            <span className="px-1 py-0.2 bg-red-600 text-white font-bold text-[9px] shrink-0 uppercase">
+                              [HALT ENTFÄLLT]
+                            </span>
+                          )}
                         </div>
 
                         <div className="flex items-center space-x-1.5 shrink-0 pl-1">
-                          <span className="text-[10px] text-accent font-bold">
+                          <span className={`text-[10px] font-bold ${isSkippedOrNotice ? 'text-red-400' : 'text-accent'}`}>
                             +{stop.minuteOffset}m
                           </span>
                           {stop.isHighPlatform && (
@@ -716,14 +737,21 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                       <div className="space-y-1 max-h-64 overflow-y-auto overscroll-contain pr-1">
                         {departures.map((dep, idx) => {
                           const isDelayed = dep.delayMinutes > 0;
+                          const isCanceled = dep.cancelled;
                           return (
                             <div
                               key={dep.tripId + idx}
-                              className="p-1.5 bg-anthrazit-950 border border-anthrazit-800 flex items-center justify-between text-xs hover:border-accent/50 transition-colors"
+                              className={`p-1.5 border flex items-center justify-between text-xs transition-colors ${
+                                isCanceled
+                                  ? 'bg-red-950/25 border-red-800/80 hover:border-red-600'
+                                  : 'bg-anthrazit-950 border-anthrazit-800 hover:border-accent/50'
+                              }`}
                             >
                               <div className="flex items-center space-x-2 min-w-0 pr-1">
                                 <span className={`px-1.5 py-0.5 font-mono font-bold text-[11px] shrink-0 ${
-                                  dep.line.includes('Stadtbahn') || dep.type === 'subway'
+                                  isCanceled
+                                    ? 'bg-red-600 text-white line-through font-extrabold'
+                                    : dep.line.includes('Stadtbahn') || dep.type === 'subway'
                                     ? 'bg-blue-500/20 text-blue-400 border border-blue-500/40'
                                     : dep.line.includes('S-Bahn') || dep.type === 'regional'
                                     ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
@@ -731,13 +759,19 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                                 }`}>
                                   {dep.line}
                                 </span>
-                                <span className="text-anthrazit-200 truncate">{dep.direction}</span>
+                                <span className={`text-anthrazit-200 truncate ${isCanceled ? 'line-through text-red-300' : ''}`}>
+                                  {dep.direction}
+                                </span>
                               </div>
 
                               <div className="text-right shrink-0">
-                                <div className="font-bold text-anthrazit-100">{dep.when}</div>
-                                {dep.cancelled ? (
-                                  <span className="text-[10px] text-red-400 font-bold">Fällt aus</span>
+                                <div className={`font-bold ${isCanceled ? 'text-red-400 line-through' : 'text-anthrazit-100'}`}>
+                                  {dep.when}
+                                </div>
+                                {isCanceled ? (
+                                  <span className="px-1.5 py-0.2 text-[9px] bg-red-600 text-white font-extrabold uppercase">
+                                    [Fahrt fällt aus]
+                                  </span>
                                 ) : isDelayed ? (
                                   <span className="text-[10px] text-accent font-bold">+{dep.delayMinutes}m</span>
                                 ) : (
@@ -904,16 +938,27 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                   </span>
                 </div>
 
-                {selectedTransitStop && (
-                  <button
-                    onClick={() => loadDepartures(selectedTransitStop)}
-                    disabled={loadingDepartures}
-                    className="p-1 hover:bg-anthrazit-800 text-accent border border-anthrazit-700 cursor-pointer"
-                    title="Live-Daten aktualisieren"
-                  >
-                    <RefreshCw className={`w-3 h-3 ${loadingDepartures ? 'animate-spin' : ''}`} />
-                  </button>
-                )}
+                <div className="flex items-center space-x-1 shrink-0">
+                  {onOpenLiveDelays && (
+                    <button
+                      onClick={onOpenLiveDelays}
+                      className="px-2 py-0.5 bg-accent/20 hover:bg-accent/30 border border-accent/60 text-accent font-bold text-[10px] flex items-center space-x-1 cursor-pointer"
+                      title="GTFS-RT Verspätungszentrale öffnen"
+                    >
+                      <span>⚠️ Verspätungen</span>
+                    </button>
+                  )}
+                  {selectedTransitStop && (
+                    <button
+                      onClick={() => loadDepartures(selectedTransitStop)}
+                      disabled={loadingDepartures}
+                      className="p-1 hover:bg-anthrazit-800 text-accent border border-anthrazit-700 cursor-pointer"
+                      title="Live-Daten aktualisieren"
+                    >
+                      <RefreshCw className={`w-3 h-3 ${loadingDepartures ? 'animate-spin' : ''}`} />
+                    </button>
+                  )}
+                </div>
               </div>
 
               {selectedTransitStop ? (
@@ -931,14 +976,21 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                     <div className="space-y-1 max-h-72 overflow-y-auto overscroll-contain pr-1">
                       {departures.map((dep, idx) => {
                         const isDelayed = dep.delayMinutes > 0;
+                        const isCanceled = dep.cancelled;
                         return (
                           <div
                             key={dep.tripId + idx}
-                            className="p-1.5 bg-anthrazit-950 border border-anthrazit-800 flex items-center justify-between text-xs hover:border-accent/50 transition-colors"
+                            className={`p-1.5 border flex items-center justify-between text-xs transition-colors ${
+                              isCanceled
+                                ? 'bg-red-950/25 border-red-800/80 hover:border-red-600'
+                                : 'bg-anthrazit-950 border-anthrazit-800 hover:border-accent/50'
+                            }`}
                           >
                             <div className="flex items-center space-x-2 min-w-0 pr-1">
                               <span className={`px-1.5 py-0.5 font-mono font-bold text-[11px] shrink-0 ${
-                                dep.line.includes('Stadtbahn') || dep.type === 'subway'
+                                isCanceled
+                                  ? 'bg-red-600 text-white line-through font-extrabold'
+                                  : dep.line.includes('Stadtbahn') || dep.type === 'subway'
                                   ? 'bg-blue-500/20 text-blue-400 border border-blue-500/40'
                                   : dep.line.includes('S-Bahn') || dep.type === 'regional'
                                   ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
@@ -946,13 +998,19 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                               }`}>
                                 {dep.line}
                               </span>
-                              <span className="text-anthrazit-200 truncate">{dep.direction}</span>
+                              <span className={`text-anthrazit-200 truncate ${isCanceled ? 'line-through text-red-300' : ''}`}>
+                                {dep.direction}
+                              </span>
                             </div>
 
                             <div className="text-right shrink-0">
-                              <div className="font-bold text-anthrazit-100">{dep.when}</div>
-                              {dep.cancelled ? (
-                                <span className="text-[10px] text-red-400 font-bold">Fällt aus</span>
+                              <div className={`font-bold ${isCanceled ? 'text-red-400 line-through' : 'text-anthrazit-100'}`}>
+                                {dep.when}
+                              </div>
+                              {isCanceled ? (
+                                <span className="px-1.5 py-0.2 text-[9px] bg-red-600 text-white font-extrabold uppercase">
+                                  [Fahrt fällt aus]
+                                </span>
                               ) : isDelayed ? (
                                 <span className="text-[10px] text-accent font-bold">+{dep.delayMinutes}m</span>
                               ) : (

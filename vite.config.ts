@@ -37,6 +37,11 @@ export default defineConfig({
         target: 'https://www.pegelonline.wsv.de',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/pegelonline/, ''),
+      },
+      '/api/gtfs-rt': {
+        target: 'https://realtime.gtfs.de',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/gtfs-rt/, ''),
       }
     },
   },

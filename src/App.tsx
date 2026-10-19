@@ -9,6 +9,7 @@ import { LinklistViewModal } from './components/Modals/LinklistViewModal';
 import { GlossaryModal } from './components/Modals/GlossaryModal';
 import { WebcamViewerModal } from './components/Modals/WebcamViewerModal';
 import { AdminDashboardModal } from './components/Modals/AdminDashboardModal';
+import { LiveDelaysModal } from './components/Modals/LiveDelaysModal';
 import { 
   ThemeMode, 
   GeoLocation, 
@@ -74,6 +75,7 @@ export const App: React.FC = () => {
   const [isLinklistOpen, setIsLinklistOpen] = useState<boolean>(false);
   const [isGlossaryOpen, setIsGlossaryOpen] = useState<boolean>(false);
   const [isOpsAdminOpen, setIsOpsAdminOpen] = useState<boolean>(false);
+  const [isLiveDelaysModalOpen, setIsLiveDelaysModalOpen] = useState<boolean>(false);
   const [activeWebcamModal, setActiveWebcamModal] = useState<GeoLocation | null>(null);
 
   // Leaflet Map Instance
@@ -236,6 +238,7 @@ export const App: React.FC = () => {
         onOpenLinklist={() => setIsLinklistOpen(true)}
         onOpenGlossary={() => setIsGlossaryOpen(true)}
         onOpenAdmin={() => setIsOpsAdminOpen(true)}
+        onOpenLiveDelays={() => setIsLiveDelaysModalOpen(true)}
         onToggleToolsFlyout={() => setIsToolsFlyoutOpen(prev => !prev)}
         isToolsFlyoutOpen={isToolsFlyoutOpen}
         onToggleTransitCockpit={() => setIsTransitCockpitOpen(prev => !prev)}
@@ -297,6 +300,7 @@ export const App: React.FC = () => {
             selectedTransitStop={selectedTransitStop}
             onSelectTransitStop={(stop) => setSelectedTransitStop(stop)}
             onFlyToStation={handleFlyToStation}
+            onOpenLiveDelays={() => setIsLiveDelaysModalOpen(true)}
           />
         </div>
       </div>
@@ -381,6 +385,16 @@ export const App: React.FC = () => {
         isOpen={isOpsAdminOpen}
         onClose={() => setIsOpsAdminOpen(false)}
         activeCity={activeCity}
+      />
+
+      <LiveDelaysModal
+        isOpen={isLiveDelaysModalOpen}
+        onClose={() => setIsLiveDelaysModalOpen(false)}
+        activeCity={activeCity}
+        onSelectCity={handleSelectCity}
+        onSelectLine={(_line) => {
+          setIsTransitCockpitOpen(true);
+        }}
       />
     </div>
   );

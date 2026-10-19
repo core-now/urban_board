@@ -28,6 +28,7 @@ interface HeaderProps {
   onOpenLinklist: () => void;
   onOpenGlossary: () => void;
   onOpenAdmin?: () => void;
+  onOpenLiveDelays?: () => void;
   onToggleToolsFlyout?: () => void;
   isToolsFlyoutOpen?: boolean;
   onToggleTransitCockpit?: () => void;
@@ -81,6 +82,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenLinklist,
   onOpenGlossary,
   onOpenAdmin,
+  onOpenLiveDelays,
   onToggleToolsFlyout,
   isToolsFlyoutOpen = false,
   onToggleTransitCockpit,
@@ -180,6 +182,19 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Rechts: Schnellsuche, Tools-Flyout-Button, Admin-Button */}
       <div className="flex items-center space-x-1.5 sm:space-x-2">
+        {/* GTFS-RT Live-Verspätungen Button */}
+        {onOpenLiveDelays && (
+          <button
+            onClick={onOpenLiveDelays}
+            className="flex items-center space-x-1 sm:space-x-1.5 px-2.5 sm:px-3 py-1.5 min-h-[40px] bg-accent/20 hover:bg-accent/30 border border-accent/80 text-xs font-mono text-accent font-bold transition-all cursor-pointer shadow-accent-sm"
+            title="GTFS-RT Live-Verspätungen, Ausfälle & Störungs-Modal öffnen"
+          >
+            <span className="inline-block w-2 h-2 bg-accent animate-pulse shrink-0"></span>
+            <span className="hidden sm:inline">[⚠️ Live-Verspätungen]</span>
+            <span className="sm:hidden font-bold">⚠️ DELAYS</span>
+          </button>
+        )}
+
         {/* Global Search Button */}
         <button
           onClick={onOpenSearch}
@@ -296,6 +311,18 @@ export const Header: React.FC<HeaderProps> = ({
                   <Cpu className="w-4 h-4 text-accent" />
                   <span>🛠️ Sensoren & Werkzeuge</span>
                 </button>
+
+                {onOpenLiveDelays && (
+                  <button
+                    onClick={() => {
+                      onOpenLiveDelays();
+                      setIsMobileQuickMenuOpen(false);
+                    }}
+                    className="w-full py-2 px-3 min-h-[44px] bg-accent/20 hover:bg-accent/30 border border-accent/60 text-accent flex items-center space-x-2 font-bold cursor-pointer"
+                  >
+                    <span>⚠️ [Live-Verspätungen & Störungen]</span>
+                  </button>
+                )}
 
                 <button
                   onClick={() => {
