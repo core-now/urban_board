@@ -144,32 +144,25 @@ export const App: React.FC = () => {
 
   // Click on Station on active Route Polyline on Map
   const handleSelectStationStopOnMap = (stopName: string, lat: number, lng: number, lineName: string) => {
-    let stopObj: TransitStop;
-    if (activeCity === 'HH') {
-      const match = ALL_HAMBURG_STATIONS.find(s => 
-        s.name.toLowerCase().includes(stopName.toLowerCase()) || 
-        stopName.toLowerCase().includes(s.name.toLowerCase())
-      );
-      stopObj = match || {
-        id: `hh-${stopName.toLowerCase().replace(/\s+/g, '-')}`,
-        name: stopName,
-        lat,
-        lng,
-        type: lineName
-      };
-    } else {
-      const match = ALL_HANNOVER_STATIONS.find(s => 
-        s.name.toLowerCase().includes(stopName.toLowerCase()) || 
-        stopName.toLowerCase().includes(s.name.toLowerCase())
-      );
-      stopObj = match || {
-        id: `hn-${stopName.toLowerCase().replace(/\s+/g, '-')}`,
-        name: stopName,
-        lat,
-        lng,
-        type: lineName
-      };
-    }
+    const primaryStations = activeCity === 'HH' ? ALL_HAMBURG_STATIONS : ALL_HANNOVER_STATIONS;
+    const secondaryStations = activeCity === 'HH' ? ALL_HANNOVER_STATIONS : ALL_HAMBURG_STATIONS;
+
+    const stopClean = stopName.toLowerCase().trim();
+    const match = primaryStations.find(s => 
+      s.name.toLowerCase().includes(stopClean) || 
+      stopClean.includes(s.name.toLowerCase())
+    ) || secondaryStations.find(s => 
+      s.name.toLowerCase().includes(stopClean) || 
+      stopClean.includes(s.name.toLowerCase())
+    );
+
+    const stopObj: TransitStop = match || {
+      id: `${activeCity.toLowerCase()}-${stopName.toLowerCase().replace(/\s+/g, '-')}`,
+      name: stopName,
+      lat,
+      lng,
+      type: lineName
+    };
     setSelectedTransitStop(stopObj);
     setIsTransitCockpitOpen(true);
     handleFlyToStation(lat, lng, stopName);

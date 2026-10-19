@@ -129,6 +129,11 @@ export const ALL_HANNOVER_STATIONS: TransitStop[] = [
   { id: 'hn-gleidingen', name: 'Gleidingen', type: 'Stadtbahn 1', lat: 52.26115, lng: 9.81815 },
   { id: 'hn-sarstedt', name: 'Sarstedt', type: 'Stadtbahn 1', lat: 52.23815, lng: 9.82215 },
 
-  // --- S-BAHN S4 / METRONOM REGION HANNOVER ---
-  { id: 'hn-grossburgwedel', name: 'Großburgwedel (Region Hannover)', type: 'S-Bahn S4 • Metronom RE2/RE3', lat: 52.4950, lng: 9.8650 }
+  // --- S-BAHN S4 / METRONOM REGION HANNOVER & HEIDELAND ---
+  { id: 'hn-grossburgwedel', name: 'Großburgwedel (Region Hannover)', type: 'S-Bahn S4 • Metronom RE2/RE3', lat: 52.4950, lng: 9.8650 },
+  { id: 'hn-celle', name: 'Celle', type: 'Fern-/Regional- / S-Bahn S6/S7', lat: 52.6250, lng: 10.0800 },
+  { id: 'hn-eschede', name: 'Eschede', type: 'Regional-Express RE2/RE3', lat: 52.7300, lng: 10.2450 },
+  { id: 'hn-unterluess', name: 'Unterlüß', type: 'Regional-Express RE2/RE3 (metronom)', lat: 52.8500, lng: 10.2950 },
+  { id: 'hn-suderburg', name: 'Suderburg', type: 'Regional-Express RE2/RE3', lat: 52.9000, lng: 10.4500 },
+  { id: 'hn-uelzen', name: 'Uelzen', type: 'Fern-/Regional- RE2/RE3/RB37', lat: 52.9650, lng: 10.5550 }
 ];

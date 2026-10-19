@@ -261,11 +261,19 @@ export class TransitEngine {
   public matchStopToStation(stopName: string, city: TransitCity): TransitStop {
     const disambiguated = this.disambiguateStationName(stopName, city);
     const stationList = city === 'HH' ? ALL_HAMBURG_STATIONS : ALL_HANNOVER_STATIONS;
+    const alternateStationList = city === 'HH' ? ALL_HANNOVER_STATIONS : ALL_HAMBURG_STATIONS;
     const lower = disambiguated.toLowerCase();
 
-    const match = stationList.find(s =>
+    let match = stationList.find(s =>
       s.name.toLowerCase().includes(lower) || lower.includes(s.name.toLowerCase())
     );
+
+    // Fallback: Check other city for cross-city regional stations
+    if (!match) {
+      match = alternateStationList.find(s =>
+        s.name.toLowerCase().includes(lower) || lower.includes(s.name.toLowerCase())
+      );
+    }
 
     if (match) {
       return {
@@ -294,7 +302,6 @@ export class TransitEngine {
     city: TransitCity,
     durationMinutes: number = 30
   ): HarmonizedDeparture[] {
-    const allSchedules = this.getAllSchedules(city);
     const now = new Date();
 
     // Normalisierung des Stationssuchbegriffs
@@ -306,42 +313,53 @@ export class TransitEngine {
 
     const departures: (HarmonizedDeparture & { _sortTime: number })[] = [];
 
-    for (const schedule of Object.values(allSchedules)) {
-      // Direction A
-      const stopA = schedule.directionA.stops.find(s => {
-        const sName = s.stopName.toLowerCase();
-        return sName.includes(searchClean) || searchClean.includes(sName);
-      });
+    const searchInSchedules = (schedules: Record<string, LineSchedule>, schedCity: TransitCity) => {
+      for (const schedule of Object.values(schedules)) {
+        // Direction A
+        const stopA = schedule.directionA.stops.find(s => {
+          const sName = s.stopName.toLowerCase();
+          return sName.includes(searchClean) || searchClean.includes(sName);
+        });
 
-      if (stopA) {
-        this.buildDeparturesForDirection(
-          departures,
-          schedule,
-          'A',
-          stopA,
-          city,
-          now,
-          durationMinutes
-        );
+        if (stopA) {
+          this.buildDeparturesForDirection(
+            departures,
+            schedule,
+            'A',
+            stopA,
+            schedCity,
+            now,
+            durationMinutes
+          );
+        }
+
+        // Direction B
+        const stopB = schedule.directionB.stops.find(s => {
+          const sName = s.stopName.toLowerCase();
+          return sName.includes(searchClean) || searchClean.includes(sName);
+        });
+
+        if (stopB) {
+          this.buildDeparturesForDirection(
+            departures,
+            schedule,
+            'B',
+            stopB,
+            schedCity,
+            now,
+            durationMinutes
+          );
+        }
       }
+    };
 
-      // Direction B
-      const stopB = schedule.directionB.stops.find(s => {
-        const sName = s.stopName.toLowerCase();
-        return sName.includes(searchClean) || searchClean.includes(sName);
-      });
+    // 1. Suche in der aktuellen Stadt
+    searchInSchedules(this.getAllSchedules(city), city);
 
-      if (stopB) {
-        this.buildDeparturesForDirection(
-          departures,
-          schedule,
-          'B',
-          stopB,
-          city,
-          now,
-          durationMinutes
-        );
-      }
+    // 2. Falls keine Abfahrten gefunden wurden, suche in der Partnerstadt (z.B. für regionale Zwischenhalte)
+    if (departures.length === 0) {
+      const otherCity: TransitCity = city === 'HH' ? 'H' : 'HH';
+      searchInSchedules(this.getAllSchedules(otherCity), otherCity);
     }
 
     // Chronologisch sortieren

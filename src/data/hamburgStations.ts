@@ -88,6 +88,17 @@ export const ALL_HAMBURG_STATIONS: TransitStop[] = [
   { id: 'hh-faehre-neuhof', name: 'Neuhof (Köhlbrand / Fähre 61)', type: 'Fähre 61', lat: 53.5180, lng: 9.9490 },
 
   // --- AKN / METROBUS 5 KNOTEN SCHNELSEN ---
-  { id: 'hh-akn-burgwedel', name: 'Hamburg-Schnelsen (A Burgwedel)', type: 'AKN A1 • Metrobus 5', lat: 53.6420, lng: 9.9140 }
+  { id: 'hh-akn-burgwedel', name: 'Hamburg-Schnelsen (A Burgwedel)', type: 'AKN A1 • Metrobus 5', lat: 53.6420, lng: 9.9140 },
+
+  // --- REGIONAL-EXPRESS RE3 / RE2 (METRONOM KORRIDOR HAMBURG ⇄ HANNOVER) ---
+  { id: 'hh-winsen-luhe', name: 'Winsen (Luhe)', type: 'Regional-Express RE3/RB31', lat: 53.3600, lng: 10.2150 },
+  { id: 'hh-lueneburg', name: 'Lüneburg', type: 'Fern-/Regional- RE3/RE83/RB31', lat: 53.2500, lng: 10.4150 },
+  { id: 'hh-bienenbuettel', name: 'Bienenbüttel', type: 'Regional-Express RE3/RB31', lat: 53.1400, lng: 10.4900 },
+  { id: 'hh-bad-bevensen', name: 'Bad Bevensen', type: 'Regional-Express RE3/RB31', lat: 53.0800, lng: 10.5850 },
+  { id: 'hh-uelzen', name: 'Uelzen', type: 'Fern-/Regional- RE2/RE3/RB37', lat: 52.9650, lng: 10.5550 },
+  { id: 'hh-suderburg', name: 'Suderburg', type: 'Regional-Express RE2/RE3', lat: 52.9000, lng: 10.4500 },
+  { id: 'hh-unterluess', name: 'Unterlüß', type: 'Regional-Express RE2/RE3 (metronom)', lat: 52.8500, lng: 10.2950 },
+  { id: 'hh-eschede', name: 'Eschede', type: 'Regional-Express RE2/RE3', lat: 52.7300, lng: 10.2450 },
+  { id: 'hh-celle', name: 'Celle', type: 'Fern-/Regional- / S-Bahn S6/S7', lat: 52.6250, lng: 10.0800 }
 ];
 

@@ -20102,8 +20102,8 @@ export const HAMBURG_SCHEDULES: Record<string, LineSchedule> = {
     "color": "#eab308",
     "directionA": {
       "origin": "Hamburg Hbf",
-      "destination": "Uelzen",
-      "totalMinutes": 62,
+      "destination": "Hannover Hbf",
+      "totalMinutes": 140,
       "baseMinuteDepartures": [
         57
       ],
@@ -20142,50 +20142,120 @@ export const HAMBURG_SCHEDULES: Record<string, LineSchedule> = {
           "stopName": "Uelzen",
           "minuteOffset": 60,
           "isHighPlatform": true
+        },
+        {
+          "stopName": "Suderburg",
+          "minuteOffset": 70,
+          "isHighPlatform": true
+        },
+        {
+          "stopName": "Unterlüß",
+          "minuteOffset": 80,
+          "isHighPlatform": true
+        },
+        {
+          "stopName": "Eschede",
+          "minuteOffset": 90,
+          "isHighPlatform": true
+        },
+        {
+          "stopName": "Celle",
+          "minuteOffset": 100,
+          "isHighPlatform": true
+        },
+        {
+          "stopName": "Großburgwedel (Region Hannover)",
+          "minuteOffset": 110,
+          "isHighPlatform": true
+        },
+        {
+          "stopName": "Langenhagen Mitte",
+          "minuteOffset": 120,
+          "isHighPlatform": true
+        },
+        {
+          "stopName": "Hannover Hbf",
+          "minuteOffset": 130,
+          "isHighPlatform": true
         }
       ]
     },
     "directionB": {
-      "origin": "Uelzen",
+      "origin": "Hannover Hbf",
       "destination": "Hamburg Hbf",
-      "totalMinutes": 62,
+      "totalMinutes": 140,
       "baseMinuteDepartures": [
-        2
+        40
       ],
       "stops": [
         {
-          "stopName": "Uelzen",
+          "stopName": "Hannover Hbf",
           "minuteOffset": 0,
           "isHighPlatform": true
         },
         {
-          "stopName": "Bad Bevensen",
+          "stopName": "Langenhagen Mitte",
           "minuteOffset": 10,
           "isHighPlatform": true
         },
         {
-          "stopName": "Bienenbüttel",
+          "stopName": "Großburgwedel (Region Hannover)",
           "minuteOffset": 20,
           "isHighPlatform": true
         },
         {
-          "stopName": "Lüneburg",
+          "stopName": "Celle",
           "minuteOffset": 30,
           "isHighPlatform": true
         },
         {
-          "stopName": "Winsen (Luhe)",
+          "stopName": "Eschede",
           "minuteOffset": 40,
           "isHighPlatform": true
         },
         {
-          "stopName": "Hamburg-Harburg",
+          "stopName": "Unterlüß",
           "minuteOffset": 50,
           "isHighPlatform": true
         },
         {
-          "stopName": "Hamburg Hbf",
+          "stopName": "Suderburg",
           "minuteOffset": 60,
+          "isHighPlatform": true
+        },
+        {
+          "stopName": "Uelzen",
+          "minuteOffset": 70,
+          "isHighPlatform": true
+        },
+        {
+          "stopName": "Bad Bevensen",
+          "minuteOffset": 80,
+          "isHighPlatform": true
+        },
+        {
+          "stopName": "Bienenbüttel",
+          "minuteOffset": 90,
+          "isHighPlatform": true
+        },
+        {
+          "stopName": "Lüneburg",
+          "minuteOffset": 100,
+          "isHighPlatform": true
+        },
+        {
+          "stopName": "Winsen (Luhe)",
+          "minuteOffset": 110,
+          "isHighPlatform": true
+        },
+        {
+          "stopName": "Hamburg-Harburg",
+          "minuteOffset": 120,
+          "isHighPlatform": true
+        },
+        {
+          "stopName": "Hamburg Hbf",
+          "minuteOffset": 130,
           "isHighPlatform": true
         }
       ]

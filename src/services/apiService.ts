@@ -600,28 +600,11 @@ export async function fetchLiveDepartures(stationId: string, durationMinutes: nu
     };
   }
 
-  // Generic fallback if not on schedule
-  const now = new Date();
-  const formatTime = (minutesOffset: number) => {
-    const d = new Date(now.getTime() + minutesOffset * 60000);
-    return d.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
-  };
-
-  const nameSeed = fallbackStationName.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  const m1 = (nameSeed % 4) + 1;
-  const m2 = m1 + 5;
-  const m3 = m2 + 6;
-  const m4 = m3 + 8;
-
+  // If no departures could be found in both cities, return empty list cleanly instead of fake city trains
   return {
     success: true,
-    departures: [
-      { tripId: 'gen-1', line: isHH ? 'U-Bahn U3' : 'Stadtbahn 6', direction: isHH ? 'Hauptbahnhof Süd' : 'Nordhafen', plannedWhen: formatTime(m1), when: formatTime(m1), delayMinutes: 0, platform: 'Gleis 1', type: 'subway' },
-      { tripId: 'gen-2', line: isHH ? 'U-Bahn U3' : 'Stadtbahn 6', direction: isHH ? 'Barmbek' : 'Messe/Ost', plannedWhen: formatTime(m2), when: formatTime(m2), delayMinutes: 0, platform: 'Gleis 2', type: 'subway' },
-      { tripId: 'gen-3', line: isHH ? 'S-Bahn S2' : 'Stadtbahn 4', direction: isHH ? 'Hamburg-Altona' : 'Garbsen', plannedWhen: formatTime(m3), when: formatTime(m3), delayMinutes: 0, platform: 'Gleis 1', type: isHH ? 'train' : 'subway' },
-      { tripId: 'gen-4', line: isHH ? 'S-Bahn S2' : 'Stadtbahn 4', direction: isHH ? 'Aumühle' : 'Roderbruch', plannedWhen: formatTime(m4), when: formatTime(m4 + 1), delayMinutes: 1, platform: 'Gleis 2', type: isHH ? 'train' : 'subway' }
-    ],
-    stationName: fallbackStationName
+    departures: [],
+    stationName: disambiguatedStation
   };
 }
 
