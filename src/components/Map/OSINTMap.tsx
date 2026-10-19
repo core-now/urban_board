@@ -3,7 +3,7 @@ import L from 'leaflet';
 import { GeoLocation, ThemeMode, OverpassLiveElement, MapTileProvider } from '../../types';
 import { TransitLineRoute } from '../../data/transitRoutes';
 import { HANNOVER_COORDINATES } from '../../data/mockData';
-import { Layers, Map as MapIcon, X } from 'lucide-react';
+import { Layers, Map as MapIcon, X, GitBranch } from 'lucide-react';
 
 interface OSINTMapProps {
   markers: GeoLocation[];
@@ -18,6 +18,9 @@ interface OSINTMapProps {
   onOpenWebcam?: (marker: GeoLocation) => void;
   onMapReady?: (mapInstance: L.Map) => void;
   onSelectStationStop?: (stopName: string, lat: number, lng: number, lineName: string) => void;
+  allRoutes?: Record<string, TransitLineRoute>;
+  activeCity?: 'H' | 'HH';
+  onSelectLineRoute?: (route: TransitLineRoute) => void;
 }
 
 export const OSINTMap: React.FC<OSINTMapProps> = ({
@@ -32,7 +35,10 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
   onClearRoute,
   onOpenWebcam,
   onMapReady,
-  onSelectStationStop
+  onSelectStationStop,
+  allRoutes = {},
+  activeCity: _activeCity = 'H',
+  onSelectLineRoute
 }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
@@ -40,7 +46,10 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
   const labelTileLayerRef = useRef<L.TileLayer | null>(null);
   const markerLayerGroupRef = useRef<L.LayerGroup | null>(null);
   const overpassLayerGroupRef = useRef<L.LayerGroup | null>(null);
+  const networkLayerGroupRef = useRef<L.LayerGroup | null>(null);
   const routeLayerGroupRef = useRef<L.LayerGroup | null>(null);
+
+  const [showAllLines, setShowAllLines] = useState<boolean>(true);
 
   const [activeTileProvider, setActiveTileProvider] = useState<MapTileProvider>(
     theme === 'dark' ? 'esri-dark' : 'esri-light'
@@ -233,6 +242,9 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
     const overpassGroup = L.layerGroup().addTo(map);
     overpassLayerGroupRef.current = overpassGroup;
 
+    const networkGroup = L.layerGroup().addTo(map);
+    networkLayerGroupRef.current = networkGroup;
+
     const routeGroup = L.layerGroup().addTo(map);
     routeLayerGroupRef.current = routeGroup;
 
@@ -283,7 +295,70 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
     }
   }, [theme]);
 
-  // Render Active Route Polyline & Station Stops
+  // Render All Network Lines in their Authentic Colors
+  useEffect(() => {
+    if (!mapInstanceRef.current || !networkLayerGroupRef.current) return;
+
+    networkLayerGroupRef.current.clearLayers();
+
+    if (!showAllLines) return;
+
+    const routesList = Object.values(allRoutes);
+    if (routesList.length === 0) return;
+
+    routesList.forEach((route) => {
+      if (!route.coordinates || route.coordinates.length < 2) return;
+
+      const isCurrentActive = activeRoute?.ref === route.ref;
+      const latLngs = route.coordinates.map(c => [c[0], c[1]] as [number, number]);
+      const lineColor = route.color || '#ff8000';
+
+      // Base line for the route
+      const polyline = L.polyline(latLngs, {
+        color: lineColor,
+        weight: isCurrentActive ? 4 : 2.5,
+        opacity: isCurrentActive ? 0.35 : 0.75,
+        lineCap: 'round',
+        lineJoin: 'round',
+      });
+
+      polyline.bindTooltip(`
+        <div style="font-family: monospace; font-size: 11px; padding: 2px 4px;">
+          <strong style="color: ${lineColor}; font-weight: 800;">${route.name}</strong><br/>
+          <span style="color: #cbd5e1; font-size: 10px;">${route.from} ➔ ${route.to}</span>
+        </div>
+      `, {
+        sticky: true,
+        direction: 'top',
+        className: 'osint-route-tooltip'
+      });
+
+      polyline.on('click', (e) => {
+        L.DomEvent.stopPropagation(e);
+        if (onSelectLineRoute) {
+          onSelectLineRoute(route);
+        }
+      });
+
+      // Hover-Effekt: Linie hervorheben
+      polyline.on('mouseover', () => {
+        polyline.setStyle({
+          weight: 4.5,
+          opacity: 1
+        });
+        polyline.bringToFront();
+      });
+
+      polyline.on('mouseout', () => {
+        polyline.setStyle({
+          weight: isCurrentActive ? 4 : 2.5,
+          opacity: isCurrentActive ? 0.35 : 0.75
+        });
+      });
+
+      networkLayerGroupRef.current?.addLayer(polyline);
+    });
+  }, [allRoutes, showAllLines, activeRoute, onSelectLineRoute]);
   useEffect(() => {
     if (!mapInstanceRef.current || !routeLayerGroupRef.current) return;
 
@@ -594,8 +669,22 @@ export const OSINTMap: React.FC<OSINTMapProps> = ({
         </div>
       )}
 
-      {/* Top Right Tile Switcher Menu */}
-      <div className="absolute top-3 right-3 z-30 font-mono text-xs">
+      {/* Top Right Controls: Network Lines Toggle & Tile Switcher */}
+      <div className="absolute top-3 right-3 z-30 font-mono text-xs flex items-center space-x-2">
+        {/* Toggle All Network Lines */}
+        <button
+          onClick={() => setShowAllLines(!showAllLines)}
+          className={`flex items-center space-x-1.5 px-3 py-1.5 bg-anthrazit-900/90 hover:bg-anthrazit-850 border text-xs shadow-panel backdrop-blur cursor-pointer transition-colors ${
+            showAllLines 
+              ? 'border-accent text-accent font-bold' 
+              : 'border-anthrazit-700 text-anthrazit-400 hover:text-anthrazit-200'
+          }`}
+          title="Gesamtes Liniennetz mit offiziellen Linienfarben ein-/ausblenden"
+        >
+          <GitBranch className="w-3.5 h-3.5" />
+          <span>{showAllLines ? 'Netzplan: AN' : 'Netzplan: AUS'}</span>
+        </button>
+
         <div className="relative">
           <button
             onClick={() => setShowTileMenu(!showTileMenu)}

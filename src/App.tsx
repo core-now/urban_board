@@ -16,7 +16,7 @@ import {
   OverpassPreset,
   OverpassLiveElement 
 } from './types';
-import { TransitLineRoute } from './data/transitRoutes';
+import { TransitLineRoute, HANNOVER_TRANSIT_ROUTES, HAMBURG_TRANSIT_ROUTES } from './data/transitRoutes';
 import { TransitStop } from './services/apiService';
 import { ALL_HANNOVER_STATIONS } from './data/hannoverStations';
 import { ALL_HAMBURG_STATIONS } from './data/hamburgStations';
@@ -237,6 +237,12 @@ export const App: React.FC = () => {
             onOpenWebcam={(cam) => setActiveWebcamModal(cam)}
             onMapReady={(map) => setMapInstance(map)}
             onSelectStationStop={handleSelectStationStopOnMap}
+            allRoutes={activeCity === 'HH' ? HAMBURG_TRANSIT_ROUTES : HANNOVER_TRANSIT_ROUTES}
+            activeCity={activeCity}
+            onSelectLineRoute={(route) => {
+              setActiveRoute(route);
+              setIsTransitCockpitOpen(true);
+            }}
           />
 
           {/* Floating Re-Open Button für das Transit-Cockpit falls geschlossen */}
