@@ -178,6 +178,21 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
   const activeSchedule: LineSchedule = schedulesMap[selectedLineRef] || linesList[0];
   const activeDir = selectedDirection === 'A' ? activeSchedule?.directionA : activeSchedule?.directionB;
 
+  // Alle Linien ermitteln, die die aktuell ausgewählte Station bedienen
+  const linesServingCurrentStation = useMemo(() => {
+    if (!selectedTransitStop) return [];
+    const stopNameClean = selectedTransitStop.name.toLowerCase();
+
+    return linesList.filter(line => {
+      const stopsA = line.directionA?.stops || [];
+      const stopsB = line.directionB?.stops || [];
+      return (
+        stopsA.some(s => s.stopName.toLowerCase().includes(stopNameClean) || stopNameClean.includes(s.stopName.toLowerCase())) ||
+        stopsB.some(s => s.stopName.toLowerCase().includes(stopNameClean) || stopNameClean.includes(s.stopName.toLowerCase()))
+      );
+    });
+  }, [selectedTransitStop, linesList]);
+
   // Station auswählen & zur Station fliegen über Stufe 6 der TransitEngine (Disambiguierung)
   const handleSelectStopItem = (stopItem: ScheduleStopItem, advanceToStep4 = true) => {
     const stopObj = transitEngine.matchStopToStation(stopItem.stopName, activeCity);
@@ -796,6 +811,62 @@ export const TransitCockpit: React.FC<TransitCockpitProps> = ({
                 {/* TAB 2: AUSHANGFAHRPLAN (MATRIX-FAHRPLAN) */}
                 {timetableSubTab === 'AUSHANG' && (
                   <div className="space-y-2">
+                    {/* Linien-Auswahl an dieser Station */}
+                    <div className="space-y-1 bg-anthrazit-950 p-2 border border-anthrazit-800">
+                      <div className="text-[10px] text-anthrazit-400 uppercase tracking-wider flex items-center justify-between">
+                        <span>Linie an dieser Haltestelle wählen:</span>
+                        <span className="text-accent font-bold">
+                          {linesServingCurrentStation.length > 0 ? `${linesServingCurrentStation.length} Linien` : `Linie ${activeSchedule?.lineRef}`}
+                        </span>
+                      </div>
+
+                      {/* Chips aller an dieser Station haltenden Linien */}
+                      <div className="flex flex-wrap gap-1 pt-0.5">
+                        {linesServingCurrentStation.length > 0 ? (
+                          linesServingCurrentStation.map(line => {
+                            const isCurrent = line.lineRef === selectedLineRef;
+                            return (
+                              <button
+                                key={line.lineRef}
+                                onClick={() => handleSelectLine(line.lineRef, false)}
+                                className={`px-2 py-0.5 font-mono text-[11px] font-bold transition-all cursor-pointer flex items-center space-x-1 border ${
+                                  isCurrent
+                                    ? 'bg-accent text-anthrazit-950 border-accent font-black shadow-sm'
+                                    : 'bg-anthrazit-900 border-anthrazit-700 text-anthrazit-300 hover:border-accent hover:text-accent'
+                                }`}
+                              >
+                                <span 
+                                  className="w-2 h-2 inline-block shrink-0" 
+                                  style={{ backgroundColor: line.color || '#ff8000' }}
+                                />
+                                <span>{line.lineRef}</span>
+                              </button>
+                            );
+                          })
+                        ) : (
+                          <div className="px-2 py-0.5 font-mono text-[11px] bg-accent text-anthrazit-950 font-bold border border-accent">
+                            Linie {activeSchedule?.lineRef}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Fahrtrichtung der gewählten Linie */}
+                      <div className="pt-1.5 mt-1 border-t border-anthrazit-850 flex items-center justify-between text-xs">
+                        <div className="min-w-0 pr-1">
+                          <span className="text-[9px] uppercase tracking-wider text-anthrazit-500 block">Fahrtrichtung:</span>
+                          <span className="text-accent font-bold truncate block">➔ {activeDir?.destination || 'Endstation'}</span>
+                        </div>
+                        <button
+                          onClick={() => setSelectedDirection(selectedDirection === 'A' ? 'B' : 'A')}
+                          className="px-2 py-1 bg-anthrazit-900 hover:bg-anthrazit-850 border border-anthrazit-700 text-anthrazit-200 hover:text-accent font-bold text-[10px] flex items-center space-x-1 cursor-pointer shrink-0"
+                          title="Richtung wechseln"
+                        >
+                          <ArrowRightLeft className="w-3 h-3 text-accent" />
+                          <span>Gegenrichtung</span>
+                        </button>
+                      </div>
+                    </div>
+
                     {/* Wochentag Umschalter */}
                     <div className="flex space-x-1 border border-anthrazit-800 p-0.5 bg-anthrazit-950">
                       {(['weekday', 'saturday', 'sunday'] as const).map((dayKey) => (
